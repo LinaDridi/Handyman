@@ -1,0 +1,6 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+shtheme.net	TRUE	/demosd/handylexo1/	FALSE	1999999999	woocommerce_items_in_cart	1
+shtheme.net	TRUE	/demosd/handylexo1/	FALSE	1999999999	woocommerce_cart_hash	6243b18fe28b3d7af50447d0f3da4af3
+shtheme.net	TRUE	/demosd/handylexo1/	FALSE	1999999999	wp_woocommerce_session_ebdda4282da1a6f3c16eb7da7549ae1e	129575a9feedaab24f1a050200dc7f5f%7C%7C1571316634%7C%7C1571313034%7C%7Cda700b2b65190a57f7155652f3c72b1b
+

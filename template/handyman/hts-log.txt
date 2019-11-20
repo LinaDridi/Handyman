@@ -1,0 +1,388 @@
+HTTrack3.49-2+htsswf+htsjava launched on Tue, 15 Oct 2019 13:33:35 at http://shtheme.net/demosd/handylexo1/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" http://shtheme.net/demosd/handylexo1/ -O1 "C:\Users\ASUS\Desktop\template\handyman" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+13:50:05	Warning: 	Moved Temporarily for shtheme.net/demosd/handylexo1/?page_id=373
+13:50:05	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?page_id=373 to http://shtheme.net/demosd/handylexo1/?post_type=product
+13:50:15	Warning: 	Moved Temporarily for shtheme.net/demosd/handylexo1/?page_id=375
+13:50:15	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?page_id=375 to http://shtheme.net/demosd/handylexo1/?page_id=374
+13:52:09	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/index.html (from shtheme.net/demosd/handylexo1/)
+13:52:09	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/services.html (from shtheme.net/demosd/handylexo1/)
+13:52:09	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/about.html (from shtheme.net/demosd/handylexo1/)
+13:52:09	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/blog.html (from shtheme.net/demosd/handylexo1/)
+13:52:09	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/contact.html (from shtheme.net/demosd/handylexo1/)
+13:52:11	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/wp-content/themes/handyman/css/fonts/Stroke-Gap-Icons.eot (from shtheme.net/demosd/handylexo1/wp-content/themes/handyman/css/strock-icon.css?ver=4.9.12)
+13:52:11	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/wp-content/themes/handyman/vendors/owl-carousel/assets/owl.video.play.png (from shtheme.net/demosd/handylexo1/wp-content/themes/handyman/vendors/owl-carousel/assets/owl.carousel.css?ver=4.9.12)
+13:52:11	Warning: 	File not parsed, looks like binary: shtheme.net/demosd/handylexo1/wp-content/themes/handyman/vendors/rs-plugin/css/openhand.cur
+13:52:11	Warning: 	File not parsed, looks like binary: shtheme.net/demosd/handylexo1/wp-content/themes/handyman/vendors/rs-plugin/css/closedhand.cur
+13:52:11	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=362
+13:52:11	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=362 to http://shtheme.net/demosd/handylexo1/?page_id=362
+13:52:11	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=33
+13:52:11	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=33 to http://shtheme.net/demosd/handylexo1/?page_id=33
+13:53:02	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=586
+13:53:02	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=586 to http://shtheme.net/demosd/handylexo1/?page_id=586
+13:53:17	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=628
+13:53:17	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=628 to http://shtheme.net/demosd/handylexo1/?page_id=628
+13:53:17	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=682
+13:53:17	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=682 to http://shtheme.net/demosd/handylexo1/?page_id=682
+13:53:32	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=139
+13:53:32	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=139 to http://shtheme.net/demosd/handylexo1/?page_id=139
+13:53:55	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=243
+13:53:55	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=243 to http://shtheme.net/demosd/handylexo1/?page_id=243
+13:53:56	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=281
+13:53:56	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=281 to http://shtheme.net/demosd/handylexo1/?services=handyman-services&feed=rss2
+13:53:56	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=281
+13:53:56	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=281 to http://shtheme.net/demosd/handylexo1/?services=handyman-services
+13:53:56	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=310
+13:53:56	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=310 to http://shtheme.net/demosd/handylexo1/?page_id=310
+13:53:56	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=287
+13:53:56	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=287 to http://shtheme.net/demosd/handylexo1/?page_id=287
+13:53:56	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=170
+13:53:56	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=170 to http://shtheme.net/demosd/handylexo1/?project=electrical-repairing&feed=rss2
+13:53:56	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=170
+13:53:56	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=170 to http://shtheme.net/demosd/handylexo1/?project=electrical-repairing
+13:53:56	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/single-project.html (from shtheme.net/demosd/handylexo1/?project=electrical-repairing)
+13:53:56	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=332
+13:53:56	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=332 to http://shtheme.net/demosd/handylexo1/?page_id=332
+13:54:10	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=340
+13:54:10	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=340 to http://shtheme.net/demosd/handylexo1/?team=maristopher-jopy-8&feed=rss2
+13:54:16	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=340
+13:54:16	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=340 to http://shtheme.net/demosd/handylexo1/?team=maristopher-jopy-8
+13:54:16	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=322
+13:54:16	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=322 to http://shtheme.net/demosd/handylexo1/?page_id=322
+13:54:16	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=428
+13:54:16	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=428 to http://shtheme.net/demosd/handylexo1/?page_id=428
+13:54:16	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=348
+13:54:16	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=348 to http://shtheme.net/demosd/handylexo1/?page_id=348
+13:54:16	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=374
+13:54:16	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=374 to http://shtheme.net/demosd/handylexo1/?page_id=374
+13:54:19	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=401
+13:54:19	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=401 to http://shtheme.net/demosd/handylexo1/?product=battery-screwdriver-4&feed=rss2
+13:54:26	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=401
+13:54:26	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=401 to http://shtheme.net/demosd/handylexo1/?product=battery-screwdriver-4
+13:55:42	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=436
+13:55:42	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=436 to http://shtheme.net/demosd/handylexo1/?page_id=436
+13:55:50	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=280
+13:55:50	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=280 to http://shtheme.net/demosd/handylexo1/?services=central-heating&feed=rss2
+13:55:50	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=280
+13:55:50	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=280 to http://shtheme.net/demosd/handylexo1/?services=central-heating
+13:55:50	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=279
+13:55:50	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=279 to http://shtheme.net/demosd/handylexo1/?services=remodeling-servies&feed=rss2
+13:55:50	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=279
+13:55:50	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=279 to http://shtheme.net/demosd/handylexo1/?services=remodeling-servies
+13:55:50	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=278
+13:55:50	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=278 to http://shtheme.net/demosd/handylexo1/?services=carpentry-services&feed=rss2
+13:55:51	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=278
+13:55:51	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=278 to http://shtheme.net/demosd/handylexo1/?services=carpentry-services
+13:55:52	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=261
+13:55:52	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=261 to http://shtheme.net/demosd/handylexo1/?services=floor-install-and-repaires&feed=rss2
+13:55:53	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=261
+13:55:53	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=261 to http://shtheme.net/demosd/handylexo1/?services=floor-install-and-repaires
+13:55:54	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=259
+13:55:54	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=259 to http://shtheme.net/demosd/handylexo1/?services=maintance-services&feed=rss2
+13:55:54	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=259
+13:55:54	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=259 to http://shtheme.net/demosd/handylexo1/?services=maintance-services
+13:55:54	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=330
+13:55:54	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=330 to http://shtheme.net/demosd/handylexo1/?testimonial=michale-john-6&feed=rss2
+13:55:54	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=330
+13:55:54	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=330 to http://shtheme.net/demosd/handylexo1/?testimonial=michale-john-6
+13:55:54	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?m=20181009 (from shtheme.net/demosd/handylexo1/?testimonial=michale-john-6)
+13:55:54	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=329
+13:55:54	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=329 to http://shtheme.net/demosd/handylexo1/?testimonial=michale-john-5&feed=rss2
+13:55:56	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=329
+13:55:56	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=329 to http://shtheme.net/demosd/handylexo1/?testimonial=michale-john-5
+13:55:57	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=328
+13:55:57	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=328 to http://shtheme.net/demosd/handylexo1/?testimonial=michale-john-4&feed=rss2
+13:56:13	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=328
+13:56:13	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=328 to http://shtheme.net/demosd/handylexo1/?testimonial=michale-john-4
+13:56:13	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=605
+13:56:13	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=605 to http://shtheme.net/demosd/handylexo1/?project4=making-furniture&feed=rss2
+13:56:13	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=605
+13:56:13	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=605 to http://shtheme.net/demosd/handylexo1/?project4=making-furniture
+13:56:13	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=604
+13:56:13	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=604 to http://shtheme.net/demosd/handylexo1/?project4=plumbing-repairing-3&feed=rss2
+13:56:13	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=604
+13:56:13	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=604 to http://shtheme.net/demosd/handylexo1/?project4=plumbing-repairing-3
+13:56:13	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=603
+13:56:13	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=603 to http://shtheme.net/demosd/handylexo1/?project4=plumbing-repairing-2&feed=rss2
+13:56:13	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=603
+13:56:13	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=603 to http://shtheme.net/demosd/handylexo1/?project4=plumbing-repairing-2
+13:56:15	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=602
+13:56:15	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=602 to http://shtheme.net/demosd/handylexo1/?project4=plumbing-repairing&feed=rss2
+13:56:16	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=602
+13:56:16	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=602 to http://shtheme.net/demosd/handylexo1/?project4=plumbing-repairing
+13:56:17	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=601
+13:56:17	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=601 to http://shtheme.net/demosd/handylexo1/?project4=carpentry-work&feed=rss2
+13:56:17	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=601
+13:56:17	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=601 to http://shtheme.net/demosd/handylexo1/?project4=carpentry-work
+13:56:17	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=70
+13:56:17	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=70 to http://shtheme.net/demosd/handylexo1/?we_do=we-take-care-of-carpentery&feed=rss2
+13:56:17	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=70
+13:56:17	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=70 to http://shtheme.net/demosd/handylexo1/?we_do=we-take-care-of-carpentery
+13:56:17	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?m=20181001 (from shtheme.net/demosd/handylexo1/?we_do=we-take-care-of-carpentery)
+13:56:17	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=75
+13:56:17	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=75 to http://shtheme.net/demosd/handylexo1/?we_do=we-take-care-of-doors&feed=rss2
+13:56:17	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=75
+13:56:17	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=75 to http://shtheme.net/demosd/handylexo1/?we_do=we-take-care-of-doors
+13:56:19	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=74
+13:56:19	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=74 to http://shtheme.net/demosd/handylexo1/?we_do=we-take-care-of-electricity&feed=rss2
+13:56:19	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=74
+13:56:19	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=74 to http://shtheme.net/demosd/handylexo1/?we_do=we-take-care-of-electricity
+13:56:19	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=72
+13:56:19	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=72 to http://shtheme.net/demosd/handylexo1/?we_do=we-take-care-of-painting-staining&feed=rss2
+13:56:20	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=72
+13:56:20	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=72 to http://shtheme.net/demosd/handylexo1/?we_do=we-take-care-of-painting-staining
+13:56:20	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=73
+13:56:20	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=73 to http://shtheme.net/demosd/handylexo1/?we_do=we-take-care-of-plumbing&feed=rss2
+13:56:20	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=73
+13:56:20	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=73 to http://shtheme.net/demosd/handylexo1/?we_do=we-take-care-of-plumbing
+13:56:20	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=67
+13:56:20	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=67 to http://shtheme.net/demosd/handylexo1/?we_do=we-take-care-of-renovation&feed=rss2
+13:56:20	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=67
+13:56:20	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=67 to http://shtheme.net/demosd/handylexo1/?we_do=we-take-care-of-renovation
+13:56:21	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=71
+13:56:21	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=71 to http://shtheme.net/demosd/handylexo1/?we_do=we-take-care-of-home-roof&feed=rss2
+13:56:21	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=71
+13:56:21	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=71 to http://shtheme.net/demosd/handylexo1/?we_do=we-take-care-of-home-roof
+13:56:22	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=133
+13:56:22	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=133 to http://shtheme.net/demosd/handylexo1/?project3=project-4-3&feed=rss2
+13:56:23	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=133
+13:56:23	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=133 to http://shtheme.net/demosd/handylexo1/?project3=project-4-3
+13:56:23	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=131
+13:56:23	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=131 to http://shtheme.net/demosd/handylexo1/?project3=project-4-2&feed=rss2
+13:56:23	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=131
+13:56:23	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=131 to http://shtheme.net/demosd/handylexo1/?project3=project-4-2
+13:56:23	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=129
+13:56:23	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=129 to http://shtheme.net/demosd/handylexo1/?project3=project-4&feed=rss2
+13:56:23	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=129
+13:56:23	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=129 to http://shtheme.net/demosd/handylexo1/?project3=project-4
+13:56:23	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=127
+13:56:23	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=127 to http://shtheme.net/demosd/handylexo1/?project3=project-3&feed=rss2
+13:56:24	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=127
+13:56:24	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=127 to http://shtheme.net/demosd/handylexo1/?project3=project-3
+13:56:24	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=125
+13:56:24	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=125 to http://shtheme.net/demosd/handylexo1/?project3=project-2&feed=rss2
+13:56:25	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=125
+13:56:25	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=125 to http://shtheme.net/demosd/handylexo1/?project3=project-2
+13:56:25	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=123
+13:56:25	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=123 to http://shtheme.net/demosd/handylexo1/?project3=project-1&feed=rss2
+13:56:25	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=123
+13:56:25	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=123 to http://shtheme.net/demosd/handylexo1/?project3=project-1
+13:56:26	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=337
+13:56:26	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=337 to http://shtheme.net/demosd/handylexo1/?team=maristopher-jopy-7&feed=rss2
+13:56:26	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=337
+13:56:26	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=337 to http://shtheme.net/demosd/handylexo1/?team=maristopher-jopy-7
+13:56:26	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=338
+13:56:26	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=338 to http://shtheme.net/demosd/handylexo1/?team=maristopher-jopy-6&feed=rss2
+13:56:26	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=338
+13:56:26	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=338 to http://shtheme.net/demosd/handylexo1/?team=maristopher-jopy-6
+13:56:27	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=339
+13:56:27	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=339 to http://shtheme.net/demosd/handylexo1/?team=maristopher-jopy-5&feed=rss2
+13:56:27	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=339
+13:56:27	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=339 to http://shtheme.net/demosd/handylexo1/?team=maristopher-jopy-5
+13:56:28	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=247
+13:56:28	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=247 to http://shtheme.net/demosd/handylexo1/?services=door-and-windows&feed=rss2
+13:56:28	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=247
+13:56:28	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=247 to http://shtheme.net/demosd/handylexo1/?services=door-and-windows
+13:56:28	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=249
+13:56:28	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=249 to http://shtheme.net/demosd/handylexo1/?services=plumbing-services&feed=rss2
+13:56:29	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=249
+13:56:29	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=249 to http://shtheme.net/demosd/handylexo1/?services=plumbing-services
+13:56:29	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=251
+13:56:29	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=251 to http://shtheme.net/demosd/handylexo1/?services=electrician-services&feed=rss2
+13:56:30	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=251
+13:56:30	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=251 to http://shtheme.net/demosd/handylexo1/?services=electrician-services
+13:56:30	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=258
+13:56:30	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=258 to http://shtheme.net/demosd/handylexo1/?services=tiling-and-painting&feed=rss2
+13:56:30	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=258
+13:56:30	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=258 to http://shtheme.net/demosd/handylexo1/?services=tiling-and-painting
+13:56:30	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=708
+13:56:30	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=708 to http://shtheme.net/demosd/handylexo1/?project5=plumbing&feed=rss2
+13:56:31	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=708
+13:56:31	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=708 to http://shtheme.net/demosd/handylexo1/?project5=plumbing
+13:56:31	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?m=20181212 (from shtheme.net/demosd/handylexo1/?project5=plumbing)
+13:56:31	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=707
+13:56:31	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=707 to http://shtheme.net/demosd/handylexo1/?project5=roofing&feed=rss2
+13:56:32	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=707
+13:56:32	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=707 to http://shtheme.net/demosd/handylexo1/?project5=roofing
+13:56:32	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=706
+13:56:32	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=706 to http://shtheme.net/demosd/handylexo1/?project5=painting&feed=rss2
+13:56:32	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=706
+13:56:32	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=706 to http://shtheme.net/demosd/handylexo1/?project5=painting
+13:56:33	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=705
+13:56:33	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=705 to http://shtheme.net/demosd/handylexo1/?project5=kitchen-modeling&feed=rss2
+13:56:33	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=705
+13:56:33	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=705 to http://shtheme.net/demosd/handylexo1/?project5=kitchen-modeling
+13:56:33	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=699
+13:56:33	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=699 to http://shtheme.net/demosd/handylexo1/?project5=door-repairing&feed=rss2
+13:56:33	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=699
+13:56:33	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=699 to http://shtheme.net/demosd/handylexo1/?project5=door-repairing
+13:56:33	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=169
+13:56:33	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=169 to http://shtheme.net/demosd/handylexo1/?project=carpentry&feed=rss2
+13:56:34	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=169
+13:56:34	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=169 to http://shtheme.net/demosd/handylexo1/?project=carpentry
+13:56:34	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=168
+13:56:34	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=168 to http://shtheme.net/demosd/handylexo1/?project=remodeling&feed=rss2
+13:56:35	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=168
+13:56:35	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=168 to http://shtheme.net/demosd/handylexo1/?project=remodeling
+13:56:35	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=167
+13:56:35	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=167 to http://shtheme.net/demosd/handylexo1/?project=painting&feed=rss2
+13:56:35	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=167
+13:56:35	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=167 to http://shtheme.net/demosd/handylexo1/?project=painting
+13:56:36	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=160
+13:56:36	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=160 to http://shtheme.net/demosd/handylexo1/?project=interior-renovation&feed=rss2
+13:56:36	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=160
+13:56:36	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=160 to http://shtheme.net/demosd/handylexo1/?project=interior-renovation
+13:56:36	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=158
+13:56:36	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=158 to http://shtheme.net/demosd/handylexo1/?project=handyman-services&feed=rss2
+13:56:36	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=158
+13:56:36	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=158 to http://shtheme.net/demosd/handylexo1/?project=handyman-services
+13:56:37	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=156
+13:56:37	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=156 to http://shtheme.net/demosd/handylexo1/?project=roofing&feed=rss2
+13:56:38	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=156
+13:56:38	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=156 to http://shtheme.net/demosd/handylexo1/?project=roofing
+13:56:39	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=154
+13:56:39	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=154 to http://shtheme.net/demosd/handylexo1/?project=flooring&feed=rss2
+13:56:39	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=154
+13:56:39	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=154 to http://shtheme.net/demosd/handylexo1/?project=flooring
+13:56:39	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=152
+13:56:39	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=152 to http://shtheme.net/demosd/handylexo1/?project=door-and-windows&feed=rss2
+13:56:39	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=152
+13:56:39	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=152 to http://shtheme.net/demosd/handylexo1/?project=door-and-windows
+13:56:39	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?services=handyman-services%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=281)
+13:56:39	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project=electrical-repairing%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=170)
+13:56:39	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=87
+13:56:39	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=87 to http://shtheme.net/demosd/handylexo1/?team=maristopher-jopy-4&feed=rss2
+13:56:39	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=87
+13:56:39	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=87 to http://shtheme.net/demosd/handylexo1/?team=maristopher-jopy-4
+13:56:40	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=85
+13:56:40	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=85 to http://shtheme.net/demosd/handylexo1/?team=maristopher-jopy-3&feed=rss2
+13:56:41	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=85
+13:56:41	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=85 to http://shtheme.net/demosd/handylexo1/?team=maristopher-jopy-3
+13:56:41	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=83
+13:56:41	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=83 to http://shtheme.net/demosd/handylexo1/?team=maristopher-jopy-2&feed=rss2
+13:56:41	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=83
+13:56:41	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=83 to http://shtheme.net/demosd/handylexo1/?team=maristopher-jopy-2
+13:56:41	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=81
+13:56:41	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=81 to http://shtheme.net/demosd/handylexo1/?team=maristopher-jopy&feed=rss2
+13:56:42	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=81
+13:56:42	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=81 to http://shtheme.net/demosd/handylexo1/?team=maristopher-jopy
+13:56:42	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?team=maristopher-jopy-8%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=340)
+13:56:42	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=562
+13:56:42	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=562 to http://shtheme.net/demosd/handylexo1/?team=rodrigo-pilant&feed=rss2
+13:56:46	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=562
+13:56:46	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=562 to http://shtheme.net/demosd/handylexo1/?team=rodrigo-pilant
+13:56:51	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?product=battery-screwdriver-4%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=401)
+13:56:52	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=400
+13:56:52	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=400 to http://shtheme.net/demosd/handylexo1/?product=battery-screwdriver-3&feed=rss2
+13:56:52	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=400
+13:56:52	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=400 to http://shtheme.net/demosd/handylexo1/?product=battery-screwdriver-3
+13:57:01	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=378
+13:57:01	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=378 to http://shtheme.net/demosd/handylexo1/?product=battery-screwdriver&feed=rss2
+13:57:03	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=378
+13:57:03	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=378 to http://shtheme.net/demosd/handylexo1/?product=battery-screwdriver
+13:57:04	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=385
+13:57:04	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=385 to http://shtheme.net/demosd/handylexo1/?product=battery-screwdriver-copy&feed=rss2
+13:57:04	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=385
+13:57:04	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=385 to http://shtheme.net/demosd/handylexo1/?product=battery-screwdriver-copy
+13:57:05	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=390
+13:57:05	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=390 to http://shtheme.net/demosd/handylexo1/?product=battery-screwdriver-copy-2&feed=rss2
+13:57:10	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=390
+13:57:10	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=390 to http://shtheme.net/demosd/handylexo1/?product=battery-screwdriver-copy-2
+13:57:11	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?services=central-heating%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=280)
+13:57:11	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?services=remodeling-servies%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=279)
+13:57:11	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?services=carpentry-services%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=278)
+13:57:11	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?services=floor-install-and-repaires%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=261)
+13:57:11	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?services=maintance-services%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=259)
+13:57:11	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?testimonial=michale-john-6%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=330)
+13:57:11	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?testimonial=michale-john-5%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=329)
+13:57:11	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?testimonial=michale-john-4%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=328)
+13:57:12	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=96
+13:57:12	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=96 to http://shtheme.net/demosd/handylexo1/?testimonial=michale-john-3&feed=rss2
+13:57:16	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=96
+13:57:16	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=96 to http://shtheme.net/demosd/handylexo1/?testimonial=michale-john-3
+13:57:16	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project4=making-furniture%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=605)
+13:57:16	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project4=plumbing-repairing-3%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=604)
+13:57:16	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project4=plumbing-repairing-2%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=603)
+13:57:16	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project4=plumbing-repairing%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=602)
+13:57:16	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project4=carpentry-work%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=601)
+13:57:16	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?we_do=we-take-care-of-carpentery%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=70)
+13:57:17	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?we_do=we-take-care-of-doors%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=75)
+13:57:17	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?we_do=we-take-care-of-electricity%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=74)
+13:57:17	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?we_do=we-take-care-of-painting-staining%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=72)
+13:57:17	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?we_do=we-take-care-of-plumbing%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=73)
+13:57:17	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?we_do=we-take-care-of-renovation%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=67)
+13:57:17	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?we_do=we-take-care-of-home-roof%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=71)
+13:57:17	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project3=project-4-3%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=133)
+13:57:17	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project3=project-4-2%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=131)
+13:57:17	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project3=project-4%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=129)
+13:57:17	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project3=project-3%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=127)
+13:57:17	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project3=project-2%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=125)
+13:57:17	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project3=project-1%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=123)
+13:57:17	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?team=maristopher-jopy-7%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=337)
+13:57:18	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?team=maristopher-jopy-6%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=338)
+13:57:18	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?team=maristopher-jopy-5%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=339)
+13:57:18	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?services=door-and-windows%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=247)
+13:57:18	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?services=plumbing-services%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=249)
+13:57:18	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?services=electrician-services%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=251)
+13:57:18	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?services=tiling-and-painting%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=258)
+13:57:18	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project5=plumbing%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=708)
+13:57:18	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project5=roofing%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=707)
+13:57:18	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project5=painting%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=706)
+13:57:18	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project5=kitchen-modeling%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=705)
+13:57:18	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project5=door-repairing%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=699)
+13:57:18	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project=carpentry%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=169)
+13:57:18	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project=remodeling%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=168)
+13:57:19	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project=painting%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=167)
+13:57:19	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project=interior-renovation%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=160)
+13:57:19	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project=handyman-services%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=158)
+13:57:19	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project=roofing%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=156)
+13:57:19	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project=flooring%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=154)
+13:57:19	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?project=door-and-windows%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=152)
+13:57:19	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?team=maristopher-jopy-4%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=87)
+13:57:19	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?team=maristopher-jopy-3%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=85)
+13:57:19	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?team=maristopher-jopy-2%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=83)
+13:57:19	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?team=maristopher-jopy%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=81)
+13:57:20	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?team=rodrigo-pilant%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=562)
+13:57:20	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=567
+13:57:20	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=567 to http://shtheme.net/demosd/handylexo1/?team=rachelle-gandarillia&feed=rss2
+13:57:26	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=567
+13:57:26	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=567 to http://shtheme.net/demosd/handylexo1/?team=rachelle-gandarillia
+13:57:26	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=399
+13:57:26	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=399 to http://shtheme.net/demosd/handylexo1/?product=battery-screwdriver-2&feed=rss2
+13:57:26	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=399
+13:57:26	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=399 to http://shtheme.net/demosd/handylexo1/?product=battery-screwdriver-2
+13:57:28	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?product=battery-screwdriver-3%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=400)
+13:57:28	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?product=battery-screwdriver%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=378)
+13:57:28	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?product=battery-screwdriver-copy%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=385)
+13:57:28	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?product=battery-screwdriver-copy-2%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=390)
+13:57:28	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?testimonial=michale-john-3%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=96)
+13:57:28	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=95
+13:57:28	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=95 to http://shtheme.net/demosd/handylexo1/?testimonial=michale-john-2&feed=rss2
+13:57:33	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=95
+13:57:33	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=95 to http://shtheme.net/demosd/handylexo1/?testimonial=michale-john-2
+13:57:33	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?team=rachelle-gandarillia%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=567)
+13:57:33	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=568
+13:57:33	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=568 to http://shtheme.net/demosd/handylexo1/?team=porsche-masley&feed=rss2
+13:57:38	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=568
+13:57:38	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=568 to http://shtheme.net/demosd/handylexo1/?team=porsche-masley
+13:57:38	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?product=battery-screwdriver-2%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=399)
+13:57:38	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?testimonial=michale-john-2%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=95)
+13:57:38	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=91
+13:57:38	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=91 to http://shtheme.net/demosd/handylexo1/?testimonial=michale-john&feed=rss2
+13:57:38	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=91
+13:57:38	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=91 to http://shtheme.net/demosd/handylexo1/?testimonial=michale-john
+13:57:38	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?team=porsche-masley%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=568)
+13:57:38	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?feed=rss2&p=569
+13:57:38	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?feed=rss2&p=569 to http://shtheme.net/demosd/handylexo1/?team=ursula-means&feed=rss2
+13:57:38	Warning: 	Moved Permanently for shtheme.net/demosd/handylexo1/?p=569
+13:57:38	Warning: 	File has moved from shtheme.net/demosd/handylexo1/?p=569 to http://shtheme.net/demosd/handylexo1/?team=ursula-means
+13:57:41	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?testimonial=michale-john%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=91)
+13:57:41	Error: 	"Not Found" (404) at link shtheme.net/demosd/handylexo1/?team=ursula-means%26feed=rss2 (from shtheme.net/demosd/handylexo1/?feed=rss2&p=569)
+
+HTTrack Website Copier/3.49-2 mirror complete in 24 minutes 7 seconds : 922 links scanned, 695 files written (32297568 bytes overall) [28551050 bytes received at 19731 bytes/sec], 8639213 bytes transferred using HTTP compression in 221 files, ratio 25%, 3.8 requests per connection
+(77 errors, 300 warnings, 0 messages)
