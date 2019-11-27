@@ -2,11 +2,14 @@ package project_framework.handyman.security.services;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import project_framework.handyman.models.User;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class UserPrinciple implements UserDetails {
     private static final long serialVersionUID = 1L;
@@ -22,25 +25,31 @@ public class UserPrinciple implements UserDetails {
     @JsonIgnore
     private String password;
 
-    // private Collection<? extends GrantedAuthority> authorities;
+    private Collection<? extends GrantedAuthority> authorities;
 
     public UserPrinciple(Long id, String name,
-                         String username, String email, String password) {
+                         String username, String email, String password,
+                         Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.name = name;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.authorities = authorities;
     }
 
     public static UserPrinciple build(User user) {
+        List<GrantedAuthority> authorities = user.getRoles().stream().map(role ->
+                new SimpleGrantedAuthority(role.getName().name())
+        ).collect(Collectors.toList());
 
         return new UserPrinciple(
                 user.getId(),
                 user.getName(),
                 user.getUsername(),
                 user.getEmail(),
-                user.getPassword()
+                user.getPassword(),
+                authorities
         );
     }
 
@@ -62,15 +71,14 @@ public class UserPrinciple implements UserDetails {
     }
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
-    }
-
-    @Override
     public String getPassword() {
         return password;
     }
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return authorities;
+    }
 
     @Override
     public boolean isAccountNonExpired() {
