@@ -3,7 +3,7 @@ export class Artisan {
   lastName: string;
   username: string;
   email: string;
-  // role: string[];
+   role: string[];
   password: string;
   birth: string;
 
@@ -20,7 +20,7 @@ export class Artisan {
     this.lastName = lastName;
     this.username = username;
     this.email = email;
-    // this.role = ['user'];
+     this.role = ['user'];
     this.password = password;
     this.birth = birth;
     this.address = address;

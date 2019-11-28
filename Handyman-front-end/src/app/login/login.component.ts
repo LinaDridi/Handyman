@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginInfo} from '../auth/login-info';
 import {AuthService} from '../auth/auth.service';
+import { TokenStorageService } from '../auth/token-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -14,11 +15,11 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
   private loginInfo: LoginInfo;
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
 
-  ngOnInit() { if (localStorage.getItem('token')) {
+  ngOnInit() { if (this.tokenStorage.getToken()) {
     this.isLoggedIn = true;
-   // this.roles = this.tokenStorage.getAuthorities();
+    this.roles = this.tokenStorage.getAuthorities();
   }
   }
   onSubmit() {
@@ -30,11 +31,14 @@ export class LoginComponent implements OnInit {
 
     this.authService.authenticate(this.loginInfo).subscribe(
       data => {
-        // this.tokenStorage.saveAuthorities(data.authorities);
+        this.tokenStorage.saveToken(data.accessToken);
+        this.tokenStorage.saveUsername(data.username);
+         this.tokenStorage.saveAuthorities(data.authorities);
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        // this.roles = this.tokenStorage.getAuthorities();
-        this.reloadPage();
+         this.roles = this.tokenStorage.getAuthorities();
+        //this.reloadPage();
+        console.log(data)
       },
       error => {
         console.log(error);

@@ -1,19 +1,20 @@
 import {Injectable} from '@angular/core';
 import {HTTP_INTERCEPTORS, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import { TokenStorageService } from './token-storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthHttpInterceptorService implements HttpInterceptor {
-  constructor() {
+  constructor(private token :TokenStorageService) {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    const token = localStorage.getItem('token');
+    const token = this.token.getToken();
     if (!token) {
       return next.handle(req);
     }
-    if (localStorage.getItem('username') && localStorage.getItem('token')) {
+    if (this.token.getUsername() !=null && token != null) {
       // let headers = new Headers();
       // headers.append( 'Content-Type', 'application/json' );
 

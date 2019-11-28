@@ -5,6 +5,7 @@ import {Artisan} from '../artisan';
 import {Observable} from 'rxjs';
 import {LoginInfo} from "./login-info";
 import {User} from "../user";
+import { JwtResponse } from './jwt-response';
 
 @Injectable({
   providedIn: 'root'
@@ -20,19 +21,8 @@ export class AuthService {
   ) {
   }
 
-  authenticate(loginInfo: LoginInfo) {
-    return this.httpClient.post<any>(this.loginUrl, loginInfo).pipe(
-      map(
-        userData => {
-          localStorage.setItem('username', loginInfo.username);
-          const tokenStr = userData.jwt;
-          localStorage.setItem('token', tokenStr);
-          console.log(localStorage);
-
-          return userData;
-        }
-      )
-    );
+  authenticate(loginInfo: LoginInfo) :Observable<JwtResponse>{
+    return this.httpClient.post<JwtResponse>(this.loginUrl, loginInfo);
   }
 
   signUp(info: Artisan): Observable<string> {
@@ -41,13 +31,13 @@ export class AuthService {
   signUpUser(info: User): Observable<string> {
     return this.httpClient.post<string>(this.signupUrl + '/user', info);
   }
-  isUserLoggedIn() {
-    const user = localStorage.getItem('username')
-    // console.log(!(user === null))
-    return !(user === null);
-  }
+  // isUserLoggedIn() {
+  //   const user = localStorage.getItem('username')
+  //   // console.log(!(user === null))
+  //   return !(user === null);
+  // }
 
   logOut() {
-    localStorage.removeItem('username');
+    window.sessionStorage.removeItem('username');
   }
 }
