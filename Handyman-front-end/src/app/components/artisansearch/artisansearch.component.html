@@ -1,0 +1,22 @@
+<section class="team-style-one" style="background-color: #EEEEEE">
+  <div class="container">
+    <div class="title">
+      <h3>Our Workers</h3>
+      <p>Osed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est.</p>
+    </div><!-- /.title -->
+    <div class="row">
+      <div *ngFor="let artisan of artisans" class="col-md-3 col-sm-6 col-xs-12">
+        <div class="single-team-style-one">
+          <div class="img-box">
+            <img src="../../../assets/images/team-1-4.jpg" alt="Awesome Image"/>
+            <div class="social">
+              <button [routerLink]="artisan.id" class="btn btn-dark">See More</button>
+            </div>
+          </div>
+          <h3>{{artisan.firstname}}</h3>
+          <p>{{artisan.job}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
