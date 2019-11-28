@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
-import {Artisan} from '../artisan';
 import {Observable} from 'rxjs';
-import {LoginInfo} from "./login-info";
-import {User} from "../user";
+import {LoginInfo} from './login-info';
 import { JwtResponse } from './jwt-response';
+import {Artisan} from '../models/artisan';
+import {User} from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,7 @@ export class AuthService {
   ) {
   }
 
-  authenticate(loginInfo: LoginInfo) :Observable<JwtResponse>{
+  authenticate(loginInfo: LoginInfo): Observable<JwtResponse>{
     return this.httpClient.post<JwtResponse>(this.loginUrl, loginInfo);
   }
 

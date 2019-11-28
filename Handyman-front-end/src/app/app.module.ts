@@ -1,29 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegistrationArtisanComponent } from './registration-artisan/registration-artisan.component';
-import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
-import {httpInterceptorProviders} from './auth/auth-http-interceptor.service';
-import { RegistrationUserComponent } from './registration-user/registration-user.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './components/header/header.component';
+import { ArtisansearchComponent } from './components/artisansearch/artisansearch.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ArtisanComponent } from './components/artisan/artisan.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegistrationArtisanComponent} from './components/registration-artisan/registration-artisan.component';
+import { RegistrationUserComponent} from './components/registration-user/registration-user.component';
+import { httpInterceptorProviders } from './auth/auth-http-interceptor.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistrationArtisanComponent,
-    RegistrationUserComponent,
+    HeaderComponent,
+    ArtisansearchComponent,
+    ArtisanComponent,
+    HomeComponent,
     LoginComponent,
-    HomeComponent
+    RegistrationUserComponent,
+    RegistrationArtisanComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    HttpClientModule
+    AngularFontAwesomeModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
