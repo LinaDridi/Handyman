@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService} from '../../services/data.service';
+import {Artisan} from '../../models/artisan';
 
 @Component({
   selector: 'app-artisansearch',

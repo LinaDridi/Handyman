@@ -30,7 +30,7 @@ public class ArtisanServiceImpl implements ArtisanService {
             theArtisan = result.get();
         }
         else {
-            // we didn't find the employee
+            // we didn't find the artisan
             throw new RuntimeException("Did not find artisan id - " + theId);
         }
 

@@ -1,6 +1,9 @@
 package project_framework.handyman.models;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "artisan")
@@ -8,14 +11,14 @@ public class Artisan {
 
     public Artisan(){}
 
-    public Artisan(String firstname, String lastname, String username, String email, String password, String birth, String adresse, String job, String phone, String rate, String type, String description, String img) {
+    public Artisan(String firstname, String lastname, String username, String email, String password, String birth, String address, String job, String phone, String rate, String type, String description, String img) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.username = username;
         this.email = email;
         this.password = password;
         this.birth = birth;
-        this.adresse = adresse;
+        this.address = address;
         this.job = job;
         this.phone = phone;
         this.rate = rate;
@@ -47,8 +50,8 @@ public class Artisan {
     @Column(name = "birth")
     private String birth;
 
-    @Column(name = "adresse")
-    private String adresse;
+    @Column(name = "address")
+    private String address;
 
     @Column(name = "job")
     private String job;
@@ -67,6 +70,26 @@ public class Artisan {
 
     @Column(name = "img")
     private String img;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "artisan_service",
+            joinColumns = @JoinColumn(name = "artisan_id"),
+            inverseJoinColumns = @JoinColumn(name = "service_id"))
+    private Set<Service> services = new HashSet<>();
+
+    @OneToOne
+    @JoinColumn(name="Schedule_id")
+    private Schedule Schedule_id;
+
+    @OneToOne
+    @JoinColumn(name="availability_id")
+    private Availability availability_id;
+
+    @OneToMany
+    @JoinTable(name = "artisan_project",
+            joinColumns = @JoinColumn(name = "artisan_id"),
+            inverseJoinColumns = @JoinColumn(name = "project_id"))
+    private List<Project> projects;
 
     public int getId() {
         return id;
@@ -124,12 +147,12 @@ public class Artisan {
         this.birth = birth;
     }
 
-    public String getAdresse() {
-        return adresse;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getJob() {
@@ -178,5 +201,37 @@ public class Artisan {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public Set<Service> getServices() {
+        return services;
+    }
+
+    public void setServices(Set<Service> services) {
+        this.services = services;
+    }
+
+    public Schedule getSchedule_id() {
+        return Schedule_id;
+    }
+
+    public void setSchedule_id(Schedule schedule_id) {
+        Schedule_id = schedule_id;
+    }
+
+    public Availability getAvailability_id() {
+        return availability_id;
+    }
+
+    public void setAvailability_id(Availability availability_id) {
+        this.availability_id = availability_id;
+    }
+
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
     }
 }
