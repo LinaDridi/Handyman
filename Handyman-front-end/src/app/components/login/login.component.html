@@ -1,36 +1,59 @@
-<div *ngIf="isLoggedIn; else loggedOut">
+
+<!--<h1  mat-dialog-title>Message</h1>
+<mat-dialog-content>  </mat-dialog-content>
+<mat-dialog-actions>
+<button  mat-raised-button>Close</button>
+</mat-dialog-actions>
+-->
+
+<mat-card>
+    <div *ngIf="isLoggedIn; else loggedOut">
   Logged in as {{roles}}.
 </div>
 
+
 <ng-template #loggedOut>
-  <div class="row col-sm-6" style="max-width:350px;">
-    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+ <h2 style="text-align: center" mat-card-title>Please Log in</h2>
+
+    <mat-card-content>
+        <form style="text-align: center" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+        <mat-form-field>
       <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" name="username" [(ngModel)]="form.username" #username="ngModel"
+        <input matInput   type="text" class="form-control" id="username" name="username" [(ngModel)]="form.username" #username="ngModel"
                required />
         <div *ngIf="f.submitted && username.invalid">
           <div *ngIf="username.errors.required">Username is required</div>
         </div>
       </div>
+    </mat-form-field>
+    <mat-form-field>
+
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="form.password" #password="ngModel"
+        <input matInput type="password" class="form-control" id="password" name="password" [(ngModel)]="form.password" #password="ngModel"
                required minlength="6" />
         <div *ngIf="f.submitted && password.invalid">
           <div *ngIf="password.errors.required">Password is required</div>
           <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
         </div>
       </div>
+    </mat-form-field>
+
+      <mat-card-actions>
+
       <div class="form-group">
-        <button class="btn btn-primary">Login</button>
+        <button color="primary" mat-raised-button >Login</button>
         <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
           Login failed: {{errorMessage}}
         </div>
       </div>
-    </form>
+      </mat-card-actions>
+    </form > 
     <hr />
     <p>Don't have an account?</p>
-    <a href="signup" class="btn btn-success">Sign Up</a>
-  </div>
-</ng-template>
+    <button (click)="nav()" class="btn btn-success">Sign Up Customer</button>
+      <button (click)="nav1()" class="btn btn-success">Sign  Craftsman</button>
+    </mat-card-content>
+  </ng-template>
+</mat-card>

@@ -13,14 +13,14 @@ export class Artisan {
   type: string;
   description: string;
   img: string;
-  role: string[];
+  roles: string[];
   Schedule_id: any;
   availability_id: any;
   services: any;
   projects: any;
 
   // tslint:disable-next-line:max-line-length
-  constructor(firstName: string, lastName: string, username: string, email: string, password: string, birth: string, address: string, job: string, phone: string, type: string, description: string, img: string) {
+  constructor(firstName: string, lastName: string, username: string, email: string, password: string, birth: string, address: string, job: string, phone: string, type: string, description: string, img: string,service:string) {
     this.firstname = firstName;
     this.lastname = lastName;
     this.username = username;
@@ -33,6 +33,7 @@ export class Artisan {
     this.type = type;
     this.description = description;
     this.img = img;
-    this.role = ['user'];
+    this.services=[service];
+    this.roles = ['artisan'];
   }
 }

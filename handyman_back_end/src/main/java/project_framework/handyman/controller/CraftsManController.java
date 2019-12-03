@@ -55,7 +55,7 @@ public class CraftsManController {
         return artisanService.findById(id);
     }
 
-    @PostMapping("/signupartisan")
+    @PostMapping("/auth/signupartisan")
     public ResponseEntity<?> registerUser(@RequestBody ArtisanSignUpForm signUpRequest)
     {
         if (artisanRepository.existsByUsername(signUpRequest.getUsername())) {
@@ -70,15 +70,19 @@ public class CraftsManController {
                 encoder.encode(signUpRequest.getPassword()),signUpRequest.getBirth(),signUpRequest.getAddress(),signUpRequest.getJob(),
                 signUpRequest.getPhone(),signUpRequest.getRate(),signUpRequest.getType(),signUpRequest.getDescription(),signUpRequest.getImg());
         //getServices
-        Set<String> services = signUpRequest.getServices();
-        Set<Service> ser = new HashSet<Service>();
-        services.forEach(service ->{
-            Service s = serviceService.findByName(service).orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Service not find."));
-            ser.add(s);});
-        artisan.setServices(ser);
+        if(signUpRequest.getServices() != null ) {
+            Set<String> services = signUpRequest.getServices();
+            Set<Service> ser = new HashSet<Service>();
+            services.forEach(service -> {
+                Service s = serviceService.findByName(service).orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Service not find."));
+                ser.add(s);
+            });
+            artisan.setServices(ser);
+        }
         //getroles
         Set<String> strRoles=signUpRequest.getRoles();
-        Set<Role> roles = new HashSet<Role>();
+        System.out.println(strRoles);
+        Set<Role> roles = new HashSet<>();
 
         strRoles.forEach(role -> {
             switch (role) {
@@ -103,14 +107,18 @@ public class CraftsManController {
 
         artisan.setRoles(roles);
         //getdispo
-        Availability availability=signUpRequest.getAvailability();
-        availabilityService.save(availability);
-        Availability avai=availabilityService.findAll().get(availabilityService.findAll().size()-1);
-        artisan.setAvailability_id(avai);
-        Schedule schedule=signUpRequest.getSchedule();
-        scheduleService.save(schedule);
-        Schedule sch=scheduleService.findAll().get(scheduleService.findAll().size()-1);
-        artisan.setSchedule_id(sch);
+        if(signUpRequest.getAvailability() != null) {
+            Availability availability = signUpRequest.getAvailability();
+            availabilityService.save(availability);
+            Availability avai = availabilityService.findAll().get(availabilityService.findAll().size() - 1);
+            artisan.setAvailability_id(avai);
+        }
+        if(signUpRequest.getSchedule() != null) {
+            Schedule schedule = signUpRequest.getSchedule();
+            scheduleService.save(schedule);
+            Schedule sch = scheduleService.findAll().get(scheduleService.findAll().size() - 1);
+            artisan.setSchedule_id(sch);
+        }
         artisanService.save(artisan);
         return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
     }

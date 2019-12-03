@@ -36,8 +36,8 @@ public class ArtisanSignUpForm {
     @Size(min = 3, max = 50)
     private String phone;
 
-    @NotBlank
-    @Size(min = 3, max = 50)
+//    @NotBlank
+//    @Size(min = 3, max = 50)
     private String rate;
 
     @NotBlank

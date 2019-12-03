@@ -5,6 +5,7 @@ import {ArtisanComponent} from './components/artisan/artisan.component';
 import {LoginComponent} from "./components/login/login.component";
 import {RegistrationUserComponent} from "./components/registration-user/registration-user.component";
 import {HomeComponent} from "./components/home/home.component";
+import { RegistrationArtisanComponent } from './components/registration-artisan/registration-artisan.component';
 
 const routes: Routes =  [
 
@@ -12,6 +13,7 @@ const routes: Routes =  [
   { path: 'SearchArtisan/:id', component: ArtisanComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: RegistrationUserComponent },
+  {path:'signup/artisan' , component:RegistrationArtisanComponent},
   { path: 'home', component: HomeComponent }
 ];
 
