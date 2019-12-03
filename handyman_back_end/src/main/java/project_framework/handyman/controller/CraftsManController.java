@@ -1,10 +1,13 @@
 package project_framework.handyman.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 import project_framework.handyman.Services.Interfaces.ArtisanService;
+import project_framework.handyman.Services.Interfaces.ProjectService;
 import project_framework.handyman.Services.Interfaces.ServiceService;
 import project_framework.handyman.models.Artisan;
+import project_framework.handyman.models.Project;
 import project_framework.handyman.models.Role;
 import project_framework.handyman.models.Service;
 
@@ -19,11 +22,13 @@ import java.util.Set;
 public class CraftsManController {
     private ArtisanService artisanService;
     private ServiceService serviceService;
+    private ProjectService projectService;
 
     @Autowired
-    public CraftsManController(ArtisanService theartisanservice,ServiceService theserviceservice){
+    public CraftsManController(ArtisanService theartisanservice, ServiceService theserviceservice, ProjectService theprojectService){
         artisanService=theartisanservice;
         serviceService=theserviceservice;
+        projectService=theprojectService;
     }
 
     @GetMapping("/artisans")
@@ -49,4 +54,36 @@ public class CraftsManController {
 
     @GetMapping("/deleteartisan")
     public void deleteArtisan(@RequestParam int id){ artisanService.deleteById(id); }
+
+    @GetMapping("/artisan/projects")
+    public List<Project> getArtisanProjects(@RequestParam int id){
+        return artisanService.getArtisanProjects(id);
+    }
+
+    /*public void acceptProject(int idProject)
+    {
+        Project project=projectService.findById(idProject);
+        project.setAccepted_by_artisan(true);
+    }*/
+@PostMapping("/artisan/project/offer")
+    public void postOffer(@RequestParam int idProject,@RequestParam int cost , @RequestParam String currency)
+    {
+        Project project=projectService.findById(idProject);
+
+        project.setAccepted_by_artisan(true);
+        project.setCost(cost);
+        project.setCurrency(currency);
+        projectService.save(project);
+
+    }
+
+    @PostMapping("/artisan/project/decline")
+    public void declineProject(@RequestParam int idProject)
+    {
+        Project project=projectService.findById(idProject);
+
+        project.setAccepted_by_artisan(false);
+        projectService.save(project);
+
+    }
 }

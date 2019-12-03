@@ -1,6 +1,7 @@
 package project_framework.handyman.Services.Interfaces;
 
 import project_framework.handyman.models.Artisan;
+import project_framework.handyman.models.Project;
 
 import java.util.List;
 
@@ -30,4 +31,9 @@ public interface ArtisanService {
      *
      */
     public void deleteById(int theId);
+
+
+    public List<Project> getArtisanProjects(int theId);
+
+    //public void acceptProject(int idProject);
 }

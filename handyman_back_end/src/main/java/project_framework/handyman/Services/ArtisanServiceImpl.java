@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project_framework.handyman.Services.Interfaces.ArtisanService;
 import project_framework.handyman.models.Artisan;
+import project_framework.handyman.models.Project;
 import project_framework.handyman.repositories.ArtisanRepository;
 
 import java.util.List;
@@ -44,4 +45,11 @@ public class ArtisanServiceImpl implements ArtisanService {
     public void deleteById(int theId){
         artisanRepo.deleteById(theId);
     }
+
+    public List<Project> getArtisanProjects(int theId){
+        Artisan artisan = this.findById(theId);
+        return artisan.getProjects();
+    }
+
+
 }
