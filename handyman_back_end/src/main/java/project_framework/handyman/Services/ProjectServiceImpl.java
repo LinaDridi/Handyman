@@ -27,7 +27,9 @@ public class ProjectServiceImpl implements ProjectService {
         Project theProject = null;
 
         if (result.isPresent()) {
+
             theProject = result.get();
+
         }
         else {
             // we didn't find the Project

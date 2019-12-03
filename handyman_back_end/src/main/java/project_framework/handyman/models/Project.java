@@ -6,15 +6,23 @@ import javax.persistence.*;
 @Table(name = "project")
 public class Project {
     public Project(){}
-    public Project(String start_date, String deadline, String address, boolean accepted, String description, String img, String title, String state) {
+
+    public Project(String start_date, String deadline, String address, boolean accepted_by_artisan, boolean accepted_by_client, Client client_id, String description, String img, String facture, String contrat, String title, String state, String currency, int cost, Artisan artisan_id) {
         this.start_date = start_date;
         this.deadline = deadline;
         this.address = address;
-        this.accepted = accepted;
+        this.accepted_by_artisan = accepted_by_artisan;
+        this.accepted_by_client = accepted_by_client;
+        this.client_id = client_id;
         this.description = description;
         this.img = img;
+        this.facture = facture;
+        this.contrat = contrat;
         this.title = title;
         this.state = state;
+        this.currency = currency;
+        this.cost = cost;
+        this.artisan_id = artisan_id;
     }
 
     @Id
@@ -28,11 +36,19 @@ public class Project {
     @Column(name = "deadline")
     private String deadline;
 
-    @Column(name = "address")
+    @Column(nullable=true ,name = "address")
     private String address;
 
-    @Column(name = "accepted")
-    private boolean accepted;
+    @Column(nullable=true,name = "accepted_by_artisan")
+    private Boolean accepted_by_artisan;
+
+    @Column(name = "accepted_by_client")
+    private Boolean accepted_by_client;
+
+
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client_id;
 
     @Column(name = "description")
     private String description;
@@ -40,15 +56,30 @@ public class Project {
     @Column(name = "img")
     private String img;
 
+    @Column(name = "facture")
+    private String facture;
+
+    @Column(name = "contrat")
+    private String contrat;
+
+
     @Column(name = "title")
     private String title;
 
     @Column(name = "state")
     private String state;
 
+    @Column(name = "currency")
+    private String currency;
+
+    @Column(name = "cost")
+    private int cost;
+
     @ManyToOne
     @JoinColumn(name = "artisan_id")
     private Artisan artisan_id;
+
+
 
     public int getId() {
         return id;
@@ -82,13 +113,6 @@ public class Project {
         this.address = address;
     }
 
-    public boolean isAccepted() {
-        return accepted;
-    }
-
-    public void setAccepted(boolean accepted) {
-        this.accepted = accepted;
-    }
 
     public String getDescription() {
         return description;
@@ -129,4 +153,63 @@ public class Project {
     public void setArtisan_id(Artisan artisan_id) {
         this.artisan_id = artisan_id;
     }
+
+    public Client getClient_id() {
+        return client_id;
+    }
+
+    public void setClient_id(Client client_id) {
+        this.client_id = client_id;
+    }
+
+    public Boolean isAccepted_by_client() {
+        return accepted_by_client;
+    }
+
+    public void setAccepted_by_client(Boolean accepted_by_client) {
+        this.accepted_by_client = accepted_by_client;
+    }
+
+    public Boolean isAccepted_by_artisan() {
+        return accepted_by_artisan;
+    }
+
+    public void setAccepted_by_artisan(Boolean accepted_by_artisan) {
+        this.accepted_by_artisan = accepted_by_artisan;
+    }
+
+
+
+    public String getFacture() {
+        return facture;
+    }
+
+    public void setFacture(String facture) {
+        this.facture = facture;
+    }
+
+    public String getContrat() {
+        return contrat;
+    }
+
+    public void setContrat(String contrat) {
+        this.contrat = contrat;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
+
 }
