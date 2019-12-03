@@ -7,10 +7,10 @@ import javax.persistence.*;
 public class Schedule {
 
     public Schedule(){}
-    public Schedule(String lundi, String mardi, String mrecredi, String jeudi, String vendredi, String samedi, String dimanche) {
+    public Schedule(String lundi, String mardi, String mercredi, String jeudi, String vendredi, String samedi, String dimanche) {
         this.lundi = lundi;
         this.mardi = mardi;
-        this.mrecredi = mrecredi;
+        this.mercredi = mercredi;
         this.jeudi = jeudi;
         this.vendredi = vendredi;
         this.samedi = samedi;
@@ -29,7 +29,7 @@ public class Schedule {
     private String mardi;
 
     @Column(name = "mercredi")
-    private String mrecredi;
+    private String mercredi;
 
     @Column(name = "jeudi")
     private String jeudi;
@@ -67,12 +67,12 @@ public class Schedule {
         this.mardi = mardi;
     }
 
-    public String getMrecredi() {
-        return mrecredi;
+    public String getMercredi() {
+        return mercredi;
     }
 
-    public void setMrecredi(String mrecredi) {
-        this.mrecredi = mrecredi;
+    public void setMercredi(String mercredi) {
+        this.mercredi = mercredi;
     }
 
     public String getJeudi() {

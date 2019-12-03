@@ -3,6 +3,7 @@ package project_framework.handyman.Services.Interfaces;
 import project_framework.handyman.models.Artisan;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ArtisanService {
     /**
@@ -17,7 +18,7 @@ public interface ArtisanService {
      *
      * @return entitie
      */
-    public Artisan findById(int theId);
+    public Artisan findById(Long theId);
 
     /**
      * Save artisan.
@@ -29,5 +30,11 @@ public interface ArtisanService {
      * delete artisan by id.
      *
      */
-    public void deleteById(int theId);
+    public void deleteById(long theId);
+
+    public Optional<Artisan> findByUsername(String username);
+
+    public Boolean existsByUsername(String username);
+
+    public Boolean existsByEmail(String email);
 }

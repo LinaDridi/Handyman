@@ -46,10 +46,6 @@ public class Project {
     @Column(name = "state")
     private String state;
 
-    @ManyToOne
-    @JoinColumn(name = "artisan_id")
-    private Artisan artisan_id;
-
     public int getId() {
         return id;
     }
@@ -120,13 +116,5 @@ public class Project {
 
     public void setState(String state) {
         this.state = state;
-    }
-
-    public Artisan getArtisan_id() {
-        return artisan_id;
-    }
-
-    public void setArtisan_id(Artisan artisan_id) {
-        this.artisan_id = artisan_id;
     }
 }

@@ -10,11 +10,8 @@ import java.util.Optional;
 
 @org.springframework.stereotype.Service
 public class ServiceServiceImpl implements ServiceService {
-    private ServiceRepository serviceRepository;
     @Autowired
-    public ServiceServiceImpl(ServiceRepository theservicerepo){
-        serviceRepository=theservicerepo;
-    }
+    private ServiceRepository serviceRepository;
     @Override
     public List<Service> findAll(){
         return serviceRepository.findAll();
@@ -43,4 +40,6 @@ public class ServiceServiceImpl implements ServiceService {
     public void deleteById(int theId){
         serviceRepository.deleteById(theId);
     }
+    @Override
+    public Optional<Service> findByName(String name){ return  serviceRepository.findByName(name);}
 }

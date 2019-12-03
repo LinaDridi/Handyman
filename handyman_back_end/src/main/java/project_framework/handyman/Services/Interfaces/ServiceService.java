@@ -3,6 +3,7 @@ package project_framework.handyman.Services.Interfaces;
 import project_framework.handyman.models.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ServiceService {
     /**
@@ -30,4 +31,5 @@ public interface ServiceService {
      *
      */
     public void deleteById(int theId);
+    public Optional<Service> findByName(String name);
 }

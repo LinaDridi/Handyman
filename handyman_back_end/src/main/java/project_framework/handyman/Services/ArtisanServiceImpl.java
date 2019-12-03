@@ -2,6 +2,7 @@ package project_framework.handyman.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import project_framework.handyman.Services.Interfaces.ArtisanService;
 import project_framework.handyman.models.Artisan;
 import project_framework.handyman.repositories.ArtisanRepository;
@@ -9,19 +10,17 @@ import project_framework.handyman.repositories.ArtisanRepository;
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 @Service
 public class ArtisanServiceImpl implements ArtisanService {
-    private ArtisanRepository artisanRepo;
     @Autowired
-    public ArtisanServiceImpl(ArtisanRepository theartisanrepo){
-        artisanRepo=theartisanrepo;
-    }
+    private ArtisanRepository artisanRepo;
     @Override
    public List<Artisan> findAll(){
        return artisanRepo.findAll();
     }
     @Override
-    public Artisan findById(int theId){
+    public Artisan findById(Long theId){
         Optional<Artisan> result = artisanRepo.findById(theId);
 
         Artisan theArtisan = null;
@@ -41,7 +40,19 @@ public class ArtisanServiceImpl implements ArtisanService {
     artisanRepo.save(artisan);
     }
     @Override
-    public void deleteById(int theId){
+    public void deleteById(long theId){
         artisanRepo.deleteById(theId);
+    }
+    @Override
+    public Optional<Artisan> findByUsername(String username){
+        return artisanRepo.findByUsername(username);
+    }
+    @Override
+    public Boolean existsByUsername(String username){
+        return artisanRepo.existsByUsername(username);
+    }
+
+    public Boolean existsByEmail(String email){
+        return artisanRepo.existsByEmail(email);
     }
 }

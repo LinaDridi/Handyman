@@ -7,16 +7,14 @@ import java.util.Set;
 
 @Entity
 @Table(name = "artisan")
-public class Artisan {
+public class Artisan extends User {
 
     public Artisan(){}
 
     public Artisan(String firstname, String lastname, String username, String email, String password, String birth, String address, String job, String phone, String rate, String type, String description, String img) {
+        super(firstname, username, email, password);
         this.firstname = firstname;
         this.lastname = lastname;
-        this.username = username;
-        this.email = email;
-        this.password = password;
         this.birth = birth;
         this.address = address;
         this.job = job;
@@ -26,26 +24,17 @@ public class Artisan {
         this.description = description;
         this.img = img;
     }
-
+    @PrimaryKeyJoinColumn(name = "id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Long id;
 
     @Column(name = "firstname")
     private String firstname;
 
     @Column(name = "lastname")
     private String lastname;
-
-    @Column(name = "username")
-    private String username;
-
-    @Column(name = "email")
-    private String email;
-
-    @Column(name = "password")
-    private String password;
 
     @Column(name = "birth")
     private String birth;
@@ -77,25 +66,25 @@ public class Artisan {
             inverseJoinColumns = @JoinColumn(name = "service_id"))
     private Set<Service> services = new HashSet<>();
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="Schedule_id")
     private Schedule Schedule_id;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="availability_id")
     private Availability availability_id;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "artisan_project",
             joinColumns = @JoinColumn(name = "artisan_id"),
             inverseJoinColumns = @JoinColumn(name = "project_id"))
-    private List<Project> projects;
+    private Set<Project> projects = new HashSet<>();
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -109,34 +98,6 @@ public class Artisan {
 
     public String getLastname() {
         return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getBirth() {
@@ -227,11 +188,15 @@ public class Artisan {
         this.availability_id = availability_id;
     }
 
-    public List<Project> getProjects() {
+    public Set<Project> getProjects() {
         return projects;
     }
 
-    public void setProjects(List<Project> projects) {
+    public void setProjects(Set<Project> projects) {
         this.projects = projects;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 }

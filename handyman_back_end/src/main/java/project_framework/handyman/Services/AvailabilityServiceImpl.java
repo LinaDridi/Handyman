@@ -11,11 +11,8 @@ import java.util.Optional;
 
 @Service
 public class AvailabilityServiceImpl implements AvailabilityService {
-    public AvailabilityRepository availabilityRepository;
     @Autowired
-    public AvailabilityServiceImpl(AvailabilityRepository theavrepo){
-        availabilityRepository=theavrepo;
-    }
+    public AvailabilityRepository availabilityRepository;
     @Override
     public List<Availability> findAll(){
         return availabilityRepository.findAll();

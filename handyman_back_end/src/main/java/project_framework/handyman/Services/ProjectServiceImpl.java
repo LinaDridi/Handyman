@@ -11,11 +11,8 @@ import java.util.Optional;
 
 @Service
 public class ProjectServiceImpl implements ProjectService {
-    public ProjectRepository projectRepository;
     @Autowired
-    public ProjectServiceImpl(ProjectRepository therepo){
-        projectRepository=therepo;
-    }
+    public ProjectRepository projectRepository;
     @Override
     public List<Project> findAll(){
         return projectRepository.findAll();
