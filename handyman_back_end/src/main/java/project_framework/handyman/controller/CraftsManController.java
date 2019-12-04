@@ -12,7 +12,6 @@ import project_framework.handyman.repositories.ArtisanRepository;
 import project_framework.handyman.repositories.RoleRepository;
 
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -22,42 +21,34 @@ import java.util.Set;
 
 public class CraftsManController {
     @Autowired
+    RoleRepository roleRepository;
+    @Autowired
+    ArtisanRepository artisanRepository;
+    @Autowired
+    PasswordEncoder encoder;
+    @Autowired
     private ArtisanService artisanService;
-
     @Autowired
     private ServiceService serviceService;
-
     @Autowired
     private AvailabilityService availabilityService;
-
     @Autowired
     private ScheduleService scheduleService;
-
     @Autowired
     private ProjectService projectService;
 
-    @Autowired
-    RoleRepository roleRepository;
-
-    @Autowired
-    ArtisanRepository artisanRepository;
-
-    @Autowired
-    PasswordEncoder encoder;
-
     @GetMapping("/artisans")
-    public List<Artisan> getArtisans(){
+    public List<Artisan> getArtisans() {
         return artisanService.findAll();
     }
 
     @GetMapping("/artisan")
-    public Artisan getArtisan(@RequestParam Long id){
+    public Artisan getArtisan(@RequestParam Long id) {
         return artisanService.findById(id);
     }
 
     @PostMapping("/auth/signupartisan")
-    public ResponseEntity<?> registerUser(@RequestBody ArtisanSignUpForm signUpRequest)
-    {
+    public ResponseEntity<?> registerUser(@RequestBody ArtisanSignUpForm signUpRequest) {
         if (artisanRepository.existsByUsername(signUpRequest.getUsername())) {
             return new ResponseEntity<>(new ResponseMessage("Fail -> Username is already taken!"),
                     HttpStatus.BAD_REQUEST);
@@ -66,11 +57,11 @@ public class CraftsManController {
             return new ResponseEntity<>(new ResponseMessage("Fail -> Email is already in use!"),
                     HttpStatus.BAD_REQUEST);
         }
-        Artisan artisan=new Artisan(signUpRequest.getFirstname(),signUpRequest.getLastname(), signUpRequest.getUsername(), signUpRequest.getEmail(),
-                encoder.encode(signUpRequest.getPassword()),signUpRequest.getBirth(),signUpRequest.getAddress(),signUpRequest.getJob(),
-                signUpRequest.getPhone(),signUpRequest.getRate(),signUpRequest.getType(),signUpRequest.getDescription(),signUpRequest.getImg());
+        Artisan artisan = new Artisan(signUpRequest.getFirstname(), signUpRequest.getLastname(), signUpRequest.getUsername(), signUpRequest.getEmail(),
+                encoder.encode(signUpRequest.getPassword()), signUpRequest.getBirth(), signUpRequest.getAddress(), signUpRequest.getJob(),
+                signUpRequest.getPhone(), signUpRequest.getRate(), signUpRequest.getType(), signUpRequest.getDescription(), signUpRequest.getImg());
         //getServices
-        if(signUpRequest.getServices() != null ) {
+        if (signUpRequest.getServices() != null) {
             Set<String> services = signUpRequest.getServices();
             Set<Service> ser = new HashSet<Service>();
             services.forEach(service -> {
@@ -80,7 +71,7 @@ public class CraftsManController {
             artisan.setServices(ser);
         }
         //getroles
-        Set<String> strRoles=signUpRequest.getRoles();
+        Set<String> strRoles = signUpRequest.getRoles();
         System.out.println(strRoles);
         Set<Role> roles = new HashSet<>();
 
@@ -107,13 +98,13 @@ public class CraftsManController {
 
         artisan.setRoles(roles);
         //getdispo
-        if(signUpRequest.getAvailability() != null) {
+        if (signUpRequest.getAvailability() != null) {
             Availability availability = signUpRequest.getAvailability();
             availabilityService.save(availability);
             Availability avai = availabilityService.findAll().get(availabilityService.findAll().size() - 1);
             artisan.setAvailability_id(avai);
         }
-        if(signUpRequest.getSchedule() != null) {
+        if (signUpRequest.getSchedule() != null) {
             Schedule schedule = signUpRequest.getSchedule();
             scheduleService.save(schedule);
             Schedule sch = scheduleService.findAll().get(scheduleService.findAll().size() - 1);
@@ -124,58 +115,107 @@ public class CraftsManController {
     }
 
     @GetMapping("/deleteartisan")
-    public void deleteArtisan(@RequestParam long id){
-        artisanService.deleteById(id); }
+    public void deleteArtisan(@RequestParam long id) {
+        artisanService.deleteById(id);
+    }
 
     @PostMapping("/editartisan")
-    public void editArtisan(@RequestBody ArtisanSignUpForm signUpRequest){
-        Artisan artisan=artisanService.findById(signUpRequest.getId());
-        if(signUpRequest.getSchedule()!=null){
-        Schedule schedule=signUpRequest.getSchedule();
-        scheduleService.save(schedule);
-        Schedule sch=scheduleService.findAll().get(scheduleService.findAll().size()-1);
-        artisan.setSchedule_id(sch);}
-        if(signUpRequest.getAvailability()!=null){
-        Availability availability=signUpRequest.getAvailability();
-        availabilityService.save(availability);
-        Availability avai=availabilityService.findAll().get(availabilityService.findAll().size()-1);
-        artisan.setAvailability_id(avai);}
-        if(signUpRequest.getServices()!=null&&!signUpRequest.getServices().isEmpty()){
-        Set<String> services = signUpRequest.getServices();
-        Set<Service> ser = new HashSet<Service>();
-        services.forEach(service ->{
-            Service s = serviceService.findByName(service).orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Service not find."));
-            ser.add(s);});
-        artisan.setServices(ser);}
-        if(signUpRequest.getAddress()!=null)
-        artisan.setAddress(signUpRequest.getAddress());
-        if(signUpRequest.getBirth()!=null)
-        artisan.setBirth(signUpRequest.getBirth());
-        if(signUpRequest.getFirstname()!=null)
-        artisan.setFirstname(signUpRequest.getFirstname());
-        if(signUpRequest.getDescription()!=null)
-        artisan.setDescription(signUpRequest.getDescription());
-        if(signUpRequest.getImg()!=null)
-        artisan.setImg(signUpRequest.getImg());
-        if(signUpRequest.getJob()!=null)
-        artisan.setJob(signUpRequest.getJob());
-        if(signUpRequest.getPhone()!=null)
-        artisan.setPhone(signUpRequest.getPhone());
-        if(signUpRequest.getEmail()!=null)
-        artisan.setEmail(signUpRequest.getEmail());
-        if(signUpRequest.getUsername()!=null)
-        artisan.setUsername(signUpRequest.getUsername());
-        if(signUpRequest.getLastname()!=null)
-        artisan.setLastname(signUpRequest.getLastname());
-        Set<Project> pr=signUpRequest.getProjects();
-        if(pr!=null&&!pr.isEmpty()){
-        Set<Project> projects=new HashSet<Project>();
-        pr.forEach(project -> {
-            projectService.save(project);
-            Project p=projectService.findAll().get(projectService.findAll().size()-1);
-            projects.add(p);
-        });
-        artisan.setProjects(projects);}
+    public void editArtisan(@RequestBody ArtisanSignUpForm signUpRequest) {
+        Artisan artisan = artisanService.findById(signUpRequest.getId());
+        if (signUpRequest.getSchedule() != null) {
+            Schedule schedule = signUpRequest.getSchedule();
+            scheduleService.save(schedule);
+            Schedule sch = scheduleService.findAll().get(scheduleService.findAll().size() - 1);
+            artisan.setSchedule_id(sch);
+        }
+        if (signUpRequest.getAvailability() != null) {
+            Availability availability = signUpRequest.getAvailability();
+            availabilityService.save(availability);
+            Availability avai = availabilityService.findAll().get(availabilityService.findAll().size() - 1);
+            artisan.setAvailability_id(avai);
+        }
+        if (signUpRequest.getServices() != null && !signUpRequest.getServices().isEmpty()) {
+            Set<String> services = signUpRequest.getServices();
+            Set<Service> ser = new HashSet<Service>();
+            services.forEach(service -> {
+                Service s = serviceService.findByName(service).orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Service not find."));
+                ser.add(s);
+            });
+            artisan.setServices(ser);
+        }
+        if (signUpRequest.getAddress() != null)
+            artisan.setAddress(signUpRequest.getAddress());
+        if (signUpRequest.getBirth() != null)
+            artisan.setBirth(signUpRequest.getBirth());
+        if (signUpRequest.getFirstname() != null)
+            artisan.setFirstname(signUpRequest.getFirstname());
+        if (signUpRequest.getDescription() != null)
+            artisan.setDescription(signUpRequest.getDescription());
+        if (signUpRequest.getImg() != null)
+            artisan.setImg(signUpRequest.getImg());
+        if (signUpRequest.getJob() != null)
+            artisan.setJob(signUpRequest.getJob());
+        if (signUpRequest.getPhone() != null)
+            artisan.setPhone(signUpRequest.getPhone());
+        if (signUpRequest.getEmail() != null)
+            artisan.setEmail(signUpRequest.getEmail());
+        if (signUpRequest.getUsername() != null)
+            artisan.setUsername(signUpRequest.getUsername());
+        if (signUpRequest.getLastname() != null)
+            artisan.setLastname(signUpRequest.getLastname());
+        Set<Project> pr = signUpRequest.getProjects();
+        if (pr != null && !pr.isEmpty()) {
+            Set<Project> projects = new HashSet<Project>();
+            pr.forEach(project -> {
+                projectService.save(project);
+                Project p = projectService.findAll().get(projectService.findAll().size() - 1);
+                projects.add(p);
+            });
+            artisan.setProjects(projects);
+        }
         artisanService.save(artisan);
+    }
+
+    @RequestMapping(value = "/filter/service/{keyword}", method = RequestMethod.GET)
+    public ResponseEntity<List<Artisan>> filterByService(@PathVariable("keyword") String keyword) {
+        try {
+            return new ResponseEntity<List<Artisan>>(artisanService.filterByService(keyword), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<List<Artisan>>(HttpStatus.BAD_REQUEST);
+        }
+
+    }
+
+    @RequestMapping(value = "/filter/all", method = RequestMethod.GET)
+    public ResponseEntity<List<Artisan>> filterByService(@RequestParam(required = false) String name, @RequestParam(required = false) String serv,@RequestParam(required = false) String address) {
+        try {
+            return new ResponseEntity<List<Artisan>>(artisanService.filter(name, serv,address), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<List<Artisan>>(HttpStatus.BAD_REQUEST);
+        }
+
+
+
+
+    }
+
+
+    @RequestMapping(value = "/autocomplete/name/{keyword}", method = RequestMethod.GET)
+    public ResponseEntity<List<String>> autocompleteNames (@PathVariable("keyword") String keyword){
+        try {
+            return new ResponseEntity<List<String>>(artisanService.autocompleteNames(keyword), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<List<String>>(HttpStatus.BAD_REQUEST);
+        }
+
+    }
+    @RequestMapping(value = "/autocomplete/address/{keyword}", method = RequestMethod.GET)
+    public ResponseEntity<List<String>> autocompleteAddress (@PathVariable("keyword") String keyword){
+        try {
+            return new ResponseEntity<List<String>>(artisanService.autocompleteAddress(keyword), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<List<String>>(HttpStatus.BAD_REQUEST);
+        }
+
     }
 }

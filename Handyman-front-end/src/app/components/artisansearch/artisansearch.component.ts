@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService} from '../../services/data.service';
-import {Artisan} from '../../models/artisan';
+import {Component, OnInit} from '@angular/core';
+import {DataService} from '../../services/data.service';
 
 @Component({
   selector: 'app-artisansearch',
@@ -8,13 +7,19 @@ import {Artisan} from '../../models/artisan';
   styleUrls: ['./artisansearch.component.scss']
 })
 export class ArtisansearchComponent implements OnInit {
- artisans;
+  artisans;
+
   constructor(private data: DataService) {
     this.data.getArtisans().subscribe((res) => {
-      this.artisans = res;
-      console.log(this.artisans);
-    }
+        this.artisans = res;
+        console.log(this.artisans);
+      }
     );
+  }
+
+  getfiltered(event) {
+    this.artisans = event;
+
   }
 
   ngOnInit() {

@@ -32,4 +32,6 @@ public interface ServiceService {
      */
     public void deleteById(int theId);
     public Optional<Service> findByName(String name);
+    public List<String> autocompleteServices (String keyword);
+
 }

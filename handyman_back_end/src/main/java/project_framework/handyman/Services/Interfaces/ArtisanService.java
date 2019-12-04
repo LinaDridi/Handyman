@@ -37,4 +37,10 @@ public interface ArtisanService {
     public Boolean existsByUsername(String username);
 
     public Boolean existsByEmail(String email);
+    List<Artisan> filterByService(String keyword);
+    List<Artisan> filter(String name ,String serv,String address);
+    public List<String> autocompleteNames (String keyword);
+    public List<String> autocompleteAddress (String keyword);
+
+
 }

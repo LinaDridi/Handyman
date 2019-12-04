@@ -20,6 +20,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
+import { SearchComponent } from './components/search/search.component';
+import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     HomeComponent,
     LoginComponent,
     RegistrationUserComponent,
-    RegistrationArtisanComponent
+    RegistrationArtisanComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     MatCardModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    AutocompleteLibModule
     
   ],
   providers: [httpInterceptorProviders],

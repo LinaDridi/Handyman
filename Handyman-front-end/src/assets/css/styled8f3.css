@@ -10,67 +10,67 @@
 
 ****************************************************************************************************************
 
-* 1. miscelnious styles 
+* 1. miscelnious styles
 
-* 2. header styles 
+* 2. header styles
 
-* 3. banner styles 
+* 3. banner styles
 
-* 4. builder styles 
+* 4. builder styles
 
-* 5. footer styles 
+* 5. footer styles
 
-* 6. team styles 
+* 6. team styles
 
-* 7. projects styles 
+* 7. projects styles
 
-* 8. we do styles 
+* 8. we do styles
 
-* 9. blog styles 
+* 9. blog styles
 
-* 10. client carousel styles 
+* 10. client carousel styles
 
-* 11. fun fact styles 
+* 11. fun fact styles
 
-* 12. service styles 
+* 12. service styles
 
-* 13. testimonials styles 
+* 13. testimonials styles
 
-* 14. request qoute styles 
+* 14. request qoute styles
 
-* 15. page cover styles 
+* 15. page cover styles
 
-* 16. who we are styles 
+* 16. who we are styles
 
-* 17. features styles 
+* 17. features styles
 
-* 18. service sidebar styles 
+* 18. service sidebar styles
 
-* 19. maintenance styles 
+* 19. maintenance styles
 
-* 20. error 404 styles 
+* 20. error 404 styles
 
-* 21. pricing styles 
+* 21. pricing styles
 
-* 22. subscribe styles 
+* 22. subscribe styles
 
-* 23. cart style styles 
+* 23. cart style styles
 
-* 24. shop styles 
+* 24. shop styles
 
-* 25. checkout page styles 
+* 25. checkout page styles
 
-* 26. product page styles 
+* 26. product page styles
 
-* 27. coming soon styles 
+* 27. coming soon styles
 
-* 28. about styles 
+* 28. about styles
 
-* 29. cta styles 
+* 29. cta styles
 
-* 30. find zip styles 
+* 30. find zip styles
 
-* 31. search styles 
+* 31. search styles
 
 ****************************************************************************************************************
 
@@ -86,9 +86,9 @@
 
 
 
-/************************** 
+/**************************
 
-* 1. miscelnious styles 
+* 1. miscelnious styles
 
 ***************************/
 
@@ -243,7 +243,41 @@ footer.row {
     background: #e1ba60;
 
 }
+.section_header h3 {
 
+  font-size: 19px;
+
+  font-family: "Poppins", serif;
+
+  text-transform: capitalize;
+
+  font-weight: 600;
+
+  margin: 0 0 0px;
+
+  line-height: 1;
+
+  color: #272727;
+
+}
+
+
+
+.section_header h3:after {
+
+  display: inline-block;
+
+  margin-left: 20px;
+
+  content: '';
+
+  width: 50px;
+
+  height: 3px;
+
+  background: #e1ba60;
+
+}
 
 
 .section_header h5 {
@@ -322,9 +356,9 @@ footer.row {
 
 
 
-/************************** 
+/**************************
 
-* 2. header styles 
+* 2. header styles
 
 ***************************/
 
@@ -2364,7 +2398,29 @@ header,
 
 }
 
+.button{
+  display: inline-block;
 
+  vertical-align: middle;
+
+  background: #D5B062;
+
+  border-radius: 4px;
+
+  color: #212121;
+
+  font-family: 'Poppins';
+
+  font-weight: 500;
+
+  text-align: center;
+
+  transition: all .4s ease;
+
+  padding: 11px 29px;
+
+
+}
 
 .header-top.home-two .single-header-right-info a.header-btn {
 
@@ -3510,9 +3566,9 @@ header,
 
 
 
-/************************** 
+/**************************
 
-* 3. banner styles 
+* 3. banner styles
 
 ***************************/
 
@@ -5254,9 +5310,9 @@ header,
 
 
 
-/************************** 
+/**************************
 
-* 4. builder styles 
+* 4. builder styles
 
 ***************************/
 
@@ -5542,9 +5598,9 @@ header,
 
 
 
-/************************** 
+/**************************
 
-* 5. footer styles 
+* 5. footer styles
 
 ***************************/
 
@@ -6152,9 +6208,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 6. team styles 
+* 6. team styles
 
 ***************************/
 
@@ -7834,9 +7890,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 7. projects styles 
+* 7. projects styles
 
 ***************************/
 
@@ -9984,9 +10040,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 8. we do styles 
+* 8. we do styles
 
 ***************************/
 
@@ -10578,9 +10634,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 9. blog styles 
+* 9. blog styles
 
 ***************************/
 
@@ -12972,9 +13028,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 10. client carousel styles 
+* 10. client carousel styles
 
 ***************************/
 
@@ -13162,9 +13218,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 11. fun fact styles 
+* 11. fun fact styles
 
 ***************************/
 
@@ -13492,9 +13548,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 12. service styles 
+* 12. service styles
 
 ***************************/
 
@@ -14774,9 +14830,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 13. testimonials styles 
+* 13. testimonials styles
 
 ***************************/
 
@@ -15872,9 +15928,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 14. request qoute styles 
+* 14. request qoute styles
 
 ***************************/
 
@@ -16546,9 +16602,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 15. page cover styles 
+* 15. page cover styles
 
 ***************************/
 
@@ -16650,9 +16706,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 16. who we are styles 
+* 16. who we are styles
 
 ***************************/
 
@@ -16780,9 +16836,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 17. features styles 
+* 17. features styles
 
 ***************************/
 
@@ -17640,9 +17696,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 18. service sidebar styles 
+* 18. service sidebar styles
 
 ***************************/
 
@@ -18322,9 +18378,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 19. maintenance styles 
+* 19. maintenance styles
 
 ***************************/
 
@@ -18750,9 +18806,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 20. error 404 styles 
+* 20. error 404 styles
 
 ***************************/
 
@@ -18948,9 +19004,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 21. pricing styles 
+* 21. pricing styles
 
 ***************************/
 
@@ -19235,9 +19291,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 22. subscribe styles 
+* 22. subscribe styles
 
 ***************************/
 
@@ -19429,9 +19485,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 23. cart style styles 
+* 23. cart style styles
 
 ***************************/
 
@@ -20255,9 +20311,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 24. shop styles 
+* 24. shop styles
 
 ***************************/
 
@@ -20953,9 +21009,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 25. checkout page styles 
+* 25. checkout page styles
 
 ***************************/
 
@@ -21371,9 +21427,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 26. product page styles 
+* 26. product page styles
 
 ***************************/
 
@@ -21747,9 +21803,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 27. coming soon styles 
+* 27. coming soon styles
 
 ***************************/
 
@@ -22149,9 +22205,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 28. about styles 
+* 28. about styles
 
 ***************************/
 
@@ -22805,9 +22861,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 29. cta styles 
+* 29. cta styles
 
 ***************************/
 
@@ -23361,9 +23417,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 30. find zip styles 
+* 30. find zip styles
 
 ***************************/
 
@@ -23471,9 +23527,9 @@ footer.row .footer_bottom .right {
 
 
 
-/************************** 
+/**************************
 
-* 31. search styles 
+* 31. search styles
 
 ***************************/
 
