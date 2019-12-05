@@ -42,4 +42,9 @@ public class ServiceServiceImpl implements ServiceService {
     }
     @Override
     public Optional<Service> findByName(String name){ return  serviceRepository.findByName(name);}
+    @Override
+    public List<String> autocompleteServices (String keyword){
+        return serviceRepository.autocompleteServices(keyword);
+    }
+
 }

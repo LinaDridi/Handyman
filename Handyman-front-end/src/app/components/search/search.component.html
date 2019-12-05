@@ -1,0 +1,67 @@
+<div class="row m0 section_header" style="max-width:350px; margin-left: 4px;
+">
+<h3>Find a Craftsman</h3>
+</div>
+<span class="ng-autocomplete" class="col-sm-3">
+  <ng-autocomplete
+    [data]="filteredServices"
+    [searchKeyword]="keyword"
+    placeHolder="Service(ex:plomberie)"
+    (selected)='setService($event)'
+    (inputChanged)='autocompleteServices($event)'
+    (inputCleared)='clearService()'
+    [itemTemplate]="itemTemplate"
+    [notFoundTemplate]="notFoundTemplate">
+  </ng-autocomplete>
+
+  <ng-template #itemTemplate let-item>
+  <a [innerHTML]="item"></a>
+  </ng-template>
+
+  <ng-template #notFoundTemplate let-notFound>
+  <div [innerHTML]="notFound"></div>
+  </ng-template>
+  </span>
+<span class="ng-autocomplete" class="col-sm-3">
+  <ng-autocomplete
+    [data]="filteredNames"
+    [searchKeyword]="keyword"
+    placeHolder="Name(ex:Chayma)"
+    (selected)='setName($event)'
+    (inputChanged)='autocompleteNames($event)'
+    (inputCleared)='clearName()'
+    [itemTemplate]="itemTemplate"
+    [notFoundTemplate]="notFoundTemplate">
+  </ng-autocomplete>
+
+  <ng-template #itemTemplate let-item>
+    <a [innerHTML]="item"></a>
+  </ng-template>
+
+  <ng-template #notFoundTemplate let-notFound>
+    <div [innerHTML]="notFound"></div>
+  </ng-template>
+</span>
+<span class="ng-autocomplete" class="row col-sm-3">
+  <ng-autocomplete
+    [data]="filteredAddress"
+    [searchKeyword]="keyword"
+    placeHolder="Address(ex:El Omrane)"
+    (selected)='setAddress($event)'
+    (inputChanged)='autocompleteAddress($event)'
+    (inputCleared)='clearAddress()'
+    [itemTemplate]="itemTemplate"
+    [notFoundTemplate]="notFoundTemplate">
+  </ng-autocomplete>
+
+  <ng-template #itemTemplate let-item>
+    <a [innerHTML]="item"></a>
+  </ng-template>
+
+  <ng-template #notFoundTemplate let-notFound>
+    <div [innerHTML]="notFound"></div>
+  </ng-template>
+</span>
+<span class="col-sm-1">
+<button class="button" (click)="send()">Search </button>
+</span>

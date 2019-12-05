@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,7 +23,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FooterComponent } from './components/footer/footer.component';
-import { CarouselModule } from 'ngx-owl-carousel-o';
+import { SearchComponent } from './components/search/search.component';
+
+
 
 @NgModule({
   declarations: [
@@ -33,7 +37,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     LoginComponent,
     RegistrationUserComponent,
     RegistrationArtisanComponent,
-    FooterComponent
+    FooterComponent,
+    SearchComponent
   ],
   imports: [
     CarouselModule,
@@ -47,11 +52,11 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     MatButtonModule,
     MatCardModule,
     MatInputModule,
-    MatFormFieldModule
-    
+    MatFormFieldModule,
+    AutocompleteLibModule
   ],
   providers: [httpInterceptorProviders],
-  entryComponents:[LoginComponent],
+  entryComponents: [LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
