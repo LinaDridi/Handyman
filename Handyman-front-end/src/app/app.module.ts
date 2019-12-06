@@ -24,6 +24,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
+import { SuggestCraftsmanComponent } from './components/suggest-craftsman/suggest-craftsman.component';
 
 
 
@@ -38,7 +39,8 @@ import { SearchComponent } from './components/search/search.component';
     RegistrationUserComponent,
     RegistrationArtisanComponent,
     FooterComponent,
-    SearchComponent
+    SearchComponent,
+    SuggestCraftsmanComponent
   ],
   imports: [
     CarouselModule,

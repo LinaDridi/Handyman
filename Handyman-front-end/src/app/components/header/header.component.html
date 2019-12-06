@@ -7,7 +7,7 @@
 
 
 
-      <a href="index.html"><img src="../../../assets/images/logo3.png" alt="Awesome Image"/></a>
+      <a routerLink="/home"><img src="../../../assets/images/logo3.png" alt="Awesome Image"/></a>
 
 
 
@@ -112,14 +112,8 @@
 
     <div class="collapse navbar-collapse main-navigation mainmenu " id="main-nav-bar">
 
-      <ul  class="nav navbar-nav navigation-box home-page-two2 "><li id="menu-item-417" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-has-children menu-item-417 dropdown current"><a   title="HOME" class="321" href="http://shtheme.net/demosd/handylexo1" role="button" aria-haspopup="true" aria-expanded="false">HOME<i class="icon-down-open-mini"></i></a>
-        <ul role="menu" class="sub-menu">
-          <li id="menu-item-736" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-736"><a   title="HOME 2" class="123" href="indexbf8a.html?page_id=33">HOME 2</a></li>
-          <li id="menu-item-737" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-737"><a   title="HOME 3" class="123" href="indexe1bc.html?page_id=586">HOME 3</a></li>
-          <li id="menu-item-738" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-738"><a   title="HOME 4" class="123" href="index5e2b.html?page_id=628">HOME 4</a></li>
-          <li id="menu-item-739" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-739"><a   title="HOME 5" class="123" href="indexf231.html?page_id=682">HOME 5</a></li>
-          <li id="menu-item-418" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-418"><a   title="HOME ONE PAGE" class="123" href="index6da1.html?page_id=139">HOME ONE PAGE</a></li>
-        </ul>
+      <ul  class="nav navbar-nav navigation-box home-page-two2 ">
+        <li id="menu-item-417" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-has-children menu-item-417 dropdown current"><a   title="HOME" class="321" routerLink="/home" role="button" aria-haspopup="true" aria-expanded="false">HOME<i class="icon-down-open-mini"></i></a>
       </li>
         <li id="menu-item-422" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-422 dropdown"><a   title="SERVICES" class="321" href="index2040.html?page_id=243" role="button" aria-haspopup="true" aria-expanded="false">SERVICES<i class="icon-down-open-mini"></i></a>
           <ul role="menu" class="sub-menu">
@@ -167,9 +161,14 @@
 
     <div class="right-side-box">
 
+          <form class="form-inline mr-auto">
+            <div class="md-form my-0">
+              <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+              <i class="fa fa-search text-white ml-3" aria-hidden="true" style="width: 100px"></i>
+            </div>
+          </form>
 
 
-      <a href="#test-search" class="icon icon-Search search-btn popup-with-zoom-anim search-opener"></a>
     </div><!-- /.right-side-box -->
 
   </div><!-- /.container -->
