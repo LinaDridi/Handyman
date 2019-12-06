@@ -38,7 +38,7 @@ public class ArtisanSignUpForm {
 
 //    @NotBlank
 //    @Size(min = 3, max = 50)
-    private String rate;
+    private int rate;
 
     @NotBlank
     @Size(min = 3, max = 50)
@@ -163,11 +163,11 @@ public class ArtisanSignUpForm {
         this.phone = phone;
     }
 
-    public String getRate() {
+    public int getRate() {
         return rate;
     }
 
-    public void setRate(String rate) {
+    public void setRate(int rate) {
         this.rate = rate;
     }
 

@@ -9,6 +9,7 @@ import project_framework.handyman.Services.Interfaces.*;
 import project_framework.handyman.message.ResponseMessage;
 import project_framework.handyman.models.*;
 import project_framework.handyman.repositories.ArtisanRepository;
+import project_framework.handyman.repositories.RateRepository;
 import project_framework.handyman.repositories.RoleRepository;
 
 import java.util.HashSet;
@@ -22,6 +23,8 @@ import java.util.Set;
 public class CraftsManController {
     @Autowired
     RoleRepository roleRepository;
+    @Autowired
+    RateRepository rateRepository;
     @Autowired
     ArtisanRepository artisanRepository;
     @Autowired
@@ -187,21 +190,17 @@ public class CraftsManController {
     }
 
     @RequestMapping(value = "/filter/all", method = RequestMethod.GET)
-    public ResponseEntity<List<Artisan>> filterByService(@RequestParam(required = false) String name, @RequestParam(required = false) String serv,@RequestParam(required = false) String address) {
+    public ResponseEntity<List<Artisan>> filterByService(@RequestParam(required = false) String name, @RequestParam(required = false) String serv, @RequestParam(required = false) String address) {
         try {
-            return new ResponseEntity<List<Artisan>>(artisanService.filter(name, serv,address), HttpStatus.OK);
+            return new ResponseEntity<List<Artisan>>(artisanService.filter(name, serv, address), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<List<Artisan>>(HttpStatus.BAD_REQUEST);
         }
-
-
-
-
     }
 
 
     @RequestMapping(value = "/autocomplete/name/{keyword}", method = RequestMethod.GET)
-    public ResponseEntity<List<String>> autocompleteNames (@PathVariable("keyword") String keyword){
+    public ResponseEntity<List<String>> autocompleteNames(@PathVariable("keyword") String keyword) {
         try {
             return new ResponseEntity<List<String>>(artisanService.autocompleteNames(keyword), HttpStatus.OK);
         } catch (Exception e) {
@@ -209,8 +208,9 @@ public class CraftsManController {
         }
 
     }
+
     @RequestMapping(value = "/autocomplete/address/{keyword}", method = RequestMethod.GET)
-    public ResponseEntity<List<String>> autocompleteAddress (@PathVariable("keyword") String keyword){
+    public ResponseEntity<List<String>> autocompleteAddress(@PathVariable("keyword") String keyword) {
         try {
             return new ResponseEntity<List<String>>(artisanService.autocompleteAddress(keyword), HttpStatus.OK);
         } catch (Exception e) {
@@ -218,4 +218,38 @@ public class CraftsManController {
         }
 
     }
+
+    @RequestMapping(value = "/rate", method = RequestMethod.POST)
+    public ResponseEntity<?> rate( @RequestBody Rate req) {
+        try {
+            Artisan artisan = artisanService.findById(req.getId_artisan());
+           int r= artisan.getRate()+1;
+            artisan.setRate(r);
+            Rate rate = new Rate(req.getId_artisan(),req.getUsername_client());
+            rateRepository.save(rate);
+
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return  ResponseEntity.badRequest().build();
+
+        }
+
+
+
+        }
+    @RequestMapping(value = "/israted", method = RequestMethod.GET)
+    public ResponseEntity<Integer> israted (@RequestParam Long artisan, @RequestParam String client){
+        try {
+            System.out.println("1");
+            int val = (rateRepository.getRate(artisan, client));
+            System.out.println("2");
+
+            return new ResponseEntity<Integer>(val,HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<Integer>(HttpStatus.BAD_REQUEST);
+        }
+
+
+    }
+
 }

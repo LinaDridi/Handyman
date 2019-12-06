@@ -44,16 +44,21 @@
 
       <div class="form-group">
         <button color="primary" mat-raised-button >Login</button>
-        <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+        <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" style="font-size: smaller;
+    padding: 7px;">
           Login failed: {{errorMessage}}
         </div>
       </div>
       </mat-card-actions>
-    </form > 
+    </form >
     <hr />
     <p>Don't have an account?</p>
-    <button (click)="nav()" class="btn btn-success">Sign Up Customer</button>
-      <button (click)="nav1()" class="btn btn-success">Sign  Craftsman</button>
+      <span>
+    <button (click)="nav()" class="button">Sign Up Customer</button>
+      </span>
+      <span>
+      <button (click)="nav1()" class="button" style="margin-left: 60px;">Sign Up Craftsman</button>
+      </span>
     </mat-card-content>
   </ng-template>
 </mat-card>

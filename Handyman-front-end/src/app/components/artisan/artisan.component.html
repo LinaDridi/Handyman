@@ -14,13 +14,25 @@
 <section class="row member_sec">
   <div class="container">
     <div class="row m0">
-      <div class="col-sm-5 member_img"><img src="../../../assets/images/img1.jpg" alt="" /></div>
+      <div class="col-sm-5 member_img"><img src="../../../assets/images/img1.jpg" alt="" />
+        <div class="block-recommandation">
+          <div class="col-xs-1">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+          </div>
+        <span style="    padding: 10px;"> {{artisan.firstname}} is recommanded by {{artisan.rate}} persons </span>
+          <button class="btn btn-outline-secondary" style="    margin-left: 90px;" *ngIf="isLoggedIn && isUser " (click)="rate()" [disabled]="isRated">Recommand</button>
+
+        </div>
+      </div>
+
       <div class="col-sm-7 section_header member_details">
         <h2>{{artisan.firstname+" "+artisan.lastname}}</h2>
         <h5>12 years experience in repairing</h5>
         <p>{{artisan.description}}</p>
         <div class="social_icon"></div>
         <div class="phn_no"><a href="#"><img src="../../../assets/images/icon1.png" alt="" />{{artisan.phone}}</a></div>
+
+
         <div class="send_email"><a href="#">or send an email <i class="fa fa-angle-double-right"></i> </a></div>
       </div>
     </div>
@@ -41,6 +53,7 @@
         </div>
       </div>
       <div class="col-md-5 col-lg-7 work_img"><img src="../../../assets/images/img2.jpg" alt="" /><img src="../../../assets/images/img3.jpg" alt="" /></div>
+
     </div>
   </div>
 </section>

@@ -11,7 +11,7 @@ public class Artisan extends User {
 
     public Artisan(){}
 
-    public Artisan(String firstname, String lastname, String username, String email, String password, String birth, String address, String job, String phone, String rate, String type, String description, String img) {
+    public Artisan(String firstname, String lastname, String username, String email, String password, String birth, String address, String job, String phone, int rate, String type, String description, String img) {
         super(firstname, username, email, password);
         this.firstname = firstname;
         this.lastname = lastname;
@@ -19,7 +19,7 @@ public class Artisan extends User {
         this.address = address;
         this.job = job;
         this.phone = phone;
-        this.rate = rate;
+        this.rate = 0;
         this.type = type;
         this.description = description;
         this.img = img;
@@ -49,7 +49,7 @@ public class Artisan extends User {
     private String phone;
 
     @Column(name = "rate")
-    private String rate;
+    private int rate;
 
     @Column(name = "type")
     private String type;
@@ -132,11 +132,11 @@ public class Artisan extends User {
         this.phone = phone;
     }
 
-    public String getRate() {
+    public int getRate() {
         return rate;
     }
 
-    public void setRate(String rate) {
+    public void setRate(int rate) {
         this.rate = rate;
     }
 

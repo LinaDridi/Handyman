@@ -14,8 +14,8 @@ export class HeaderComponent implements OnInit {
   }
   openDialog(){
     let dialogRef = this.matDialog.open(LoginComponent, {
-      height: '511px',
-      width: '416px',
+      height: '516px',
+      width: '420px',
   });
   }
 }

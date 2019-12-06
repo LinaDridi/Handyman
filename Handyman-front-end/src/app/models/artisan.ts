@@ -9,7 +9,7 @@ export class Artisan {
   address: string;
   job: string;
   phone: string;
-  rate: string;
+  rate: number;
   type: string;
   description: string;
   img: string;
