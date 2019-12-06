@@ -25,6 +25,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
 import { SuggestCraftsmanComponent } from './components/suggest-craftsman/suggest-craftsman.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 
 
@@ -40,7 +41,8 @@ import { SuggestCraftsmanComponent } from './components/suggest-craftsman/sugges
     RegistrationArtisanComponent,
     FooterComponent,
     SearchComponent,
-    SuggestCraftsmanComponent
+    SuggestCraftsmanComponent,
+    ContactUsComponent
   ],
   imports: [
     CarouselModule,
