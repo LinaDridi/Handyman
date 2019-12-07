@@ -1,4 +1,8 @@
 package project_framework.handyman.repositories;
 
-public interface ContractRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import project_framework.handyman.models.Contract;
+
+public interface ContractRepository extends JpaRepository<Contract,Integer> {
+
 }
