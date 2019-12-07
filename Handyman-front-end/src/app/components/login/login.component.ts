@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {LoginInfo} from '../../auth/login-info';
 import {AuthService} from '../../auth/auth.service';
 import { TokenStorageService } from '../../auth/token-storage.service';
+import { MatDialog, MatDialogRef  } from  '@angular/material';
+import { RouterModule, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -15,7 +18,10 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
   private loginInfo: LoginInfo;
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  constructor(private authService: AuthService,
+     private tokenStorage: TokenStorageService ,
+     private  dialogRef:  MatDialogRef<LoginComponent>,
+     private router :Router) { }
 
   ngOnInit() { if (this.tokenStorage.getToken()) {
     this.isLoggedIn = true;
@@ -38,6 +44,10 @@ export class LoginComponent implements OnInit {
         this.isLoggedIn = true;
          this.roles = this.tokenStorage.getAuthorities();
         //this.reloadPage();
+        this.dialogRef.close();
+          this.router.navigate(['signup']);
+
+      
         console.log(data)
       },
       error => {
@@ -48,7 +58,15 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  reloadPage() {
-    window.location.reload();
-  }
+nav(){
+  this.router.navigate(['signup']);
+  this.dialogRef.close();
+
+}
+nav1(){
+  this.router.navigate(['signup/artisan']);
+  this.dialogRef.close();
+
+}
+ 
 }

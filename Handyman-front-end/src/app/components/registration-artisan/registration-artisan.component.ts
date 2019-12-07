@@ -23,7 +23,10 @@ export class RegistrationArtisanComponent implements OnInit {
   onSubmit() {
     console.log(this.form);
 
-    this.artisan = new Artisan(this.form.firstName, this.form.lastName, this.form.username,
+    this.artisan = new Artisan(
+      this.form.firstName, 
+      this.form.lastName,
+       this.form.username,
       this.form.email,
       this.form.password,
       this.form.birth,
@@ -32,9 +35,10 @@ export class RegistrationArtisanComponent implements OnInit {
       this.form.phone,
       this.form.type,
       this.form.description,
-      this.form.img
-
+      this.form.img,
+      this.form.service
   );
+console.log(this.artisan);
 
     this.authService.signUp(this.artisan).subscribe(
       data => {

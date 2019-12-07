@@ -12,7 +12,7 @@ import {User} from '../models/user';
 })
 export class AuthService {
 
-
+private baseUrl ='http://localhost:8080/api/auth'
   private loginUrl = 'http://localhost:8080/api/auth/authenticate';
   private signupUrl = 'http://localhost:8080/api/auth/signup';
 
@@ -22,14 +22,14 @@ export class AuthService {
   }
 
   authenticate(loginInfo: LoginInfo): Observable<JwtResponse>{
-    return this.httpClient.post<JwtResponse>(this.loginUrl, loginInfo);
+    return this.httpClient.post<JwtResponse>(this.baseUrl+'/authenticate', loginInfo);
   }
 
   signUp(info: Artisan): Observable<string> {
-    return this.httpClient.post<string>(this.signupUrl, info);
+    return this.httpClient.post<string>(this.baseUrl+'/signupartisan', info);
   }
   signUpUser(info: User): Observable<string> {
-    return this.httpClient.post<string>(this.signupUrl + '/user', info);
+    return this.httpClient.post<string>(this.baseUrl+'/signup' , info);
   }
   // isUserLoggedIn() {
   //   const user = localStorage.getItem('username')
