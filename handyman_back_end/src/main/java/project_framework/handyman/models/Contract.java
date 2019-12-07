@@ -2,7 +2,7 @@ package project_framework.handyman.models;
 
 import javax.persistence.*;
 @Entity
-@Table(name = "project")
+@Table(name = "contract")
 public class Contract {
     Contract(){}
 

@@ -14,6 +14,10 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import project_framework.handyman.Services.Interfaces.ArtisanService;
+import project_framework.handyman.Services.Interfaces.ContractService;
+import project_framework.handyman.models.Artisan;
+import project_framework.handyman.models.Contract;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -24,14 +28,24 @@ import java.io.StringWriter;
 @RestController
 @RequestMapping("/api")
 public class ContractController {
+    private ContractService contractService;
     @Autowired
-    public ContractController() {
+    public ContractController(ContractService thecontractService) {
+       contractService=thecontractService;
+    }
+
+    @GetMapping("/contract")
+    public Contract getContract(@RequestParam int id){
+        return contractService.findById(id);
     }
 
     //********************************************
     @GetMapping("/genpdf/{fileName}")
     HttpEntity<byte[]> createPdf(
-            @PathVariable("fileName") String fileName) throws IOException {
+            @PathVariable("fileName") String fileName,@RequestParam int id) throws IOException {
+        Contract contract = getContract(id) ;
+
+       // System.out.println(contract.getProject_id().getAddress());
 
         /* first, get and initialize an engine */
         VelocityEngine ve = new VelocityEngine();
@@ -44,7 +58,7 @@ public class ContractController {
         Template t = ve.getTemplate("templates/contrat.vm");
         /* create a context and add data */
         VelocityContext context = new VelocityContext();
-        context.put("name", "Linaaa");
+        context.put("contract", contract);
         /* now render the template into a StringWriter */
         StringWriter writer = new StringWriter();
         t.merge(context, writer);

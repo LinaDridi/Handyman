@@ -2,7 +2,7 @@ package project_framework.handyman.Services.Interfaces;
 
 import project_framework.handyman.models.Contract;
 
-public interface ContractSerivce {
+public interface ContractService {
 
     public Contract findById(int theId);
 
