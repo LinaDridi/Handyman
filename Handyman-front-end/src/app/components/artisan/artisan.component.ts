@@ -12,7 +12,7 @@ export class ArtisanComponent implements OnInit {
 id;
 artisan: any ;
   constructor(private data: DataService, private route: ActivatedRoute) {
-    this.artisan = new Artisan('', '' , '', '', '', '', '', '', '', '', '', '');
+    this.artisan = new Artisan('', '' , '', '', '', '', '', '', '', '', '', '','');
     this.id = this.route.snapshot.paramMap.get('id');
     this.data.getArtisan(this.id).subscribe((res) => {
       this.artisan = res;

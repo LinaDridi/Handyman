@@ -1,0 +1,50 @@
+<!--<h1  mat-dialog-title>Message</h1>
+<mat-dialog-content>  </mat-dialog-content>
+<mat-dialog-actions>
+<button  mat-raised-button>Close</button>
+</mat-dialog-actions>
+-->
+
+<mat-card>
+    <div *ngIf="False; else postoffer">
+        an error occured
+    </div>
+
+
+    <ng-template #postoffer>
+        <h2 style="text-align: center" mat-card-title></h2>
+
+        <mat-card-content>
+            <form style="text-align: center" name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm" novalidate>
+                <mat-form-field>
+                    <div class="form-group">
+                        <label for="cost">Cost</label>
+                        <input matInput type="number" class="form-control" id="cost" name="cost" [(ngModel)]="form.cost" #cost="ngModel" required />
+                        <div *ngIf="f.submitted && cost.invalid">
+                            <div *ngIf="cost.errors.required">cost is required</div>
+                        </div>
+                    </div>
+                </mat-form-field>
+                <mat-form-field>
+
+                    <div class="form-group">
+                        <label for="currency">currency</label>
+                        <mat-select id="currency" name="currency" [(ngModel)]="form.currency">
+                            <mat-option value="EUR">EUR</mat-option>
+                            <mat-option value="DNT">DNT</mat-option>
+                        </mat-select>
+                    </div>
+                </mat-form-field>
+
+                <mat-card-actions>
+
+                    <div class="form-group">
+                        <button color="primary" mat-raised-button>Post offer</button>
+                    </div>
+                </mat-card-actions>
+            </form>
+
+
+        </mat-card-content>
+    </ng-template>
+</mat-card>
