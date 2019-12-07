@@ -1,0 +1,10 @@
+<mat-card>
+    <div *ngIf="False; else declined">
+        an error occured
+    </div>
+
+
+    <ng-template #declined>
+        <h2 style="text-align: center" mat-card-title>project declined.</h2>
+    </ng-template>
+</mat-card>
