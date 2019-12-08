@@ -95,7 +95,7 @@
       </div>
       <div class="form-group">
         <label for="img">Choose a photo </label>
-        <input type="file" class="form-control" id="img" accept="image/png, image/jpeg" name="img" [(ngModel)]="form.img" #img="ngModel"  />
+        <input type="file" class="form-control" id="img" accept="image/png, image/jpeg" name="img" (change)="fileChange($event)" [(ngModel)]="form.img" #img="ngModel"  />
       </div>
 
 
