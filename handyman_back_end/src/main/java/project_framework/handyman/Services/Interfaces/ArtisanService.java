@@ -1,6 +1,7 @@
 package project_framework.handyman.Services.Interfaces;
 
 import project_framework.handyman.models.Artisan;
+import project_framework.handyman.models.Project;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,16 +32,12 @@ public interface ArtisanService {
      *
      */
     public void deleteById(long theId);
-
     public Optional<Artisan> findByUsername(String username);
-
     public Boolean existsByUsername(String username);
-
     public Boolean existsByEmail(String email);
     List<Artisan> filterByService(String keyword);
     List<Artisan> filter(String name ,String serv,String address);
     public List<String> autocompleteNames (String keyword);
     public List<String> autocompleteAddress (String keyword);
-
-
+    public List<Project> getArtisanProjects(int theId);
 }

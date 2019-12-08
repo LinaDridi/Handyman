@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+Hello <b>$invoice.project_id.description!</b>  Welcome to HandyMan invoice
+<h1> Hello User</h1>
+<p>project start date : $invoice.project_id.start_date</p>
+<p>project deadline : $invoice.project_id.deadline</p>
+<p>project address : $invoice.project_id.address</p>
+<p>project description : $invoice.project_id.description</p>
+<p>project state : $invoice.project_id.state</p>
+<p>project Cost : $invoice.project_id.cost $invoice.project_id.currency </p>
+<p>invoice id = $invoice.id_invoice</p>
+<p>invoice date : $invoice.creation_date</p>
+
+</body>
+</html>
+

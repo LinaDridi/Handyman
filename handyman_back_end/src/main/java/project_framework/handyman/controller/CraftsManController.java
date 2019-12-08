@@ -1,10 +1,30 @@
 package project_framework.handyman.controller;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.tool.xml.XMLWorkerHelper;
+import org.apache.velocity.Template;
+import org.apache.velocity.VelocityContext;
+import org.apache.velocity.app.VelocityEngine;
+import org.apache.velocity.runtime.RuntimeConstants;
+import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.security.core.parameters.P;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+import project_framework.handyman.Services.Interfaces.ArtisanService;
+import project_framework.handyman.Services.Interfaces.ProjectService;
+import project_framework.handyman.Services.Interfaces.ServiceService;
+import project_framework.handyman.models.Artisan;
+import project_framework.handyman.models.Project;
+import project_framework.handyman.models.Role;
+import project_framework.handyman.models.Service;
 import project_framework.handyman.Services.Interfaces.*;
 import project_framework.handyman.message.ResponseMessage;
 import project_framework.handyman.models.*;
@@ -12,6 +32,11 @@ import project_framework.handyman.repositories.ArtisanRepository;
 import project_framework.handyman.repositories.RateRepository;
 import project_framework.handyman.repositories.RoleRepository;
 
+import javax.validation.constraints.Null;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.StringReader;
+import java.io.StringWriter;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -33,12 +58,19 @@ public class CraftsManController {
     private ArtisanService artisanService;
     @Autowired
     private ServiceService serviceService;
+
     @Autowired
     private AvailabilityService availabilityService;
     @Autowired
     private ScheduleService scheduleService;
     @Autowired
     private ProjectService projectService;
+    @Autowired
+    public CraftsManController(ArtisanService theartisanservice, ServiceService theserviceservice, ProjectService theprojectService){
+        artisanService=theartisanservice;
+        serviceService=theserviceservice;
+        projectService=theprojectService;
+    }
 
     @GetMapping("/artisans")
     public List<Artisan> getArtisans() {
@@ -118,6 +150,34 @@ public class CraftsManController {
     }
 
     @GetMapping("/deleteartisan")
+    @CrossOrigin(origins = "*")
+    @GetMapping("/artisan/projects")
+    public List<Project> getArtisanProjects(@RequestParam int id){
+        return artisanService.getArtisanProjects(id);
+    }
+@PostMapping("/artisan/project/offer")
+    public void postOffer(@RequestParam int idProject,@RequestParam int cost , @RequestParam String currency)
+    {
+        Project project=projectService.findById(idProject);
+
+        project.setAccepted_by_artisan(true);
+        project.setCost(cost);
+        project.setCurrency(currency);
+        projectService.save(project);
+
+    }
+
+    @PostMapping("/artisan/project/decline")
+    public void declineProject(@RequestParam int idProject)
+    {
+        Project project=projectService.findById(idProject);
+
+        project.setAccepted_by_artisan(false);
+        project.setCost(-1);
+        project.setCurrency(null);
+        projectService.save(project);
+
+    }
     public void deleteArtisan(@RequestParam long id) {
         artisanService.deleteById(id);
     }

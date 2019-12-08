@@ -12,20 +12,26 @@ import { HttpClientModule } from '@angular/common/http';
 import { ArtisanComponent } from './components/artisan/artisan.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
-import { RegistrationArtisanComponent} from './components/registration-artisan/registration-artisan.component';
-import { RegistrationUserComponent} from './components/registration-user/registration-user.component';
+import { RegistrationArtisanComponent } from './components/registration-artisan/registration-artisan.component';
+import { RegistrationUserComponent } from './components/registration-user/registration-user.component';
 import { httpInterceptorProviders } from './auth/auth-http-interceptor.service';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ProjectDescriptionComponent } from './components/project-description/project-description.component';
+import { ArtisanProjectPropositionComponent } from './components/artisan-project-proposition/artisan-project-proposition.component';
+import { AcceptOfferComponent } from './components/accept-offer/accept-offer.component';
+import { DeclineOfferComponent } from './components/decline-offer/decline-offer.component';
+import { MatSelectModule } from '@angular/material';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { SuggestCraftsmanComponent } from './components/suggest-craftsman/suggest-craftsman.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
-import { SuggestCraftsmanComponent } from './components/suggest-craftsman/suggest-craftsman.component';
-import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -39,6 +45,11 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
     LoginComponent,
     RegistrationUserComponent,
     RegistrationArtisanComponent,
+    ProjectDescriptionComponent,
+    ArtisanProjectPropositionComponent,
+    AcceptOfferComponent,
+    DeclineOfferComponent
+
     FooterComponent,
     SearchComponent,
     SuggestCraftsmanComponent,
@@ -57,9 +68,12 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,
+    MatSelectModule
+
     AutocompleteLibModule
   ],
-  providers: [httpInterceptorProviders],
+  providers: [httpInterceptorProviders, { provide: MatDialogRef, useValue: {} },
+    { provide: MAT_DIALOG_DATA, useValue: [] },],
   entryComponents: [LoginComponent],
   bootstrap: [AppComponent]
 })

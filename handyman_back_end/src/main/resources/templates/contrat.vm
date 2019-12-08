@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+Hello <b>$contract.project_id.description!</b>  Welcome to HandyMan contract
+<h1> Hello User</h1>
+<p>project start date : $contract.project_id.start_date</p>
+<p>project deadline : $contract.project_id.deadline</p>
+<p>project address : $contract.project_id.address</p>
+<p>project description : $contract.project_id.description</p>
+<p>project state : $contract.project_id.state</p>
+<p>project Cost : $contract.project_id.cost $contract.project_id.currency </p>
+<p>contract id = $contract.id_contract</p>
+<p>contract date : $contract.creation_date</p>
+
+</body>
+</html>
+
