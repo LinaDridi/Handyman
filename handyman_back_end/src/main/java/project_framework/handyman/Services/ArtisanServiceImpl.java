@@ -10,6 +10,7 @@ import project_framework.handyman.repositories.ArtisanRepository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Transactional
 @Service
@@ -81,7 +82,7 @@ public class ArtisanServiceImpl implements ArtisanService {
     }
 
 
-    public List<Project> getArtisanProjects(int theId){
+    public Set<Project> getArtisanProjects(Long theId){
         Artisan artisan = this.findById(theId);
         return artisan.getProjects();
     }

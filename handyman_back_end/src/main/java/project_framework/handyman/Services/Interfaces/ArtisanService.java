@@ -5,6 +5,7 @@ import project_framework.handyman.models.Project;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 public interface ArtisanService {
     /**
@@ -39,5 +40,5 @@ public interface ArtisanService {
     List<Artisan> filter(String name ,String serv,String address);
     public List<String> autocompleteNames (String keyword);
     public List<String> autocompleteAddress (String keyword);
-    public List<Project> getArtisanProjects(int theId);
+    public Set<Project> getArtisanProjects(Long theId);
 }

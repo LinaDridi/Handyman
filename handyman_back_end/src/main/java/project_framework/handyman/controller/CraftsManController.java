@@ -150,9 +150,10 @@ public class CraftsManController {
     }
 
     @GetMapping("/deleteartisan")
+    public void deleteArtisan(@RequestParam int id){ artisanService.deleteById(id); }
     @CrossOrigin(origins = "*")
     @GetMapping("/artisan/projects")
-    public List<Project> getArtisanProjects(@RequestParam int id){
+    public Set<Project> getArtisanProjects(@RequestParam Long id){
         return artisanService.getArtisanProjects(id);
     }
 @PostMapping("/artisan/project/offer")
