@@ -22,3 +22,7 @@ input.ng-dirty.ng-invalid {
     color: red;
     font-size: 12px;
 }
+.multiselect-dropdown .dropdown-btn{
+  padding: unset;
+  border: none;
+}

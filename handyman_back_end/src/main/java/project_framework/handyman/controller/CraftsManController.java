@@ -295,8 +295,6 @@ public class CraftsManController {
 
         }
 
-
-
         }
     @RequestMapping(value = "/israted", method = RequestMethod.GET)
     public ResponseEntity<Integer> israted (@RequestParam Long artisan, @RequestParam String client){

@@ -1,15 +1,18 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 
 const TOKEN_KEY = 'AuthToken';
 const USERNAME_KEY = 'AuthUsername';
 const AUTHORITIES_KEY = 'AuthAuthorities';
+
 @Injectable({
   providedIn: 'root'
 })
 export class TokenStorageService {
   private roles: Array<string> = [];
-  constructor() { }
+
+  constructor() {
+  }
 
   signOut() {
     window.sessionStorage.clear();
@@ -48,5 +51,14 @@ export class TokenStorageService {
     }
 
     return this.roles;
+  }
+
+  public logout() {
+    console.log(window.sessionStorage, '1');
+    window.sessionStorage.removeItem(TOKEN_KEY);
+    window.sessionStorage.removeItem(AUTHORITIES_KEY);
+    window.sessionStorage.removeItem(USERNAME_KEY);
+
+    console.log(window.sessionStorage, '2' );
   }
 }

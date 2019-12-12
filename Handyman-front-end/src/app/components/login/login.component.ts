@@ -43,11 +43,13 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
          this.roles = this.tokenStorage.getAuthorities();
-        //this.reloadPage();
         this.dialogRef.close();
-          this.router.navigate(['signup']);
+        this.reloadPage();
+          this.router.navigate(['/home']);
 
-      
+
+
+
         console.log(data)
       },
       error => {
@@ -68,5 +70,8 @@ nav1(){
   this.dialogRef.close();
 
 }
- 
+
+  private reloadPage() {
+    window.location.reload();
+  }
 }

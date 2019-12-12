@@ -11,8 +11,9 @@ export class DataService {
   }
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
+
   getArtisans() {
     return this.http.get('http://localhost:8080/api/artisans');
   }
@@ -31,7 +32,7 @@ export class DataService {
     //  let options = new RequestOptions({ headers: headers });
     const options = {
       params: new HttpParams(),
-      headers:  headers
+      headers: headers
     };
     this.http.post(`http://localhost:8080/api/files`, formData, options)
 
@@ -40,6 +41,7 @@ export class DataService {
         error => console.log(error)
       );
   }
+
   isRated(artisan, client) {
     let params = new HttpParams();
     params = params.append('artisan', artisan);
@@ -51,4 +53,14 @@ export class DataService {
   rate(info): Observable<string> {
     return this.http.post<string>('http://localhost:8080/api/rate', info);
   }
+
+  getServices(): Observable<string[]> {
+    return this.http.get<string[]>('http://localhost:8080/api/services');
+  }
+  addService(data): Observable<any> {
+
+
+    return this.http.post<any>('http://localhost:8080/api/addservice', data);
+  }
+
 }

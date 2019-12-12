@@ -77,7 +77,8 @@
 
       <div class="single-header-right-info">
 
-        <a  (click)="openDialog()" class="header-btn" style="cursor: pointer">Log In<i class="fa fa-angle-double-right"></i></a>
+        <a *ngIf="!isLoggedIn" (click)="openDialog()" class="header-btn" style="cursor: pointer">Log In<i class="fa fa-angle-double-right"></i></a>
+        <a *ngIf="isLoggedIn" (click)="Logout()" routerLink="/home" class="header-btn" style="cursor: pointer">Log out<i class="fa fa-angle-double-right"></i></a>
 
       </div>
 

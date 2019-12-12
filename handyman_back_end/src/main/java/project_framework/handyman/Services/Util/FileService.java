@@ -12,7 +12,7 @@ import java.nio.file.StandardCopyOption;
 @Service
 public class FileService {
 
-    private static final String FILE_DIRECTORY = "/Disk D/Insat/GL4/Angular/Projet Gl4(craftman)/img";
+    private static final String FILE_DIRECTORY = "/Users/hp/Desktop/gl4/framework/project_Handyman/img";
 
     public void storeFile(MultipartFile file) throws IOException {
         Path filePath = Paths.get(FILE_DIRECTORY + "/" + file.getOriginalFilename());

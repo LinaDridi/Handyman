@@ -31,6 +31,7 @@ import { RegistrationArtisanComponent } from './components/registration-artisan/
 import { RegistrationUserComponent } from './components/registration-user/registration-user.component';
 import { SearchComponent } from './components/search/search.component';
 import { SuggestCraftsmanComponent } from './components/suggest-craftsman/suggest-craftsman.component';
+import {NgMultiSelectDropDownModule} from "ng-multiselect-dropdown";
 
 
 
@@ -53,22 +54,23 @@ import { SuggestCraftsmanComponent } from './components/suggest-craftsman/sugges
         SuggestCraftsmanComponent,
         ContactUsComponent
     ],
-    imports: [
-        CarouselModule,
-        BrowserModule,
-        AppRoutingModule,
-        AngularFontAwesomeModule,
-        HttpClientModule,
-        FormsModule,
-        BrowserAnimationsModule,
-        MatDialogModule,
-        MatButtonModule,
-        MatCardModule,
-        MatInputModule,
-        MatFormFieldModule,
-        MatSelectModule,
-        AutocompleteLibModule
-    ],
+  imports: [
+    CarouselModule,
+    BrowserModule,
+    AppRoutingModule,
+    AngularFontAwesomeModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    AutocompleteLibModule,
+    NgMultiSelectDropDownModule
+  ],
     providers: [httpInterceptorProviders, { provide: MatDialogRef, useValue: {} },
         { provide: MAT_DIALOG_DATA, useValue: [] }, ],
     entryComponents: [LoginComponent],

@@ -12,6 +12,9 @@ import java.util.Optional;
 @Repository
 public interface ServiceRepository extends JpaRepository<Service,Integer> {
     Optional<Service> findByName(String name);
+    Service getByName (String name);
     @Query("Select c.name from Service c where c.name like %:keyword%")
     List<String> autocompleteServices(@Param("keyword") String keyword);
+    @Query("Select c.name from Service c")
+    List<String> getNames();
 }

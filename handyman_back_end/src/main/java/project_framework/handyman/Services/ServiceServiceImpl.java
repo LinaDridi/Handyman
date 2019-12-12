@@ -46,5 +46,7 @@ public class ServiceServiceImpl implements ServiceService {
     public List<String> autocompleteServices (String keyword){
         return serviceRepository.autocompleteServices(keyword);
     }
+    @Override
+    public List<String> getNames (){return serviceRepository.getNames();}
 
 }

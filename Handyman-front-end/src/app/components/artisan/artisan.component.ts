@@ -3,7 +3,8 @@ import {DataService} from '../../services/data.service';
 import {ActivatedRoute} from '@angular/router';
 import {Artisan} from '../../models/artisan';
 import {TokenStorageService} from '../../auth/token-storage.service';
-import {Rate} from "../../models/rate";
+import {Rate} from '../../models/rate';
+import {NewService} from "../../models/newservice";
 
 @Component({
   selector: 'app-artisan',
@@ -18,9 +19,11 @@ export class ArtisanComponent implements OnInit {
   isUser = false;
   isRated = false;
   infoRate: Rate;
+  isShown: boolean = false;
+  service: string;
 
   constructor(private data: DataService, private route: ActivatedRoute, private tokenStorage: TokenStorageService) {
-    this.artisan = new Artisan('', '', '', '', '', '', '', '', '', '', '', '', '');
+    this.artisan = new Artisan('', '', '', '', '', '', '', '', '', '', '', '', ['']);
     this.id = this.route.snapshot.paramMap.get('id');
     this.data.getArtisan(this.id).subscribe((res) => {
       this.artisan = res;
@@ -51,6 +54,7 @@ export class ArtisanComponent implements OnInit {
       });
   }
 
+
   rate() {
     this.infoRate = new Rate(this.id, this.tokenStorage.getUsername());
     this.data.rate(this.infoRate).subscribe((res) => {
@@ -59,6 +63,24 @@ export class ArtisanComponent implements OnInit {
       (error) => {
         console.log(error);
       });
+  }
+
+  toggleShow() {
+    this.isShown = !this.isShown;
+  }
+
+  addService() {
+    const data: string[] = [];
+    for (const serv of this.artisan.services) {
+      data.push(serv.name);
+    }
+
+    data.push(this.service)
+    console.log(data, "ghjklkjhgf");
+    const info = new NewService(this.id, data);
+    this.data.addService(info).subscribe(res => {
+      console.log(res);
+    });
   }
 
 

@@ -25,7 +25,7 @@ public interface ArtisanRepository extends JpaRepository<Artisan, Integer> {
     @Query("Select a from Artisan a inner join a.services s where s.name = :keyword")
     List<Artisan> filterByService(@Param("keyword") String keyword);
 
-    @Query(value = "SELECT a"
+    @Query(value = "SELECT DISTINCT a"
             + " FROM Artisan a inner join a.services s"
             + " WHERE (:name is NULL OR a.name = :name)"
             + " AND (:serv is NULL  OR s.name = :serv)"
