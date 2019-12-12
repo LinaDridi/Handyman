@@ -13,12 +13,14 @@ import { ProjectDescriptionComponent } from './components/project-description/pr
 import { RegistrationArtisanComponent } from './components/registration-artisan/registration-artisan.component';
 import { RegistrationUserComponent } from './components/registration-user/registration-user.component';
 import { SuggestCraftsmanComponent } from './components/suggest-craftsman/suggest-craftsman.component';
+import {LoginGGuard} from './auth/login-g.guard';
+import {LogoutGGuard} from './auth/logout-g.guard';
 
 const routes: Routes = [
-
-    { path: 'SearchArtisan', component: ArtisansearchComponent },
+  // { path: 'SearchArtisan', component: ArtisansearchComponent , canActivate: [LoginGGuard]},
+    { path: 'SearchArtisan', component: ArtisansearchComponent},
     { path: 'SearchArtisan/:id', component: ArtisanComponent },
-    { path: 'login', component: LoginComponent },
+    { path: 'login', component: LoginComponent , canActivate: [LogoutGGuard] },
     { path: 'signup', component: RegistrationUserComponent },
     { path: 'signup/artisan', component: RegistrationArtisanComponent },
     { path: 'home', component: HomeComponent },

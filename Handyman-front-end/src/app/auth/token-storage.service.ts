@@ -61,4 +61,8 @@ export class TokenStorageService {
 
     console.log(window.sessionStorage, '2' );
   }
+  public isAuthentified() {
+    if (window.sessionStorage.getItem(TOKEN_KEY)) {return true; }
+    return false;
+  }
 }
