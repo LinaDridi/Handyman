@@ -8,7 +8,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class homeController {
     @RequestMapping(value = "/home", method = RequestMethod.POST)
-    @PreAuthorize("hasRole('USER') or hasRole('ARTISAN')")
+ //   @PreAuthorize("hasRole('USER') or hasRole('ARTISAN')")
+ //   @PreAuthorize("hasRole('ARTISAN')")
+ //   @PreAuthorize("hasRole('USER')")
+
+
     public ResponseEntity<?> hello(@RequestBody String data) {
         try {
 

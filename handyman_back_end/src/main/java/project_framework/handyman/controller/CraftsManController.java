@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.parameters.P;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -71,12 +72,12 @@ public class CraftsManController {
         serviceService=theserviceservice;
         projectService=theprojectService;
     }
-
+    //   @PreAuthorize("hasRole('USER') or hasRole('ARTISAN')")
     @GetMapping("/artisans")
     public List<Artisan> getArtisans() {
         return artisanService.findAll();
     }
-
+    //   @PreAuthorize("hasRole('USER') or hasRole('ARTISAN')")
     @GetMapping("/artisan")
     public Artisan getArtisan(@RequestParam Long id) {
         return artisanService.findById(id);
@@ -148,16 +149,19 @@ public class CraftsManController {
         artisanService.save(artisan);
         return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
     }
-
+    //   @PreAuthorize("hasRole('ARTISAN')")
     @GetMapping("/deleteartisan")
     public void deleteArtisan(@RequestParam int id){ artisanService.deleteById(id); }
+    //   @PreAuthorize("hasRole('ARTISAN')")
     @CrossOrigin(origins = "*")
     @GetMapping("/artisan/projects")
     public Set<Project> getArtisanProjects(@RequestParam Long id){
         return artisanService.getArtisanProjects(id);
     }
-@PostMapping("/artisan/project/offer")
-    public void postOffer(@RequestParam int idProject,@RequestParam int cost , @RequestParam String currency)
+
+    //   @PreAuthorize("hasRole('USER')")
+    @PostMapping("/artisan/project/offer")
+public void postOffer(@RequestParam int idProject,@RequestParam int cost , @RequestParam String currency)
     {
         Project project=projectService.findById(idProject);
 
@@ -167,7 +171,7 @@ public class CraftsManController {
         projectService.save(project);
 
     }
-
+    //   @PreAuthorize("hasRole('ARTISAN')")
     @PostMapping("/artisan/project/decline")
     public void declineProject(@RequestParam int idProject)
     {
@@ -182,7 +186,7 @@ public class CraftsManController {
     public void deleteArtisan(@RequestParam long id) {
         artisanService.deleteById(id);
     }
-
+    //   @PreAuthorize("hasRole('ARTISAN')")
     @PostMapping("/editartisan")
     public void editArtisan(@RequestBody ArtisanSignUpForm signUpRequest) {
         Artisan artisan = artisanService.findById(signUpRequest.getId());
@@ -239,7 +243,7 @@ public class CraftsManController {
         }
         artisanService.save(artisan);
     }
-
+    //   @PreAuthorize("hasRole('USER') or hasRole('ARTISAN')")
     @RequestMapping(value = "/filter/service/{keyword}", method = RequestMethod.GET)
     public ResponseEntity<List<Artisan>> filterByService(@PathVariable("keyword") String keyword) {
         try {
@@ -249,7 +253,7 @@ public class CraftsManController {
         }
 
     }
-
+    //   @PreAuthorize("hasRole('USER') or hasRole('ARTISAN')")
     @RequestMapping(value = "/filter/all", method = RequestMethod.GET)
     public ResponseEntity<List<Artisan>> filterByService(@RequestParam(required = false) String name, @RequestParam(required = false) String serv, @RequestParam(required = false) String address) {
         try {
@@ -259,7 +263,7 @@ public class CraftsManController {
         }
     }
 
-
+    //   @PreAuthorize("hasRole('USER') or hasRole('ARTISAN')")
     @RequestMapping(value = "/autocomplete/name/{keyword}", method = RequestMethod.GET)
     public ResponseEntity<List<String>> autocompleteNames(@PathVariable("keyword") String keyword) {
         try {
@@ -269,7 +273,7 @@ public class CraftsManController {
         }
 
     }
-
+    //   @PreAuthorize("hasRole('USER') or hasRole('ARTISAN')")
     @RequestMapping(value = "/autocomplete/address/{keyword}", method = RequestMethod.GET)
     public ResponseEntity<List<String>> autocompleteAddress(@PathVariable("keyword") String keyword) {
         try {
@@ -280,6 +284,7 @@ public class CraftsManController {
 
     }
 
+    //   @PreAuthorize("hasRole('USER')")
     @RequestMapping(value = "/rate", method = RequestMethod.POST)
     public ResponseEntity<?> rate( @RequestBody Rate req) {
         try {

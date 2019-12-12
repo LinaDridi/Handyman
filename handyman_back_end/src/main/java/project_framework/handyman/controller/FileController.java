@@ -16,7 +16,6 @@ public class FileController {
 
     @Autowired
     private FileService fileService;
-
     @PostMapping(value = "/api/files")
     public ResponseEntity<?> handleFileUpload(@RequestParam("uploadFile") MultipartFile file) throws IOException {
         fileService.storeFile(file);
