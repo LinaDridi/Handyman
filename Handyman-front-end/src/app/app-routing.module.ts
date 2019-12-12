@@ -15,10 +15,14 @@ import { RegistrationUserComponent } from './components/registration-user/regist
 import { SuggestCraftsmanComponent } from './components/suggest-craftsman/suggest-craftsman.component';
 import {LoginGGuard} from './auth/login-g.guard';
 import {LogoutGGuard} from './auth/logout-g.guard';
+import {RoleGGuard} from './auth/role-g.guard';
 
 const routes: Routes = [
   // { path: 'SearchArtisan', component: ArtisansearchComponent , canActivate: [LoginGGuard]},
-    { path: 'SearchArtisan', component: ArtisansearchComponent},
+    { path: 'SearchArtisan', component: ArtisansearchComponent
+      // ,canActivate: [RoleGGuard],
+     // data: {roles: ['ROLE_ARTISAN']}
+      },
     { path: 'SearchArtisan/:id', component: ArtisanComponent },
     { path: 'login', component: LoginComponent , canActivate: [LogoutGGuard] },
     { path: 'signup', component: RegistrationUserComponent },
