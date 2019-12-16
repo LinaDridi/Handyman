@@ -4,6 +4,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Project } from '../models/project';
 import { MatGridTileHeaderCssMatStyler } from '@angular/material';
+import { Artisan } from '../models/artisan';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,11 @@ export class ArtisanService {
   getProjectList(id) {
     return this.httpClient.get('http://localhost:8080/api/artisan/projects?id=' + id);
   }
-  acceptOffer(idProject, cost, currency) {
-    return this.httpClient.post('http://localhost:8080/api/artisan/project/offer?idProject=' + idProject + "&cost=" + cost + "&currency=" + currency, null, this.options);
+  getArtisanByUsername(username) {
+    return this.httpClient.get('http://localhost:8080/api/artisanByUsername?username=' + username);
+  }
+  acceptOffer(idProject, idArtisan, cost, currency) {
+    return this.httpClient.post('http://localhost:8080/api/artisan/project/offer?idProject=' + idProject + "&id_artisan=" + idArtisan + "&cost=" + cost + "&currency=" + currency, null, this.options);
   }
 
   declineOffer(idProject) {

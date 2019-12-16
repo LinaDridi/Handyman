@@ -1,18 +1,32 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import {Observable} from 'rxjs';
-
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-
+  private messageSource = new BehaviorSubject('default id_artisan undefined ');
+  currentMessage = this.messageSource.asObservable();
+  private messageSource2 = new BehaviorSubject('default id_project undefined ');
+  currentMessage2 = this.messageSource.asObservable();
   constructor(private http: HttpClient) {
   }
 
   httpOptions = {
-    headers: new HttpHeaders({'Content-Type': 'application/json'})
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
+
+  changeMessage(id_artisan) {
+
+    this.messageSource.next(id_artisan)
+
+  }
+  changeMessage2(id_project) {
+    console.log('in data service', id_project)
+    this.messageSource.next(id_project)
+
+  }
 
   getArtisans() {
     return this.http.get('http://localhost:8080/api/artisans');
@@ -47,7 +61,7 @@ export class DataService {
     params = params.append('artisan', artisan);
     params = params.append('client', client);
     console.log(params);
-    return this.http.get<number>('http://localhost:8080/api/israted', {params});
+    return this.http.get<number>('http://localhost:8080/api/israted', { params });
   }
 
   rate(info): Observable<string> {

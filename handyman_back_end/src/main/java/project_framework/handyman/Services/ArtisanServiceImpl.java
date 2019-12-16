@@ -83,6 +83,7 @@ public class ArtisanServiceImpl implements ArtisanService {
 
 
     public Set<Project> getArtisanProjects(Long theId){
+
         Artisan artisan = this.findById(theId);
         return artisan.getProjects();
     }

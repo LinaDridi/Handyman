@@ -1,34 +1,35 @@
 package project_framework.handyman.models;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "project")
 public class Project {
     public Project(){}
 
-    public Project(String start_date, String deadline, String address, boolean accepted_by_artisan, boolean accepted_by_client, Client client_id, String description, String img, String facture, String contrat, String title, String state, String currency, int cost, Artisan artisan_id) {
+    public Project(String start_date, String deadline, String address, Boolean accepted_by_artisan, Boolean accepted_by_client, String client_username, String description, String img, String facture, String contrat, String title, String state, Set<Devis> devis, Long artisan_id) {
         this.start_date = start_date;
         this.deadline = deadline;
         this.address = address;
         this.accepted_by_artisan = accepted_by_artisan;
         this.accepted_by_client = accepted_by_client;
-        this.client_id = client_id;
+        this.client_username = client_username;
         this.description = description;
         this.img = img;
         this.facture = facture;
         this.contrat = contrat;
         this.title = title;
         this.state = state;
-        this.currency = currency;
-        this.cost = cost;
+        this.devis = devis;
         this.artisan_id = artisan_id;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
+    @Column(name = "project_id")
+    private int project_id;
 
     @Column(name = "start_date")
     private String start_date;
@@ -45,12 +46,10 @@ public class Project {
     @Column(name = "accepted_by_client")
     private Boolean accepted_by_client;
 
+    @Column(name = "client_username")
+    private String client_username;
 
-    @ManyToOne
-    @JoinColumn(name = "client_id")
-    private Client client_id;
-
-    @Column(name = "description")
+    @Column(name = "description",columnDefinition="LONGTEXT")
     private String description;
 
     @Column(name = "img")
@@ -69,24 +68,25 @@ public class Project {
     @Column(name = "state")
     private String state;
 
-    @Column(name = "currency")
-    private String currency;
-
-    @Column(name = "cost")
-    private int cost;
-
-    @ManyToOne
-    @JoinColumn(name = "artisan_id")
-    private Artisan artisan_id;
+  //  @OneToMany(mappedBy = "project"/*, cascade = CascadeType.ALL*/)
+    //@Column(name = "devis")
+  @OneToMany(cascade = CascadeType.ALL)
+  @JoinTable(name = "project_devis",
+          joinColumns = @JoinColumn(name = "project_id"),
+          inverseJoinColumns = @JoinColumn(name = "devis_id"))
+    private Set<Devis> devis= new HashSet<>();
 
 
+    @Column(name = "artisan_id")
+    private Long artisan_id;
 
-    public int getId() {
-        return id;
+
+    public int getProject_id() {
+        return project_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setProject_id(int project_id) {
+        this.project_id = project_id;
     }
 
     public String getStart_date() {
@@ -146,21 +146,6 @@ public class Project {
         this.state = state;
     }
 
-    public Artisan getArtisan_id() {
-        return artisan_id;
-    }
-
-    public void setArtisan_id(Artisan artisan_id) {
-        this.artisan_id = artisan_id;
-    }
-
-    public Client getClient_id() {
-        return client_id;
-    }
-
-    public void setClient_id(Client client_id) {
-        this.client_id = client_id;
-    }
 
     public Boolean isAccepted_by_client() {
         return accepted_by_client;
@@ -196,20 +181,35 @@ public class Project {
         this.contrat = contrat;
     }
 
-    public String getCurrency() {
-        return currency;
+    public Set<Devis> getDevis() {
+        return devis;
     }
 
-    public void setCurrency(String currency) {
-        this.currency = currency;
+    public void setDevis(Set<Devis> devis) {
+        this.devis = devis;
     }
 
-    public int getCost() {
-        return cost;
+    public Boolean getAccepted_by_artisan() {
+        return accepted_by_artisan;
     }
 
-    public void setCost(int cost) {
-        this.cost = cost;
+    public Boolean getAccepted_by_client() {
+        return accepted_by_client;
     }
 
+    public String getClient_username() {
+        return client_username;
+    }
+
+    public void setClient_username(String client_username) {
+        this.client_username = client_username;
+    }
+
+    public Long getArtisan_id() {
+        return artisan_id;
+    }
+
+    public void setArtisan_id(Long artisan_id) {
+        this.artisan_id = artisan_id;
+    }
 }

@@ -36,8 +36,8 @@ public class ProjectServiceImpl implements ProjectService {
         return theProject;
     }
     @Override
-    public void save(Project project){
-        projectRepository.save(project);
+    public Project save(Project project){
+        return projectRepository.save(project);
     }
     @Override
     public void deleteById(int theId){

@@ -1,4 +1,5 @@
 import { throwMatDialogContentAlreadyAttachedError } from '@angular/material'
+import { logging } from 'protractor'
 
 export class Project {
     start_date: string
@@ -14,7 +15,9 @@ export class Project {
     state: string
     currency: string
     cost: number
-    constructor(start_date: string, deadline: string, address: string, description: string, title: string) {
+    artisan_id: number;
+    client_username: string;
+    constructor(start_date: string, deadline: string, address: string, description: string, title: string, artisan_id: number, client_username: string) {
 
         this.start_date = start_date;
         this.deadline = deadline;
@@ -28,6 +31,8 @@ export class Project {
         this.state = 'waiting for artisan';
         this.cost = null;
         this.currency = null;
+        this.artisan_id = artisan_id;
+        this.client_username = client_username;
 
     }
 

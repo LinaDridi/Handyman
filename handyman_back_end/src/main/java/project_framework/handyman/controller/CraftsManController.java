@@ -39,6 +39,7 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -151,19 +152,24 @@ public class CraftsManController {
 
     @GetMapping("/deleteartisan")
     public void deleteArtisan(@RequestParam int id){ artisanService.deleteById(id); }
+    @GetMapping("/artisanByUsername")
+    public Optional<Artisan> findByUsername(@RequestParam String username){ return artisanService.findByUsername(username); }
     @CrossOrigin(origins = "*")
     @GetMapping("/artisan/projects")
     public Set<Project> getArtisanProjects(@RequestParam Long id){
         return artisanService.getArtisanProjects(id);
     }
-@PostMapping("/artisan/project/offer")
-    public void postOffer(@RequestParam int idProject,@RequestParam int cost , @RequestParam String currency)
-    {
-        Project project=projectService.findById(idProject);
 
+@PostMapping("/artisan/project/offer")
+    public void postOffer(@RequestParam int idProject,@RequestParam Long id_artisan,@RequestParam Double cost , @RequestParam String currency)
+    { //
+        Project project=projectService.findById(idProject);
+Devis devis = new Devis(cost,currency,idProject,id_artisan);
+        Set<Devis> new_devis =project.getDevis();
+        new_devis.add(devis);
+        project.setDevis(new_devis);
         project.setAccepted_by_artisan(true);
-        project.setCost(cost);
-        project.setCurrency(currency);
+        project.setState("waiting for client");
         projectService.save(project);
 
     }
@@ -173,9 +179,7 @@ public class CraftsManController {
     {
         Project project=projectService.findById(idProject);
 
-        project.setAccepted_by_artisan(false);
-        project.setCost(-1);
-        project.setCurrency(null);
+       // project.setAccepted_by_artisan(false);
         projectService.save(project);
 
     }

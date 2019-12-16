@@ -23,7 +23,8 @@ public interface ProjectService {
      * Save Project.
      *
      */
-    public void save(Project project);
+    public Project save(Project project);
+    //public void save(Project project);
 
     /**
      * delete Project by id.
