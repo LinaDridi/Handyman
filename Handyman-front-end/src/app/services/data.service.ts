@@ -35,6 +35,9 @@ export class DataService {
   getArtisan(id) {
     return this.http.get('http://localhost:8080/api/artisan?id=' + id);
   }
+  getUserByUserName(username) {
+    return this.http.get('http://localhost:8080/api/UserByUsername?username=' + username);
+  }
 
   SaveImg(filelist) {
     let file: File = filelist[0];

@@ -67,6 +67,8 @@ public class CraftsManController {
     @Autowired
     private ProjectService projectService;
     @Autowired
+    UserService userService;
+    @Autowired
     public CraftsManController(ArtisanService theartisanservice, ServiceService theserviceservice, ProjectService theprojectService){
         artisanService=theartisanservice;
         serviceService=theserviceservice;
@@ -310,6 +312,10 @@ Devis devis = new Devis(cost,currency,idProject,id_artisan);
         }
 
 
+    }
+    @GetMapping(value = "/UserByUsername")
+    public User findByname(@RequestParam String username) {
+        return this.userService.findByUsername(username).orElseThrow(() -> new RuntimeException("Fail! -> Cause: User not find."));
     }
 
 }
