@@ -17,6 +17,7 @@ export class Project {
     cost: number
     artisan_id: number;
     client_username: string;
+    service: string;
     constructor(start_date: string, deadline: string, address: string, description: string, title: string, artisan_id: number, client_username: string) {
 
         this.start_date = start_date;

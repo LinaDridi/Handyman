@@ -1,8 +1,10 @@
 package project_framework.handyman.Services.Interfaces;
 
+import project_framework.handyman.models.Artisan;
 import project_framework.handyman.models.Project;
 
 import java.util.List;
+import java.util.Set;
 
 public interface ProjectService {
     /**
@@ -31,5 +33,6 @@ public interface ProjectService {
      *
      */
     public void deleteById(int theId);
+    public List<Artisan> suggestCraftsman(Project project);
 
 }

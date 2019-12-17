@@ -77,4 +77,10 @@ export class DataService {
     return this.http.post<any>('http://localhost:8080/api/addservice', data);
   }
 
+  suggestArtisans(project) {
+   return this.http.post('http://localhost:8080/api/suggestProject', project);
+  }
+  edit(artisan) {
+    return this.http.post('http://localhost:8080/api/editartisan', artisan);
+  }
 }

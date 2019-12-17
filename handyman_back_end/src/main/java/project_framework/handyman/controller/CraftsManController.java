@@ -151,7 +151,7 @@ public class CraftsManController {
     }
 
     @GetMapping("/deleteartisan")
-    public void deleteArtisan(@RequestParam int id){ artisanService.deleteById(id); }
+    public void deleteArtisan(@RequestParam Long id){ artisanService.deleteById(id); }
     @GetMapping("/artisanByUsername")
     public Optional<Artisan> findByUsername(@RequestParam String username){ return artisanService.findByUsername(username); }
     @CrossOrigin(origins = "*")
@@ -182,9 +182,6 @@ Devis devis = new Devis(cost,currency,idProject,id_artisan);
        // project.setAccepted_by_artisan(false);
         projectService.save(project);
 
-    }
-    public void deleteArtisan(@RequestParam long id) {
-        artisanService.deleteById(id);
     }
 
     @PostMapping("/editartisan")

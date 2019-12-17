@@ -15,7 +15,7 @@
 <section class="row member_sec">
     <div class="container">
         <div class="row m0">
-            <div class="col-sm-5 member_img"><img src="../../../assets/images/img1.jpg" alt="" />
+            <div class="col-sm-5 member_img"><img src="http://localhost/img/{{artisan.img}}" alt="" />
                 <div class="block-recommandation">
                     <div class="col-xs-1">
                         <i class="fa fa-heart" aria-hidden="true"></i>
@@ -114,6 +114,33 @@
         </div>
     </div>
 </section>
+
+<section class="row member_work">
+  <h1 style="margin-left: 20px;margin-bottom: 20px">My Latest Projects:</h1>
+  <div class="container-fluid">
+
+    <owl-carousel-o [options]="customOptions">
+
+      <ng-container *ngFor="let slide of images">
+        <ng-template carouselSlide>
+          <div class="item" style="margin-right: 30px">
+            <div class="single-team-style-one">
+              <div class="img-box" style="width: 300px;height: 300px">
+                <img src="../../../assets/images/project-2-5.jpg" alt="Awesome Image"/>
+                <div class="social">
+                  <button class="btn btn-dark">View Details</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ng-container>
+
+    </owl-carousel-o>
+
+  </div><!-- /.container-fluid -->
+</section>
+
 <section class="row single-bg"><img src="../../../assets/images/Single-member-Profilebg.jpg" alt="" /></section>
 
 <section class="row address-area">

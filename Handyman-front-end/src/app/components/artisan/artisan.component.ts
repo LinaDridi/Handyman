@@ -4,7 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Artisan } from '../../models/artisan';
 import { TokenStorageService } from '../../auth/token-storage.service';
 import { Rate } from '../../models/rate';
-import { NewService } from "../../models/newservice";
+import { NewService } from '../../models/newservice';
+import {OwlOptions} from 'ngx-owl-carousel-o';
 import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-artisan',
@@ -24,6 +25,53 @@ export class ArtisanComponent implements OnInit {
   isShown: boolean = false;
   service: string;
 
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    },
+    nav: true
+  };
+  images = [
+    {
+      id: 1,
+      text: 'Everfresh Flowers',
+      image: '../../../assets/images/service-2-2-1.jpg'
+    },
+    {
+      id: 1,
+      text: 'Everfresh Flowers',
+      image: '../../../assets/images/service-2-2-1.jpg'
+    },
+    {
+      id: 1,
+      text: 'Everfresh Flowers',
+      image: '../../../assets/images/service-2-2-1.jpg'
+    },
+    {
+      id: 1,
+      text: 'Everfresh Flowers',
+      image: '../../../assets/images/service-2-2-1.jpg'
+    }
+  ];
+
   constructor(private data: DataService, private route: ActivatedRoute, private tokenStorage: TokenStorageService) {
     this.artisan = new Artisan('', '', '', '', '', '', '', '', '', '', '', '', ['']);
     this.id = this.route.snapshot.paramMap.get('id');
@@ -34,7 +82,7 @@ export class ArtisanComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.data.currentMessage.subscribe(message => this.id_artisan = message)
+    this.data.currentMessage.subscribe(message => this.id_artisan = message);
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getAuthorities();
@@ -58,7 +106,7 @@ export class ArtisanComponent implements OnInit {
   }
 
   newMessage() {
-    this.data.changeMessage(this.id)
+    this.data.changeMessage(this.id);
   }
   rate() {
     this.infoRate = new Rate(this.id, this.tokenStorage.getUsername());
@@ -80,8 +128,8 @@ export class ArtisanComponent implements OnInit {
       data.push(serv.name);
     }
 
-    data.push(this.service)
-    console.log(data, "ghjklkjhgf");
+    data.push(this.service);
+    console.log(data, 'ghjklkjhgf');
     const info = new NewService(this.id, data);
     this.data.addService(info).subscribe(res => {
       console.log(res);

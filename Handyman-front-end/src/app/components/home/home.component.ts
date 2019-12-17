@@ -3,6 +3,7 @@ import { HomeService } from '../../services/home.service';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import {DataService} from '../../services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -38,33 +39,39 @@ export class HomeComponent implements OnInit {
   images = [
     {
       id: 1,
-      text: "Everfresh Flowers",
-      image: "../../../assets/images/service-2-2-1.jpg"
+      text: 'Everfresh Flowers',
+      image: '../../../assets/images/service-2-2-1.jpg'
     },
     {
       id: 1,
-      text: "Everfresh Flowers",
-      image: "../../../assets/images/service-2-2-1.jpg"
+      text: 'Everfresh Flowers',
+      image: '../../../assets/images/service-2-2-1.jpg'
     },
     {
       id: 1,
-      text: "Everfresh Flowers",
-      image: "../../../assets/images/service-2-2-1.jpg"
+      text: 'Everfresh Flowers',
+      image: '../../../assets/images/service-2-2-1.jpg'
     },
     {
       id: 1,
-      text: "Everfresh Flowers",
-      image: "../../../assets/images/service-2-2-1.jpg"
-    },
-    {
-      id: 1,
-      text: "Everfresh Flowers",
-      image: "../../../assets/images/service-2-2-1.jpg"
+      text: 'Everfresh Flowers',
+      image: '../../../assets/images/service-2-2-1.jpg'
     }
   ];
-  constructor(private homeS: HomeService, private matDialog: MatDialog) { }
+  services;
+  artisans;
+  constructor(private homeS: HomeService, private matDialog: MatDialog, private data: DataService) { }
 
   ngOnInit() {
+    this.data.getServices().subscribe((res) => {
+    this.services = res;
+    console.log(res);
+    });
+    this.data.getArtisans().subscribe((res) => {
+        this.artisans = res;
+        console.log(this.artisans);
+      }
+    );
   }
   display() {
     this.homeS.disp(this.st).subscribe((data) => {console.log(data); }

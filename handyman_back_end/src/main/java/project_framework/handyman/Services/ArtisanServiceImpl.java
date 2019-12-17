@@ -8,6 +8,7 @@ import project_framework.handyman.models.Artisan;
 import project_framework.handyman.models.Project;
 import project_framework.handyman.repositories.ArtisanRepository;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -88,5 +89,7 @@ public class ArtisanServiceImpl implements ArtisanService {
         return artisan.getProjects();
     }
 
-
+    public List<Artisan> findArtiasnBy(String service, String start_date){
+        return artisanRepo.findArtiasnBy(service, start_date);
+    }
 }

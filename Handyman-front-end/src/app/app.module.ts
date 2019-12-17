@@ -31,7 +31,8 @@ import { RegistrationArtisanComponent } from './components/registration-artisan/
 import { RegistrationUserComponent } from './components/registration-user/registration-user.component';
 import { SearchComponent } from './components/search/search.component';
 import { SuggestCraftsmanComponent } from './components/suggest-craftsman/suggest-craftsman.component';
-import {NgMultiSelectDropDownModule} from "ng-multiselect-dropdown";
+import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
+import {EditArtisanComponent} from './components/edit-artisan/edit-artisan.component';
 
 
 
@@ -52,7 +53,8 @@ import {NgMultiSelectDropDownModule} from "ng-multiselect-dropdown";
         FooterComponent,
         SearchComponent,
         SuggestCraftsmanComponent,
-        ContactUsComponent
+        ContactUsComponent,
+        EditArtisanComponent
     ],
   imports: [
     CarouselModule,

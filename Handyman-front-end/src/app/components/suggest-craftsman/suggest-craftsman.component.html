@@ -20,7 +20,7 @@
       <div class="navbar navbar-dark bg-warning">
         <div class="col-md-1 hidden-sm hidden-xs"></div>
         <div id="breadcrumb-step1" class="col-md-3 col-sm-3 col-xs-4 breadcrumb-step-label">
-          <span class="font-weight-bold">1.&nbsp;&nbsp;Date</span>
+          <span [ngClass]="{'font-weight-bold':!project.start_date}">1.&nbsp;&nbsp;Date</span>
           <span class="visible-xs">&nbsp;Date</span>
         </div>
         <div class="col-md-1 col-sm-1 hidden-xs text-center colorOrange">
@@ -30,8 +30,8 @@
         </div>
         <div id="breadcrumb-step2"
              class="col-md-3 col-sm-3 col-xs-4 breadcrumb-step-label breadcrumb-step-disabled">
-          <span class="hidden-xs">2.&nbsp;&nbsp;Description of the need</span>
-          <span class="visible-xs">&nbsp;Descriptif</span>
+          <span class="hidden-xs" [ngClass]="{'font-weight-bold':project.start_date&&!project.service}">2.&nbsp;&nbsp;Description of the need</span>
+          <span class="visible-xs">2.&nbsp;&nbsp;Description of the need</span>
         </div>
         <div class="col-md-1 col-sm-1 hidden-xs text-center colorOrange">
           <div class="arrow-right title-step-disabled">
@@ -40,8 +40,8 @@
         </div>
         <div id="breadcrumb-step3"
              class="col-md-3 col-sm-3 col-xs-4 breadcrumb-step-label breadcrumb-step-disabled">
-          <span class="hidden-xs">3.&nbsp;&nbsp;Quotation</span>
-          <span class="visible-xs">&nbsp;Devis</span>
+          <span class="hidden-xs" [ngClass]="{'font-weight-bold':project.service}">3.&nbsp;&nbsp;Quotation</span>
+          <span class="visible-xs">3.&nbsp;&nbsp;Quotation</span>
         </div>
       </div>
     </div>
@@ -58,10 +58,10 @@
         <!-- formulaire -->
         <div class="col-md-12">
           <div id="project-body">
-            <form id="project-form">
+            <form id="project-form" #myform="ngForm">
 
               <!-- étape1 -->
-              <div id="project-form-step1" class="container-fluid" style="background: whitesmoke">
+              <div id="project-form-step1" class="container-fluid" style="background: whitesmoke" *ngIf="!project.start_date">
                 <div class="row" style="margin-bottom: 50px;margin-top: 30px">
                   <div class="col-md-12">
                     <div class="project-title">
@@ -77,37 +77,37 @@
                   <div class="col-md-4 col-sm-4 col-xs-6 text-center" style="margin-bottom: 70px">
                     <label class="btn fa fa-clock-o fa-2x">
                       <label class="icone-devis-label icone-devis-date colorPurple required">Emergency</label>
-                      <input type="radio" name="options" class="d-none">
+                      <input type="radio" name="options" class="d-none" [value]="getdate(0)" [(ngModel)]="project.start_date">
                     </label>
                   </div>
                   <div class="col-md-4 col-sm-4 col-xs-6 text-center">
                     <label class="btn fa fa-calendar fa-2x">
                       <label class="icone-devis-label icone-devis-date colorPurple required">Less than a month</label>
-                      <input type="radio" name="options" class="d-none">
+                      <input type="radio" name="options" class="d-none" [value]="getdate(1)" [(ngModel)]="project.start_date">
                     </label>
                   </div>
                   <div class="col-md-4 col-sm-4 col-xs-6 text-center">
                     <label class="btn fa fa-calendar fa-2x">
                       <label class="icone-devis-label icone-devis-date colorPurple required">Less than 3 months</label>
-                      <input type="radio" name="options" class="d-none">
+                      <input type="radio" name="options" class="d-none" [value]="getdate(3)" [(ngModel)]="project.start_date">
                     </label>
                   </div>
                   <div class="col-md-4 col-sm-4 col-xs-6 text-center">
                     <label class="btn fa fa-calendar fa-2x">
                       <label class="icone-devis-label icone-devis-date colorPurple required">Less than 6 months</label>
-                      <input type="radio" name="options" class="d-none">
+                      <input type="radio" name="options" class="d-none" [value]="getdate(6)" [(ngModel)]="project.start_date">
                     </label>
                   </div>
                   <div class="col-md-4 col-sm-4 col-xs-6 text-center">
                     <label class="btn fa fa-calendar fa-2x">
                       <label class="icone-devis-label icone-devis-date colorPurple required">More than 6 months</label>
-                      <input type="radio" name="options" class="d-none">
+                      <input type="radio" name="options" class="d-none" [value]="getdate(7)" [(ngModel)]="project.start_date">
                     </label>
                   </div>
                   <div class="col-md-4 col-sm-4 col-xs-6 text-center" style="margin-bottom: 50px;">
                     <label class="btn fa fa-calendar-times-o fa-2x">
                       <label class="icone-devis-label icone-devis-date colorPurple required">No fixed date</label>
-                      <input type="radio" name="options" class="d-none">
+                      <input type="radio" name="options" class="d-none" [value]="getdate(0)" [(ngModel)]="project.start_date">
                     </label>
                   </div>
                 </div>
@@ -126,7 +126,7 @@
               <!-- /étape1 -->
 
               <!-- etape2 -->
-              <div id="project-form-step2" class="container-fluid d-none" style="background: whitesmoke">
+              <div id="project-form-step2" class="container-fluid" style="background: whitesmoke" *ngIf="project.start_date&&!project.service">
                 <div class="row" style="margin-bottom: 50px;margin-top: 30px">
                   <div class="col-md-12">
                     <div class="project-title">
@@ -138,43 +138,37 @@
                   <div class="col-md-3 col-sm-4 col-xs-6 text-center" style="margin-bottom: 70px">
                     <label class="btn fa fa-paint-brush fa-2x">
                       <label class="icone-devis-label icone-devis-date colorPurple required">Wall and floor painting</label>
-                      <input type="radio" name="options" class="d-none">
+                      <input type="radio" name="options" class="d-none" value="painting" [(ngModel)]="project.service">
                     </label>
                   </div>
                   <div class="col-md-3 col-sm-4 col-xs-6 text-center">
                     <label class="btn fa fa-pencil fa-2x">
                       <label class="icone-devis-label icone-devis-date colorPurple required">Interior design</label>
-                      <input type="radio" name="options" class="d-none">
+                      <input type="radio" name="options" class="d-none" value="interior design" [(ngModel)]="project.service">
                     </label>
                   </div>
                   <div class="col-md-3 col-sm-4 col-xs-6 text-center">
                     <label class="btn fa fa-wrench fa-2x">
                       <label class="icone-devis-label icone-devis-date colorPurple required">Heating plumbing</label>
-                      <input type="radio" name="options" class="d-none">
+                      <input type="radio" name="options" class="d-none" value="plumber" [(ngModel)]="project.service">
                     </label>
                   </div>
                   <div class="col-md-3 col-sm-4 col-xs-6 text-center">
                     <label class="btn fa fa-bolt fa-2x">
                       <label class="icone-devis-label icone-devis-date colorPurple required">Home automation electricity</label>
-                      <input type="radio" name="options" class="d-none">
+                      <input type="radio" name="options" class="d-none" value="electricity" [(ngModel)]="project.service">
                     </label>
                   </div>
                   <div class="col-md-3 col-sm-4 col-xs-6 text-center">
                     <label class="btn fa fa-tree fa-2x">
                       <label class="icone-devis-label icone-devis-date colorPurple required">Outdoor garden</label>
-                      <input type="radio" name="options" class="d-none">
+                      <input type="radio" name="options" class="d-none" value="gardening" [(ngModel)]="project.service">
                     </label>
                   </div>
                   <div class="col-md-3 col-sm-4 col-xs-6 text-center">
                     <label class="btn fa fa-building fa-2x">
                       <label class="icone-devis-label icone-devis-date colorPurple required">Construction works</label>
-                      <input type="radio" name="options" class="d-none">
-                    </label>
-                  </div>
-                  <div class="col-md-3 col-sm-4 col-xs-6 text-center" style="margin-bottom: 50px">
-                    <label class="btn fa fa-bars fa-2x">
-                      <label class="icone-devis-label icone-devis-date colorPurple required">Others</label>
-                      <input type="radio" name="options" class="d-none">
+                      <input type="radio" name="options" class="d-none" value="construction" [(ngModel)]="project.service">
                     </label>
                   </div>
 
@@ -202,35 +196,18 @@
               <!-- /etape2 -->
 
               <!-- etape3  -->
-              <div id="project-form-step3" class="container-fluid d-none" style="background: whitesmoke">
+              <div id="project-form-step3" class="container-fluid" style="background: whitesmoke" *ngIf="project.service">
                 <div class="row" style="margin-bottom: 50px;margin-top: 30px">
                   <div class="col-md-12">
                     <div class="project-title">
-                      <h2>Etape 3 : Combien de devis souhaitez-vous ?</h2>
+                      <h2>Final Step</h2>
                     </div>
                   </div>
                 </div>
 
                 <div id="nbrDevisDiv">
                   <div class="form-group has-feedback row">
-                    <div class="col-md-4 col-sm-4 col-xs-4 text-center">
-                      <label class="btn fa fa-sticky-note fa-2x">
-                        <label class="icone-devis-label icone-devis-date colorPurple required">Devis</label>
-                        <input type="radio" name="options" class="d-none">
-                      </label>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-4 text-center">
-                      <label class="btn fa fa-sticky-note fa-2x">
-                        <label class="icone-devis-label icone-devis-date colorPurple required">Devis</label>
-                        <input type="radio" name="options" class="d-none">
-                      </label>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-4 text-center">
-                      <label class="btn fa fa-sticky-note fa-2x">
-                        <label class="icone-devis-label icone-devis-date colorPurple required">Devis</label>
-                        <input type="radio" name="options" class="d-none">
-                      </label>
-                    </div>
+                    <div style="text-align: center;width: -webkit-fill-available"><label class="btn fa fa-sticky-note fa-4x"></label><h2>you will be receiving 3 or more quotations</h2></div>
                     <div id="nbrDevisDivErrors" class="col-md-12 col-sm-12 col-xs-12 text-center help-block with-errors">
 
                     </div>
@@ -242,35 +219,21 @@
                     <div class="row">
                       <div id="project-form-name-div"
                            class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
-                        <input type="text" id="create_project_full_form_nom" name="create_project_full_form[nom]" required="required" placeholder="Name" class="form-control" autocomplete="off" />
+                        <input type="text" id="create_project_full_form_nom" name="create_project_full_form[nom]" required="required" placeholder="Project Title" class="form-control" autocomplete="off" [(ngModel)]="project.title"/>
                         <span class="glyphicon form-control-feedback"
                               aria-hidden="true"></span>
                       </div>
                       <div id="project-form-cp-div"
                            class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
-                        <input type="text" id="create_project_full_form_cp" name="create_project_full_form[cp]" required="required" placeholder="Postal code (ex: 44000)" class="form-control" autocomplete="off" pattern="^([0-9]{2}|2[Aa]|2[bB])[0-9]{3}$" data-mask="" data-inputmask="&#039;mask&#039;: &#039;9*999&#039;" />
+                        <input type="text" id="create_project_full_form_cp" name="create_project_full_form[cp]" required="required" placeholder="Adress" class="form-control" autocomplete="off" [(ngModel)]="project.address" />
                         <span class="glyphicon form-control-feedback"
                               aria-hidden="true"></span>
                       </div>
                       <div id="project-form-phone-div"
                            class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
-                        <input type="text" id="create_project_full_form_phone" name="create_project_full_form[phone]" required="required" placeholder="Phone Number" class="form-control" autocomplete="off" pattern="0[1-9]([-. ]?[0-9]{2}){4}" data-mask="" data-inputmask="&#039;mask&#039;: &#039;09-99-99-99-99&#039;" />
+                        <input type="text" id="create_project_full_form_phone" name="create_project_full_form[phone]" required="required" placeholder="Description" class="form-control" autocomplete="off" [(ngModel)]="project.description" />
                         <span class="glyphicon form-control-feedback"
                               aria-hidden="true"></span>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                        <div class="form-group has-feedback">
-                          <div class="checkbox landingpage-checkbox-unique">
-                            <input id="create_project_full_form_cguAccepted" type="checkbox" id="create_project_full_form_cguAccepted" name="create_project_full_form[cguAccepted]" required="required" class="cguAcceptedCheckbox" value="1" />
-                            <label for="create_project_full_form_cguAccepted" class="control-label landingpage-checkbox-cgu-label">
-                              <a href="/cgu" target="_blank">I have read and accept the Terms and Conditions of Use of the service handyman.com</a>
-                            </label>
-                          </div>
-
-                        </div>
-
                       </div>
                     </div>
                   </div>
@@ -284,13 +247,7 @@
                       <span class="hidden-xs">Revenir à l&#039;étape précédente</span><span
                       class="hidden-sm hidden-md hidden-lg">Retour</span>
                     </a>
-                    <a id="step3next" href="#" class="btn btnMain">
-                      <span class="hidden-xs">Je reçois mes devis</span><span
-                      class="hidden-sm hidden-md hidden-lg">Valider</span>
-                      &nbsp;
-                      <span class="arrow-right arrow-right-white"><i
-                        class="fa fa-angle-right fa-1x" aria-hidden="true"></i></span>
-                    </a>
+                    <button class="btn btn-dark" (click)="onSubmit()">Send</button>
                   </div>
                 </div>
 

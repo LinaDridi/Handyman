@@ -68,7 +68,10 @@ public class Project {
     @Column(name = "state")
     private String state;
 
-  //  @OneToMany(mappedBy = "project"/*, cascade = CascadeType.ALL*/)
+    @Column(name = "service")
+    private String service;
+
+    //  @OneToMany(mappedBy = "project"/*, cascade = CascadeType.ALL*/)
     //@Column(name = "devis")
   @OneToMany(cascade = CascadeType.ALL)
   @JoinTable(name = "project_devis",
@@ -211,5 +214,13 @@ public class Project {
 
     public void setArtisan_id(Long artisan_id) {
         this.artisan_id = artisan_id;
+    }
+
+    public String getService() {
+        return service;
+    }
+
+    public void setService(String service) {
+        this.service = service;
     }
 }

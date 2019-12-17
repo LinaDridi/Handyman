@@ -13,6 +13,7 @@ import { ProjectDescriptionComponent } from './components/project-description/pr
 import { RegistrationArtisanComponent } from './components/registration-artisan/registration-artisan.component';
 import { RegistrationUserComponent } from './components/registration-user/registration-user.component';
 import { SuggestCraftsmanComponent } from './components/suggest-craftsman/suggest-craftsman.component';
+import {EditArtisanComponent} from './components/edit-artisan/edit-artisan.component';
 
 const routes: Routes = [
 
@@ -27,7 +28,8 @@ const routes: Routes = [
     { path: 'accept-offer', component: AcceptOfferComponent },
     { path: 'decline-offer', component: DeclineOfferComponent },
     { path: 'Suggest', component: SuggestCraftsmanComponent },
-    { path: 'contact', component: ContactUsComponent }
+    { path: 'contact', component: ContactUsComponent },
+    { path: 'edit/:id', component: EditArtisanComponent }
 ];
 
 @NgModule({

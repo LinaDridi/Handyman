@@ -3,6 +3,7 @@ package project_framework.handyman.Services.Interfaces;
 import project_framework.handyman.models.Artisan;
 import project_framework.handyman.models.Project;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -41,4 +42,6 @@ public interface ArtisanService {
     public List<String> autocompleteNames (String keyword);
     public List<String> autocompleteAddress (String keyword);
     public Set<Project> getArtisanProjects(Long theId);
+    public List<Artisan> findArtiasnBy(String service, String start_date);
+
 }
