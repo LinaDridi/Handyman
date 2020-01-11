@@ -2,17 +2,22 @@ package project_framework.handyman.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import project_framework.handyman.Services.Interfaces.ArtisanService;
 import project_framework.handyman.Services.Interfaces.ProjectService;
+import project_framework.handyman.models.Artisan;
 import project_framework.handyman.models.Project;
 import project_framework.handyman.repositories.ProjectRepository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class ProjectServiceImpl implements ProjectService {
     @Autowired
     public ProjectRepository projectRepository;
+    @Autowired
+    public ArtisanService artisanService;
     @Override
     public List<Project> findAll(){
         return projectRepository.findAll();
@@ -36,11 +41,15 @@ public class ProjectServiceImpl implements ProjectService {
         return theProject;
     }
     @Override
-    public void save(Project project){
-        projectRepository.save(project);
+    public Project save(Project project){
+        return projectRepository.save(project);
     }
     @Override
     public void deleteById(int theId){
         projectRepository.deleteById(theId);
+    }
+    @Override
+    public List<Artisan> suggestCraftsman(Project project){
+    return artisanService.findArtiasnBy(project.getService(),project.getStart_date());
     }
 }

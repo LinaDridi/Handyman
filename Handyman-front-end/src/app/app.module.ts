@@ -36,6 +36,7 @@ import {LoginGGuard} from './auth/login-g.guard';
 import {LogoutGGuard} from "./auth/logout-g.guard";
 import { ClientProjectsComponent } from './components/client-projects/client-projects.component';
 import { ProjectDevisComponent } from './components/project-devis/project-devis.component';
+import {EditArtisanComponent} from './components/edit-artisan/edit-artisan.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { ProjectDevisComponent } from './components/project-devis/project-devis.
     SuggestCraftsmanComponent,
     ContactUsComponent,
     ClientProjectsComponent,
-    ProjectDevisComponent
+    ProjectDevisComponent,
+    EditArtisanComponent
   ],
   imports: [
     CarouselModule,

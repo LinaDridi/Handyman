@@ -74,10 +74,10 @@
                         {{project.description}}
                     </p>
 
-                    <a (click)="openDialogAccept()" class="read-more">
+                    <a (click)="openDialogAccept(project.project_id)" class="read-more">
                               Accept  <i class="fa fa-angle-double-right"></i>
                             </a>
-                    <a (click)="openDialogDecline(project.id)" class="read-more">
+                    <a (click)="openDialogDecline(project.project_id)" class="read-more">
                              Decline  <i class="fa fa-angle-double-right"></i>
                             </a>
 

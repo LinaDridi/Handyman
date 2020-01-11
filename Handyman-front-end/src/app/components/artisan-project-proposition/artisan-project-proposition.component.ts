@@ -6,6 +6,7 @@ import { TokenStorageService } from 'src/app/auth/token-storage.service';
 import { Artisan } from 'src/app/models/artisan';
 import { ArtisanService } from '../../services/artisan.service';
 import { Project } from 'src/app/models/project';
+import { DataService } from 'src/app/services/data.service';
 @Component({
   selector: 'app-artisan-project-proposition',
   templateUrl: './artisan-project-proposition.component.html',
@@ -14,9 +15,10 @@ import { Project } from 'src/app/models/project';
 export class ArtisanProjectPropositionComponent implements OnInit {
   artisan
   listProject
-  //still have to save user in localstorage and get id of user logged
-  id = 18;
-  constructor(private matDialog: MatDialog, private tokenStorage: TokenStorageService, private artisanService: ArtisanService) {
+  id_project;
+
+  id = 1;
+  constructor(private data: DataService, private matDialog: MatDialog, private tokenStorage: TokenStorageService, private artisanService: ArtisanService) {
     this.artisanService.getProjectList(this.id).subscribe(list => {
       console.log(list)
       this.listProject = list;
@@ -26,6 +28,7 @@ export class ArtisanProjectPropositionComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.data.currentMessage2.subscribe(message => this.id_project = message)
     if (this.tokenStorage.getToken()) {
 
       this.artisan.username = this.tokenStorage.getUsername();
@@ -34,11 +37,17 @@ export class ArtisanProjectPropositionComponent implements OnInit {
     }
 
   }
-  openDialogAccept() {
+  newMessage(id_project) {
+    this.data.changeMessage2(id_project)
+  }
+  openDialogAccept(id_project) {
+    console.log(id_project)
+    this.newMessage(id_project);
     let dialogRef = this.matDialog.open(AcceptOfferComponent, {
       height: '511px',
       width: '416px',
     });
+
 
   }
 

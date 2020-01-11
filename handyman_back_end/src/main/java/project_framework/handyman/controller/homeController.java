@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins="*")
 @RestController
 public class homeController {
+
     @RequestMapping(value = "/home", method = RequestMethod.POST)
  //   @PreAuthorize("hasRole('USER') or hasRole('ARTISAN')")
  //   @PreAuthorize("hasRole('ARTISAN')")
@@ -23,5 +24,4 @@ public class homeController {
             System.out.println(e);}
         return  ResponseEntity.badRequest().build();
     }
-
 }

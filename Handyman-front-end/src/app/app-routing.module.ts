@@ -16,6 +16,7 @@ import { SuggestCraftsmanComponent } from './components/suggest-craftsman/sugges
 import {LoginGGuard} from './auth/login-g.guard';
 import {LogoutGGuard} from './auth/logout-g.guard';
 import {RoleGGuard} from './auth/role-g.guard';
+import {EditArtisanComponent} from './components/edit-artisan/edit-artisan.component';
 
 const routes: Routes = [
   // { path: 'SearchArtisan', component: ArtisansearchComponent , canActivate: [LoginGGuard]},
@@ -33,7 +34,8 @@ const routes: Routes = [
     { path: 'accept-offer', component: AcceptOfferComponent },
     { path: 'decline-offer', component: DeclineOfferComponent },
     { path: 'Suggest', component: SuggestCraftsmanComponent },
-    { path: 'contact', component: ContactUsComponent }
+    { path: 'contact', component: ContactUsComponent },
+    { path: 'edit/:id', component: EditArtisanComponent }
 ];
 
 @NgModule({

@@ -8,7 +8,7 @@ import { Project } from '../models/project';
   providedIn: 'root'
 })
 export class ProjectService {
-  httpHeaders = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+  httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
   options = {
     headers: this.httpHeaders
   };

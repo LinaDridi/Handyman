@@ -78,8 +78,26 @@
       <div class="single-header-right-info">
 
         <a *ngIf="!isLoggedIn" (click)="openDialog()" class="header-btn" style="cursor: pointer">Log In<i class="fa fa-angle-double-right"></i></a>
-        <a *ngIf="isLoggedIn" (click)="Logout()" routerLink="/home" class="header-btn" style="cursor: pointer">Log out<i class="fa fa-angle-double-right"></i></a>
-
+        <div *ngIf="isLoggedIn" class="header-navigation">
+          <ul  class="navigation-box" style="height: 30px">
+            <li style="padding-top: inherit">
+              <a style="cursor: pointer" routerLink="/SearchArtisan/{{artisan.id}}">
+              <img src="../../../assets/images/login.png" alt="" class="img-fluid rounded-circle z-depth-0" style="width: 40px">
+              </a>
+              <ul class="sub-menu" style="min-width: 175px">
+                <li>
+                  <a style="cursor: pointer">Notifications</a>
+                </li>
+                <li>
+                  <a style="cursor: pointer" routerLink="/edit/{{artisan.id}}">Edit My Account</a>
+                </li>
+                <li>
+                  <a style="cursor: pointer" (click)="Logout()">Log Out</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
 
 
