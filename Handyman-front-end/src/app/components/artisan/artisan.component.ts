@@ -133,6 +133,7 @@ export class ArtisanComponent implements OnInit {
     const info = new NewService(this.id, data);
     this.data.addService(info).subscribe(res => {
       console.log(res);
+      this.artisan.services.push({id: 0 , name: this.service});
     });
   }
 

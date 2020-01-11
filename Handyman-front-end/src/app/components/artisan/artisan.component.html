@@ -1,5 +1,4 @@
 <!-- Content -->
-<button (click)="newMessage()" [routerLink]="['/project-description']">describe project</button>
 <section class="row page-cover" style=" background: url(../../../assets/images/page-cover.jpg) no-repeat scroll center 0;">
     <div class="container">
         <div class="m0">
@@ -32,11 +31,13 @@
                 <p>{{artisan.description}}</p>
                 <div class="social_icon"></div>
                 <div class="phn_no">
-                    <a href="#"><img src="../../../assets/images/icon1.png" alt="" />{{artisan.phone}}</a>
+                    <a><img src="../../../assets/images/icon1.png" alt="" />{{artisan.phone}}</a>
                 </div>
-
-
-                <div class="send_email"><a href="#">or send an email <i class="fa fa-angle-double-right"></i> </a></div>
+              <br>
+                <div style="padding-left: 25px">
+                <button class="btn btn-secondary" style="font-size: x-large;border: hidden;border-radius: 15px;background-color: #f7be68;" (click)="newMessage()" [routerLink]="['/project-description']">
+                  Request a Free Quote
+                </button></div>
             </div>
         </div>
     </div>
@@ -49,22 +50,15 @@
                     <h2>Professional Work And Services</h2>
                     <h5>I do different work in different environment</h5>
                     <p *ngFor="let service of artisan.services">{{service.name}}</p>
-                    <div>
-                        <ul class="serv">
-                            <li>
-                                <button (click)="toggleShow()">Add new Service</button>
-                                <input *ngIf="isShown" type="text" [(ngModel)]="service">
-                                <button *ngIf="isShown" (click)="addService()">submit</button>
-                            </li>
-                        </ul>
-                    </div>
+                  <div style="margin-left: -10px;margin-top: 5px">
+                    <button class="btn btn-secondary" style="margin-bottom: 2px;font-size: x-small;border: hidden;border-radius: 15px;background-color: #f7be68;" (click)="toggleShow()">
+                      Add new Service
+                    </button>
+                    <br>
+                    <input *ngIf="isShown" type="text" [(ngModel)]="service">
+                    <button class="btn btn-secondary" style="font-size: x-small;border: hidden;border-radius: 15px;background-color: #f7be68;" *ngIf="isShown" (click)="addService()">submit</button>
+                  </div>
 
-
-                </div>
-                <div class="work_inn_txt">
-                    <h4>Nemo enim ipsam voluptatem quia voluptas</h4>
-                    <p>sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius
-                        modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
                 </div>
             </div>
             <div class="col-md-5 col-lg-7 work_img"><img src="../../../assets/images/img2.jpg" alt="" /><img src="../../../assets/images/img3.jpg" alt="" /></div>

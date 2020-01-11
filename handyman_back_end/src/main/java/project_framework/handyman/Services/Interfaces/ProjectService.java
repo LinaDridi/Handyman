@@ -34,5 +34,5 @@ public interface ProjectService {
      */
     public void deleteById(int theId);
     public List<Artisan> suggestCraftsman(Project project);
-
+    public Set<Project> getProposedProjects(Long id);
 }

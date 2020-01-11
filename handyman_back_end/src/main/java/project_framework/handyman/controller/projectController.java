@@ -60,4 +60,8 @@ public class projectController {
         projectService.save(project);
     }
 
+    @GetMapping("/proposedprojects")
+    public Set<Project> proposedProjects(@RequestParam Long id) {
+       return this.projectService.getProposedProjects(id);
+    }
 }

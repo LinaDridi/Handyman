@@ -19,11 +19,11 @@ export class ArtisanProjectPropositionComponent implements OnInit {
 
   id = 1;
   constructor(private data: DataService, private matDialog: MatDialog, private tokenStorage: TokenStorageService, private artisanService: ArtisanService) {
-    this.artisanService.getProjectList(this.id).subscribe(list => {
-      console.log(list)
+    this.artisanService.getProposedProjects(this.id).subscribe(list => {
+      console.log(list);
       this.listProject = list;
-      console.log(this.listProject)
-    })
+      console.log(this.listProject);
+    });
 
   }
 

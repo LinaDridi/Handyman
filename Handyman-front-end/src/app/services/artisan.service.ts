@@ -15,7 +15,9 @@ export class ArtisanService {
     headers: this.httpHeaders
   };
   constructor(private httpClient: HttpClient) { }
-
+  getProposedProjects(id) {
+    return this.httpClient.get('http://localhost:8080/api/proposedprojects?id=' + id);
+  }
   getProjectList(id) {
     return this.httpClient.get('http://localhost:8080/api/artisan/projects?id=' + id);
   }

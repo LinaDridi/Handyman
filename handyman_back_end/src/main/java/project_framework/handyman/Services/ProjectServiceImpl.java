@@ -50,6 +50,9 @@ public class ProjectServiceImpl implements ProjectService {
     }
     @Override
     public List<Artisan> suggestCraftsman(Project project){
-    return artisanService.findArtiasnBy(project.getService(),project.getStart_date());
+    return artisanService.findArtiasnBy(project.getService(),project.getStart_date());}
+    @Override
+    public Set<Project> getProposedProjects(Long id){
+    return this.projectRepository.getProposedProjects(id);
     }
 }
