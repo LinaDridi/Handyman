@@ -15,7 +15,7 @@ export class ArtisanProjectPropositionComponent implements OnInit {
   artisan
   listProject
   //still have to save user in localstorage and get id of user logged
-  id = 1;
+  id = 18;
   constructor(private matDialog: MatDialog, private tokenStorage: TokenStorageService, private artisanService: ArtisanService) {
     this.artisanService.getProjectList(this.id).subscribe(list => {
       console.log(list)

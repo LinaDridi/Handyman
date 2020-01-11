@@ -1,0 +1,13 @@
+<form action="/action_page.php">
+  <p>Please select your gender:</p>
+<div *ngFor="let devis of devisList">
+  <input type="radio" name="devis" value="{{devis.id}}"> {{devis.cost}} {{devis.currency}} Proposed by <br>
+
+</div>
+  <a (click)="accept()" class="read-more">
+    Accept  <i class="fa fa-angle-double-right"></i>
+  </a>
+  <a (click)="delete()" class="read-more">
+    Delete Project <i class="fa fa-angle-double-right"></i>
+  </a>
+</form>

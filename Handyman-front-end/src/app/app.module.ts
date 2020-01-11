@@ -34,6 +34,8 @@ import {SuggestCraftsmanComponent} from './components/suggest-craftsman/suggest-
 import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 import {LoginGGuard} from './auth/login-g.guard';
 import {LogoutGGuard} from "./auth/logout-g.guard";
+import { ClientProjectsComponent } from './components/client-projects/client-projects.component';
+import { ProjectDevisComponent } from './components/project-devis/project-devis.component';
 
 
 @NgModule({
@@ -53,7 +55,9 @@ import {LogoutGGuard} from "./auth/logout-g.guard";
     FooterComponent,
     SearchComponent,
     SuggestCraftsmanComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    ClientProjectsComponent,
+    ProjectDevisComponent
   ],
   imports: [
     CarouselModule,
