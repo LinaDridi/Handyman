@@ -88,9 +88,13 @@
                 <li>
                   <a style="cursor: pointer" routerLink="/artisan/list-project-propositions">Notifications</a>
                 </li>
-                <li>
+                <li *ngIf="isArtisan">
                   <a style="cursor: pointer" routerLink="/edit/{{artisan.id}}">Edit My Account</a>
                 </li>
+                <li *ngIf="isUser">
+                  <a style="cursor: pointer" routerLink="/client/projects">My Projects</a>
+                </li>
+
                 <li>
                   <a style="cursor: pointer" (click)="Logout()">Log Out</a>
                 </li>

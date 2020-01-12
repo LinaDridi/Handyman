@@ -22,4 +22,9 @@ export class ClientService {
     params = params.append('projectId', projectId)
     return this.http.get<Project[]>('http://localhost:8080/api/client/getProjectDevis', {params});
   }
+
+  sendDevis(idDevis) {
+    return this.http.post('http://localhost:8080/api/client/validateDevis', {idDevis});
+
+  }
 }
