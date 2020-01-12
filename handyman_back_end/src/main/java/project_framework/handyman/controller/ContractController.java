@@ -16,6 +16,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import project_framework.handyman.Services.Interfaces.ArtisanService;
 import project_framework.handyman.Services.Interfaces.ContractService;
+import project_framework.handyman.Services.MailService;
 import project_framework.handyman.models.Artisan;
 import project_framework.handyman.models.Contract;
 
@@ -29,9 +30,11 @@ import java.io.StringWriter;
 @RequestMapping("/api")
 public class ContractController {
     private ContractService contractService;
+    private MailService mailService;
     @Autowired
-    public ContractController(ContractService thecontractService) {
+    public ContractController(ContractService thecontractService,MailService mailService) {
        contractService=thecontractService;
+        this.mailService=mailService;
     }
 
     @GetMapping("/contract")
@@ -40,11 +43,12 @@ public class ContractController {
     }
 
     //********************************************
-    @GetMapping("/genpdf/{fileName}")
-    HttpEntity<byte[]> createPdf(
-            @PathVariable("fileName") String fileName,@RequestParam int id) throws IOException {
+    @GetMapping("/genpdf")
+    HttpEntity<byte[]> createPdf(@RequestParam int id) throws IOException {
         Contract contract = getContract(id) ;
-
+    String fileName=contract.getUrl_pdf_contract();
+    System.out.println("*********************************************************************");
+    System.out.println(fileName);
        // System.out.println(contract.getProject_id().getAddress());
 
         /* first, get and initialize an engine */
@@ -81,7 +85,7 @@ public class ContractController {
 
     public ByteArrayOutputStream generatePdf(String html) {
 
-        String pdfFilePath = "";
+        String pdfFilePath = "C:\\Users\\User\\Pictures";
         PdfWriter pdfWriter = null;
 
         // create a new document
@@ -112,10 +116,13 @@ public class ContractController {
             System.out.println("PDF generated successfully");
 
             return baos;
-        } catch (Exception e) {
+        }
+        catch (Exception e) {
             e.printStackTrace();
             return null;
         }
+
+
 
     }
     //**************************************************
