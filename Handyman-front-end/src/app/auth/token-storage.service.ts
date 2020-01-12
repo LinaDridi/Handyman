@@ -52,7 +52,20 @@ export class TokenStorageService {
 
     return this.roles;
   }
-
+  public isUser(): boolean {
+    const roles = this.getAuthorities();
+    if (roles) {
+    if (roles[0] === 'ROLE_USER') {
+      return  true;
+    }}
+  }
+  public isArtisan(): boolean {
+    const roles = this.getAuthorities();
+    if (roles) {
+      if (roles[0] === 'ROLE_ARTISAN') {
+        return  true;
+      }}
+  }
   public logout() {
     console.log(window.sessionStorage, '1');
     window.sessionStorage.removeItem(TOKEN_KEY);

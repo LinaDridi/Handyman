@@ -1,13 +1,13 @@
-<form action="/action_page.php">
-  <p>Please select your gender:</p>
+<form >
+  <p>Please select a price</p>
 <div *ngFor="let devis of devisList">
-  <input type="radio" name="devis" value="{{devis.id}}"> {{devis.cost}} {{devis.currency}} Proposed by <br>
+  <input type="radio" name="devis" value="{{devis.id}}" [(ngModel)]="devisSelected"> {{devis.cost}} {{devis.currency}}  <br>
 
 </div>
-  <a (click)="accept()" class="read-more">
+  <button  class= "button" (click)="accept()" class="read-more">
     Accept  <i class="fa fa-angle-double-right"></i>
-  </a>
-  <a (click)="delete()" class="read-more">
+  </button>
+  <button class="button" (click)="delete()" class="read-more">
     Delete Project <i class="fa fa-angle-double-right"></i>
-  </a>
+  </button>
 </form>

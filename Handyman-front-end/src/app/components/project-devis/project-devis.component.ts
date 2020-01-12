@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ClientService} from '../../services/client.service';
+import {MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-project-devis',
@@ -10,8 +11,10 @@ export class ProjectDevisComponent implements OnInit {
   projectId: number;
   usernameClient: string;
   devisList: any;
-
-  constructor(private clientService: ClientService) {
+  devisSelected;
+  constructor(private clientService: ClientService ,
+              private  dialogRef: MatDialogRef<ProjectDevisComponent>,
+  ) {
   }
 
   ngOnInit() {
@@ -20,7 +23,17 @@ export class ProjectDevisComponent implements OnInit {
         this.devisList = data;
       });
   }
-accept(){}
-delete(){}
+accept() {
+  this.clientService.sendDevis(this.devisSelected).subscribe(
+    (data: any) => {
+      console.log( ' devis selected');
+    });
+  this.dialogRef.close();
+
+}
+delete() {
+  this.dialogRef.close();
+
+}
 
 }
