@@ -20,8 +20,8 @@ export class LoginComponent implements OnInit {
   private loginInfo: LoginInfo;
   constructor(private authService: AuthService,
      private tokenStorage: TokenStorageService ,
-     private  dialogRef:  MatDialogRef<LoginComponent>,
-     private router :Router) { }
+     private  dialogRef: MatDialogRef<LoginComponent>,
+     private router: Router) { }
 
   ngOnInit() { if (this.tokenStorage.getToken()) {
     this.isLoggedIn = true;

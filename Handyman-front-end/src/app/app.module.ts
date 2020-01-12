@@ -80,7 +80,7 @@ import {EditArtisanComponent} from './components/edit-artisan/edit-artisan.compo
   ],
   providers: [httpInterceptorProviders, {provide: MatDialogRef, useValue: {}},
     {provide: MAT_DIALOG_DATA, useValue: []}, LoginGGuard, LogoutGGuard ],
-  entryComponents: [LoginComponent],
+  entryComponents: [LoginComponent, ProjectDevisComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
