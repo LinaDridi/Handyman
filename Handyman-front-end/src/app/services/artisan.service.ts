@@ -22,6 +22,7 @@ export class ArtisanService {
     return this.httpClient.get('http://localhost:8080/api/artisan/projects?id=' + id);
   }
   getArtisanByUsername(username) {
+    console.log(username)
     return this.httpClient.get('http://localhost:8080/api/artisanByUsername?username=' + username);
   }
   acceptOffer(idProject, idArtisan, cost, currency) {

@@ -14,27 +14,42 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class ArtisanProjectPropositionComponent implements OnInit {
   artisan
+  artisan1
   listProject
   id_project;
-
-  id = 1;
+  artisan_username;
+  id = 2;
   constructor(private data: DataService, private matDialog: MatDialog, private tokenStorage: TokenStorageService, private artisanService: ArtisanService) {
-    this.artisanService.getProposedProjects(this.id).subscribe(list => {
-      console.log(list);
-      this.listProject = list;
-      console.log(this.listProject);
+    this.artisan_username = this.tokenStorage.getUsername();
+    console.log(this.artisan_username)
+    this.artisanService.getArtisanByUsername(this.tokenStorage.getUsername()).subscribe({
+      next: (artisan) => {
+        this.artisan1 = artisan;
+      },
+      complete: () => {
+        this.artisanService.getProposedProjects(this.artisan1.id).subscribe(list => { this.listProject = list; });
+      }
     });
+
 
   }
 
   ngOnInit() {
+    // console.log(this.artisan1)
     this.data.currentMessage2.subscribe(message => this.id_project = message)
-    if (this.tokenStorage.getToken()) {
+    /* if (this.tokenStorage.getToken()) {
+ 
+       this.artisan.username = this.tokenStorage.getUsername();
+       this.artisan.roles = this.tokenStorage.getAuthorities()
+       console.log(this.artisan)
+     }*/
 
-      this.artisan.username = this.tokenStorage.getUsername();
-      this.artisan.roles = this.tokenStorage.getAuthorities()
-      console.log(this.artisan)
-    }
+    /* this.artisanService.getProposedProjects(this.artisan1.id).subscribe(list => {
+       console.log(list);
+       this.listProject = list;
+       console.log(this.listProject);
+     });*/
+
 
   }
   newMessage(id_project) {

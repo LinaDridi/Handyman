@@ -24,10 +24,11 @@ export class AcceptOfferComponent implements OnInit {
     constructor(private dialogRef: MatDialogRef<AcceptOfferComponent>, private router: Router, private artisanService: ArtisanService, private data: DataService, private tokenStorage: TokenStorageService) { }
     ngOnInit() {
 
-        this.artisan_username = "aaaartisan"
-        this.artisanService.getArtisanByUsername(this.artisan_username).subscribe(artisan => { this.artisan = artisan })
+        // this.artisan_username = "aaaartisan"
+        this.artisanService.getArtisanByUsername(this.tokenStorage.getUsername()).subscribe(artisan => { this.artisan = artisan })
         this.data.currentMessage2.subscribe(id_project => this.id_project = id_project)
         console.log(this.id_project)
+        // console.log(this.artisan)
     }
     onSubmit(f) {
         console.log('hellooo');

@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+import project_framework.handyman.models.Devis;
 import project_framework.handyman.models.Project;
 
 import java.util.Set;
@@ -17,4 +19,14 @@ public interface ProjectRepository extends JpaRepository<Project,Integer> {
     @Query(value = "Select DISTINCT p from Project p inner join p.devis d " +
             "where (:id is NULL OR d.id_artisan = :id)")
     Set<Project> getProposedProjects(@Param("id") Long id);
+    @Query("Select p from Project p where p.client_username like %:clientUsername%")
+    Set<Project> findByClientUsername(@Param("clientUsername")String clientUsername);
+
+    @Query("Select d from Devis d where d.devis_id=:devis_id")
+    Devis findDevisById(@Param("devis_id")Long devis_id);
+ @Transactional
+ @Modifying
+ @Query("delete from Devis d where d.devis_id=:devis_id")
+ void deleteDevis(@Param("devis_id") Long devis_id);
+
 }

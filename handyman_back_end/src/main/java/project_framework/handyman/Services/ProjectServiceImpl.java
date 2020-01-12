@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import project_framework.handyman.Services.Interfaces.ArtisanService;
 import project_framework.handyman.Services.Interfaces.ProjectService;
 import project_framework.handyman.models.Artisan;
+import project_framework.handyman.models.Devis;
 import project_framework.handyman.models.Project;
 import project_framework.handyman.repositories.ProjectRepository;
 
@@ -55,4 +56,10 @@ public class ProjectServiceImpl implements ProjectService {
     public Set<Project> getProposedProjects(Long id){
     return this.projectRepository.getProposedProjects(id);
     }
+    @Override
+    public Set<Project> findByClientUsername(String clientUsername){return this.projectRepository.findByClientUsername(clientUsername); }
+    @Override
+   public Devis findDevisById(Long devis_id){return  this.projectRepository.findDevisById(devis_id);}
+   @Override
+    public void deleteDevis(Long devis_id){ this.projectRepository.deleteDevis(devis_id);}
 }
