@@ -20,10 +20,7 @@ import project_framework.handyman.Services.MailService;
 import project_framework.handyman.models.Artisan;
 import project_framework.handyman.models.Contract;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.StringReader;
-import java.io.StringWriter;
+import java.io.*;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -71,7 +68,7 @@ public class ContractController {
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
-        baos = generatePdf(writer.toString());
+        baos = generatePdf(writer.toString(),fileName);
 
         HttpHeaders header = new HttpHeaders();
         header.setContentType(MediaType.APPLICATION_PDF);
@@ -83,7 +80,7 @@ public class ContractController {
 
     }
 
-    public ByteArrayOutputStream generatePdf(String html) {
+    public ByteArrayOutputStream generatePdf(String html,String fileName) {
 
         String pdfFilePath = "C:\\Users\\User\\Pictures";
         PdfWriter pdfWriter = null;
@@ -114,7 +111,9 @@ public class ContractController {
             // close the document
             document.close();
             System.out.println("PDF generated successfully");
-
+            FileOutputStream fos = new FileOutputStream("C:\\Users\\User\\Desktop\\Handyman backup\\Handyman\\handyman_back_end\\src\\main\\resources\\"+fileName);
+            fos.write(baos.toByteArray());
+            fos.close();
             return baos;
         }
         catch (Exception e) {
