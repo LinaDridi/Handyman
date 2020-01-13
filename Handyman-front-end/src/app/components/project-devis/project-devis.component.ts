@@ -13,7 +13,10 @@ export class ProjectDevisComponent implements OnInit {
   usernameClient: string;
   devisList: Devis[];
   devisSelected;
-  constructor(private clientService: ClientService ,
+  contractId: number;
+  artisanId: number;
+
+  constructor(private clientService: ClientService,
               private  dialogRef: MatDialogRef<ProjectDevisComponent>,
   ) {
   }
@@ -24,17 +27,29 @@ export class ProjectDevisComponent implements OnInit {
     //     this.devisList = data;
     //   });
   }
-accept() {
-  this.clientService.sendDevis(this.projectId , this.devisSelected).subscribe(
-    (data: any) => {
-      console.log( ' devis selected');
-    });
-  this.dialogRef.close();
 
-}
-delete() {
-  this.dialogRef.close();
+  accept() {
+    this.clientService.sendDevis(this.projectId, this.devisSelected).subscribe(
+      (data: any) => {
+        console.log(' devis selected');
+        console.log(data);
+        this.clientService.getContactId(this.projectId).subscribe((res: number) => {
+          this.contractId = res;
+          this.clientService.sendMail(this.artisanId, this.usernameClient, this.contractId).subscribe(( dt: any) => {
+            console.log('mail sent');
+          });
+        });
 
-}
+
+
+      });
+    this.dialogRef.close();
+
+  }
+
+  delete() {
+    this.dialogRef.close();
+
+  }
 
 }

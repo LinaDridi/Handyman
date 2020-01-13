@@ -32,4 +32,23 @@ export class ClientService {
     return this.http.get('http://localhost:8080/api/client/project/acceptDevis', {responseType: 'text', params});
 
   }
+  getContactId(project_id){
+    let params = new HttpParams();
+    params = params.append('id', project_id);
+    return this.http.get('http://localhost:8080/api/project/contract', {params});
+  }
+
+
+  sendMail(artisan_id,client_username,contract_id){
+    let params = new HttpParams();
+    params = params.append('artisan_id', artisan_id);
+    params = params.append('client_username', client_username);
+    params = params.append('contract_id', contract_id);
+    return this.http.get('http://localhost:8080/api/send-mail-attachment', {params});
+
+
+  }
+
+
+
 }

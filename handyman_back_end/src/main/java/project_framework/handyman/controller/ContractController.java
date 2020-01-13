@@ -38,6 +38,10 @@ public class ContractController {
     public Contract getContract(@RequestParam int id){
         return contractService.findById(id);
     }
+    @GetMapping("/project/contract")
+    public int getIdContract(@RequestParam int id){
+        return contractService.findByProject_id(id);
+    }
 
     //********************************************
     @GetMapping("/genpdf")
@@ -82,7 +86,7 @@ public class ContractController {
 
     public ByteArrayOutputStream generatePdf(String html,String fileName) {
 
-        String pdfFilePath = "C:\\Users\\User\\Pictures";
+        String pdfFilePath = "C:\\Users\\hp\\Pictures";
         PdfWriter pdfWriter = null;
 
         // create a new document
@@ -111,7 +115,7 @@ public class ContractController {
             // close the document
             document.close();
             System.out.println("PDF generated successfully");
-            FileOutputStream fos = new FileOutputStream("C:\\Users\\User\\Desktop\\Handyman backup\\Handyman\\handyman_back_end\\src\\main\\resources\\"+fileName);
+            FileOutputStream fos = new FileOutputStream("C:\\Users\\hp\\Desktop\\gl4\\framework\\project_Handyman\\handyman_back_end\\src\\main\\resources\\"+fileName);
             fos.write(baos.toByteArray());
             fos.close();
             return baos;

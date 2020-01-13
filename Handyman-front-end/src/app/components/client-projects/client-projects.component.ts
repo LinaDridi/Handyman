@@ -29,11 +29,12 @@ export class ClientProjectsComponent implements OnInit {
   }
   openDialog(project: Project) {
     const dialogRef = this.matDialog.open(ProjectDevisComponent, {
-      height: '511px',
-      width: '416px',
+      height: '300px',
+      width: '216px',
     });
     dialogRef.componentInstance.devisList = project.devis;
     dialogRef.componentInstance.projectId = project.project_id;
+    dialogRef.componentInstance.artisanId = project.artisan_id;
     dialogRef.componentInstance.usernameClient = this.username;
 
   }

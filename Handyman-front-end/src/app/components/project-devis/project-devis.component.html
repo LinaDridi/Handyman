@@ -1,13 +1,14 @@
 <form >
-  <p>Please select a price</p>
+  <p style="font-size: x-large">Please select a price</p>
 <div *ngFor="let devis of devisList">
-  <input type="radio" name="devis" value="{{devis.devis_id}}" [(ngModel)]="devisSelected"> {{devis.cost}} {{devis.currency}}  <br>
+  <p style="font-size: large"><input type="radio" name="devis"
+         value="{{devis.devis_id}}" [(ngModel)]="devisSelected">  {{devis.cost}} {{devis.currency}} </p> <br>
 
 </div>
-  <button  class= "button" (click)="accept()" class="read-more">
+  <button  class= "button" (click)="accept()" >
     Accept  <i class="fa fa-angle-double-right"></i>
   </button>
-  <button class="button" (click)="delete()" class="read-more">
-    Delete Project <i class="fa fa-angle-double-right"></i>
+  <button class="button" (click)="delete()"  style="margin-left: 60px;">
+    Cancel <i class="fa fa-angle-double-right"></i>
   </button>
 </form>

@@ -1,5 +1,6 @@
 package project_framework.handyman.Services;
 
+//import com.sun.tools.sjavac.comp.dependencies.PublicApiCollector;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import project_framework.handyman.Services.Interfaces.ContractService;
@@ -33,6 +34,10 @@ public class ContractServiceImpl implements ContractService {
         }
 
         return theContract;
+    }
+    @Override
+    public int findByProject_id(int projectId){
+        return contractRepository.findByProject_id(projectId);
     }
     @Override
     public void save(Contract contract){
