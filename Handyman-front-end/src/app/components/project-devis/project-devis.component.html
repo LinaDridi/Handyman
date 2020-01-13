@@ -1,7 +1,7 @@
 <form >
   <p>Please select a price</p>
 <div *ngFor="let devis of devisList">
-  <input type="radio" name="devis" value="{{devis.id}}" [(ngModel)]="devisSelected"> {{devis.cost}} {{devis.currency}}  <br>
+  <input type="radio" name="devis" value="{{devis.devis_id}}" [(ngModel)]="devisSelected"> {{devis.cost}} {{devis.currency}}  <br>
 
 </div>
   <button  class= "button" (click)="accept()" class="read-more">

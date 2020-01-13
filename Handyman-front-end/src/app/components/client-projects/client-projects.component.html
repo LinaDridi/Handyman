@@ -74,7 +74,8 @@
             {{project.description}}
           </p>
 
-          <a (click)="openDialog(1)" class="read-more">
+          <a *ngIf=" !project.accepted_by_client"
+             (click)="openDialog(project)" class="read-more">
             View Costs   <i class="fa fa-angle-double-right"></i>
           </a>
 

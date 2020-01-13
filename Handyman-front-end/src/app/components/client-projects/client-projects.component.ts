@@ -23,16 +23,17 @@ export class ClientProjectsComponent implements OnInit {
     this.clientService.getProjects(this.username).subscribe(
       (data: Project[]) => {
         this.projects = data;
+        console.log(this.projects);
+
       });
-    this.projects.push(this.project);
-    this.projects.push(new Project('', '', '', '', '', null , ''))
   }
-  openDialog(id) {
+  openDialog(project: Project) {
     const dialogRef = this.matDialog.open(ProjectDevisComponent, {
       height: '511px',
       width: '416px',
     });
-    dialogRef.componentInstance.projectId = id;
+    dialogRef.componentInstance.devisList = project.devis;
+    dialogRef.componentInstance.projectId = project.project_id;
     dialogRef.componentInstance.usernameClient = this.username;
 
   }

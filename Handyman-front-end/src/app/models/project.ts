@@ -1,7 +1,9 @@
 import { throwMatDialogContentAlreadyAttachedError } from '@angular/material'
 import { logging } from 'protractor'
+import {Devis} from "./devis";
 
 export class Project {
+    project_id: number;
     start_date: string
     deadline: string
     address: string
@@ -18,6 +20,7 @@ export class Project {
     artisan_id: number;
     client_username: string;
     service: string;
+    devis : Devis [];
     constructor(start_date: string, deadline: string, address: string, description: string, title: string, artisan_id: number, client_username: string) {
 
         this.start_date = start_date;

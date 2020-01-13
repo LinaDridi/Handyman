@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
 import {Project} from "../models/project";
-import {HttpClient, HttpClientModule, HttpParams} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ClientService {
 
   constructor(private http: HttpClient) {
@@ -13,18 +14,22 @@ export class ClientService {
 
   getProjects(username): Observable<Project[]> {
     let params = new HttpParams();
-    params = params.append('username_client' , username)
+    params = params.append('clientUsername', username);
     return this.http.get<Project[]>('http://localhost:8080/api/client/getProjects', {params});
   }
-  getProjectDevis(projectId , usernameClient){
-    let params = new HttpParams();
-    params = params.append('username_client' , usernameClient);
-    params = params.append('projectId', projectId)
-    return this.http.get<Project[]>('http://localhost:8080/api/client/getProjectDevis', {params});
-  }
 
-  sendDevis(idDevis) {
-    return this.http.post('http://localhost:8080/api/client/validateDevis', {idDevis});
+  // getProjectDevis(projectId , usernameClient){
+  //   let params = new HttpParams();
+  //   params = params.append('username_client' , usernameClient);
+  //   params = params.append('projectId', projectId)
+  //   return this.http.get<Project[]>('http://localhost:8080/api/client/getProjectDevis', {params});
+  // }
+
+  sendDevis(project_id, devis_id) {
+    let params = new HttpParams();
+    params = params.append('project_id', project_id);
+    params = params.append('devis_id', devis_id);
+    return this.http.get('http://localhost:8080/api/client/project/acceptDevis', {responseType: 'text', params});
 
   }
 }

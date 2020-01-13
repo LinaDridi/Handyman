@@ -37,8 +37,11 @@ const routes: Routes = [
     { path: 'Suggest', component: SuggestCraftsmanComponent },
     { path: 'contact', component: ContactUsComponent },
     { path: 'edit/:id', component: EditArtisanComponent },
-  {path: 'client/projects' , component: ClientProjectsComponent}
-];
+  {path: 'client/projects' , component: ClientProjectsComponent},
+  { path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  }];
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
