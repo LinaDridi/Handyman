@@ -14,7 +14,7 @@
 <section class="row member_sec">
     <div class="container">
         <div class="row m0">
-            <div class="col-sm-5 member_img"><img src="http://localhost/img/{{artisan.img}}" alt="" />
+            <div class="col-sm-5 member_img"><img style="width: 500px;height: 500px" src="http://localhost/img/{{artisan.img}}" alt="" />
                 <div class="block-recommandation">
                     <div class="col-xs-1">
                         <i class="fa fa-heart" aria-hidden="true"></i>
@@ -27,7 +27,7 @@
 
             <div class="col-sm-7 section_header member_details">
                 <h2>{{artisan.firstname+" "+artisan.lastname}}</h2>
-                <h5>12 years experience in repairing</h5>
+                <h5>12 years experience in {{artisan.job}}</h5>
                 <p>{{artisan.description}}</p>
                 <div class="social_icon"></div>
                 <div class="phn_no">
@@ -50,7 +50,7 @@
                     <h2>Professional Work And Services</h2>
                     <h5>I do different work in different environment</h5>
                     <p *ngFor="let service of artisan.services">{{service.name}}</p>
-                  <div style="margin-left: -10px;margin-top: 5px">
+                  <div style="margin-left: -10px;margin-top: 5px" *ngIf="artisan.username==this.tokenStorage.getUsername()">
                     <button class="btn btn-secondary" style="margin-bottom: 2px;font-size: x-small;border: hidden;border-radius: 15px;background-color: #f7be68;" (click)="toggleShow()">
                       Add new Service
                     </button>
@@ -109,20 +109,20 @@
     </div>
 </section>
 
-<section class="row member_work">
+<section class="row member_work" *ngIf="artisan.projects[0]">
   <h1 style="margin-left: 20px;margin-bottom: 20px">My Latest Projects:</h1>
   <div class="container-fluid">
 
     <owl-carousel-o [options]="customOptions">
 
-      <ng-container *ngFor="let slide of images">
+      <ng-container *ngFor="let slide of artisan.projects">
         <ng-template carouselSlide>
           <div class="item" style="margin-right: 30px">
             <div class="single-team-style-one">
               <div class="img-box" style="width: 300px;height: 300px">
                 <img src="../../../assets/images/project-2-5.jpg" alt="Awesome Image"/>
                 <div class="social">
-                  <button class="btn btn-dark">View Details</button>
+                  <button class="btn btn-dark">{{slide.title}}</button>
                 </div>
               </div>
             </div>

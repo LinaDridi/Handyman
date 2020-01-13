@@ -74,13 +74,14 @@ export class ArtisanComponent implements OnInit {
 
   constructor(private data: DataService, private route: ActivatedRoute, private tokenStorage: TokenStorageService) {
     this.artisan = new Artisan('', '', '', '', '', '', '', '', '', '', '', '', ['']);
-    this.id = this.route.snapshot.paramMap.get('id');
-    this.data.getArtisan(this.id).subscribe((res) => {
-      this.artisan = res;
-      console.log(res);
+    this.route.params.subscribe((params) => {
+      this.id = params.id;
+      this.data.getArtisan(this.id).subscribe((res) => {
+        this.artisan = res;
+        console.log(res);
+      });
     });
   }
-
   ngOnInit() {
     this.data.currentMessage.subscribe(message => this.id_artisan = message);
     if (this.tokenStorage.getToken()) {
