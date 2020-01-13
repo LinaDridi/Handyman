@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import project_framework.handyman.models.Artisan;
 import project_framework.handyman.models.Client;
 import project_framework.handyman.models.Contract;
+import project_framework.handyman.models.User;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -25,7 +26,7 @@ public class MailService {
         this.javaMailSender = javaMailSender;
     }
 
-    public void sendEmailWithAttachment(Client client , Artisan artisan, Contract contract) throws MailException, MessagingException {
+    public void sendEmailWithAttachment(User client , Artisan artisan, Contract contract) throws MailException, MessagingException {
 
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
 

@@ -112,7 +112,7 @@ public Devis getDevis(@RequestParam Long devis_id){
         Project project=projectService.findById(project_id);
         Devis devis =projectService.findDevisById(devis_id);
         deleteDevis(devis_id);
-        projectService.save(project);
+       // projectService.save(project);
     }
     @DeleteMapping("/client/project/deleteDevis")
     public void deleteDevis(@RequestParam Long devis_id){
