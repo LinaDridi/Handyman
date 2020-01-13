@@ -61,5 +61,6 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
    public Devis findDevisById(Long devis_id){return  this.projectRepository.findDevisById(devis_id);}
    @Override
-    public void deleteDevis(Long devis_id){ this.projectRepository.deleteDevis(devis_id);}
+    public void deleteDevis(Long devis_id){this.projectRepository.deleteDevis(devis_id);}
+
 }

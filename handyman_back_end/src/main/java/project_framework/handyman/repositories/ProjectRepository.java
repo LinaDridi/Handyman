@@ -29,4 +29,6 @@ public interface ProjectRepository extends JpaRepository<Project,Integer> {
  @Query("delete from Devis d where d.devis_id=:devis_id")
  void deleteDevis(@Param("devis_id") Long devis_id);
 
+
+
 }

@@ -182,7 +182,8 @@ Devis devis = new Devis(cost,currency,idProject,id_artisan);
     {
         Project project=projectService.findById(idProject);
 
-       // project.setAccepted_by_artisan(false);
+        project.setAccepted_by_artisan(false);
+        project.setState("declined by craftsman");
         projectService.save(project);
 
     }

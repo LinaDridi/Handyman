@@ -107,12 +107,13 @@ public Devis getDevis(@RequestParam Long devis_id){
         return contractController.createPdf(contract.getId_contract());
     //in angular front end we need to call after accept offer, the api that sends emails to both craftsman and client(see mailController sendwithattachement )
     }
+
     @GetMapping("/client/project/declineDevis")
     public void declineDevis(@RequestParam int project_id, @RequestParam Long devis_id) throws IOException {
         Project project=projectService.findById(project_id);
         Devis devis =projectService.findDevisById(devis_id);
-        deleteDevis(devis_id);
-       // projectService.save(project);
+        project.getDevis().remove(devis);
+        projectService.save(project);
     }
     @DeleteMapping("/client/project/deleteDevis")
     public void deleteDevis(@RequestParam Long devis_id){

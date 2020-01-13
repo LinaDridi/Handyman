@@ -39,4 +39,5 @@ public interface ProjectService {
     public Set<Project> findByClientUsername(String clientUsername);
     public Devis findDevisById(Long devis_id);
     public void deleteDevis(Long devis_id);
+
 }
