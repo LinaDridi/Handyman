@@ -3,12 +3,10 @@ package project_framework.handyman.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.*;
+import project_framework.handyman.Services.Interfaces.ArtisanService;
 import project_framework.handyman.Services.Interfaces.ContractService;
 import project_framework.handyman.Services.Interfaces.ProjectService;
-import project_framework.handyman.models.Artisan;
-import project_framework.handyman.models.Contract;
-import project_framework.handyman.models.Devis;
-import project_framework.handyman.models.Project;
+import project_framework.handyman.models.*;
 
 import javax.mail.MessagingException;
 import java.io.IOException;
@@ -22,6 +20,8 @@ import java.util.*;
 public class projectController {
     private ProjectService projectService;
     private ContractService contractService;
+    @Autowired
+    private ArtisanService artisanService;
 
     @Autowired
     private  ContractController contractController;
@@ -55,18 +55,22 @@ public class projectController {
     @PostMapping("/suggestProject")
     public void suggestProject(@RequestBody Project project) {
         List<Artisan> artisans = projectService.suggestCraftsman(project);
-        Devis devis1= new Devis();
-        devis1.setId_artisan(artisans.get(0).getId());
-        Devis devis2= new Devis();
-        devis2.setId_artisan(artisans.get(1).getId());
-        Devis devis3= new Devis();
-        devis3.setId_artisan(artisans.get(2).getId());
-        Set<Devis> devis = new HashSet<>();
-        devis.add(devis1);
-        devis.add(devis2);
-        devis.add(devis3);
-        project.setDevis(devis);
-        projectService.save(project);
+        if(artisans!=null){
+            Set<Devis> devis = new HashSet<>();
+            Devis devis1= new Devis();
+            devis1.setId_artisan(artisans.get(0).getId());
+            devis.add(devis1);
+            if(artisans.get(1)!=null){
+                Devis devis2= new Devis();
+                devis2.setId_artisan(artisans.get(1).getId());
+                devis.add(devis2);
+                if(artisans.get(2)!=null){
+                    Devis devis3= new Devis();
+                    devis3.setId_artisan(artisans.get(2).getId());
+                    devis.add(devis3);}
+            }
+            project.setDevis(devis);
+            projectService.save(project);}
     }
 
     @GetMapping("/proposedprojects")
@@ -92,6 +96,11 @@ public Devis getDevis(@RequestParam Long devis_id){
         project.setState("started");
         project.setDevis(new_devis);
         projectService.save(project);
+        Artisan artisan = artisanService.findById(project.getArtisan_id());
+        Set<Project> new_project = new HashSet<>();
+        new_project.add(project);
+        artisan.setProjects(new_project);
+        artisanService.save(artisan);
         //create contract
         Calendar cal = Calendar.getInstance();
         Date date=cal.getTime();

@@ -40,6 +40,6 @@ public interface ArtisanRepository extends JpaRepository<Artisan, Integer> {
     List<String> autocompleteAddress(@Param("keyword") String keyword);
     @Query(value = "Select DISTINCT a from Artisan a inner join a.services s inner join a.availability_id av " +
             "where (:service is NULL OR s.name = :service)" +
-            " and (:start_date is NULL OR a.availability_id is NULL OR av.start_date < :start_date) ORDER BY a.rate")
+            " and (:start_date is NULL OR a.availability_id is NULL OR av.start_date > :start_date) ORDER BY a.rate")
     List<Artisan> findArtiasnBy(@Param("service") String service, @Param("start_date") String date);
 }

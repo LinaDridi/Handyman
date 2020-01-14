@@ -5,6 +5,7 @@ import {TokenStorageService} from '../../auth/token-storage.service';
 import {DataService} from '../../services/data.service';
 import {Artisan} from '../../models/artisan';
 import {ArtisanService} from '../../services/artisan.service';
+import {Project} from '../../models/project';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -15,8 +16,10 @@ export class HeaderComponent implements OnInit {
   artisan: any;
   isUser = false;
   isArtisan = false;
-  listProject;
-  constructor(private matDialog: MatDialog ,  private tokenStorage: TokenStorageService, private data: DataService, private artisanService: ArtisanService) { }
+  listProject: any = [];
+  constructor(private matDialog: MatDialog ,  private tokenStorage: TokenStorageService,
+              private data: DataService, private artisanService: ArtisanService) {
+  }
 
   ngOnInit() {
     this.artisan = new Artisan('', '', '', '', '', '', '', '', '', '', '', '', ['']);
@@ -26,7 +29,7 @@ export class HeaderComponent implements OnInit {
       this.data.getUserByUserName(this.tokenStorage.getUsername()).subscribe((res) => {
         this.artisan = res;
         console.log(res);
-        this.artisanService.getProposedProjects(this.artisan.id).subscribe(list => {
+        this.artisanService.getProposedProjects(this.artisan.id).subscribe((list) => {
           console.log(list);
           this.listProject = list;
           console.log(this.listProject);
