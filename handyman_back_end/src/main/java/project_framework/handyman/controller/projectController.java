@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import project_framework.handyman.Services.Interfaces.ArtisanService;
 import project_framework.handyman.Services.Interfaces.ContractService;
 import project_framework.handyman.Services.Interfaces.ProjectService;
+import project_framework.handyman.Services.MailService;
 import project_framework.handyman.models.*;
 
 import javax.mail.MessagingException;
@@ -24,110 +25,124 @@ public class projectController {
     private ArtisanService artisanService;
 
     @Autowired
-    private  ContractController contractController;
+    private ContractController contractController;
     @Autowired
-    public projectController(ProjectService projectService ,ContractService contractService,ContractController contractController) {
+    private MailService mailService;
+
+    @Autowired
+    private CraftsManController craftsManController;
+
+    @Autowired
+    public projectController(ProjectService projectService, ContractService contractService, ContractController contractController) {
         this.projectService = projectService;
-        this.contractService= contractService;
-        this.contractController=contractController;
+        this.contractService = contractService;
+        this.contractController = contractController;
 
     }
 
     @PostMapping("/addProject")
     public void createProject(@RequestBody Project project) {
-        Project saved_project =projectService.save(project);
+        Project saved_project = projectService.save(project);
 
-        Devis devis = new Devis(null,null,saved_project.getProject_id(),saved_project.getArtisan_id());
-        Set<Devis> new_devis =project.getDevis();
+        Devis devis = new Devis(null, null, saved_project.getProject_id(), saved_project.getArtisan_id());
+        Set<Devis> new_devis = project.getDevis();
         new_devis.add(devis);
         project.setDevis(new_devis);
         projectService.save(project);
 
 
-
     }
 
     @GetMapping("/project")
-    public Project getProject(@RequestParam int id){
+    public Project getProject(@RequestParam int id) {
         return projectService.findById(id);
     }
 
     @PostMapping("/suggestProject")
     public void suggestProject(@RequestBody Project project) {
         List<Artisan> artisans = projectService.suggestCraftsman(project);
-        if(artisans!=null){
+        if (artisans != null) {
             Set<Devis> devis = new HashSet<>();
-            Devis devis1= new Devis();
+            Devis devis1 = new Devis();
             devis1.setId_artisan(artisans.get(0).getId());
             devis.add(devis1);
-            if(artisans.get(1)!=null){
-                Devis devis2= new Devis();
+            if (artisans.get(1) != null) {
+                Devis devis2 = new Devis();
                 devis2.setId_artisan(artisans.get(1).getId());
                 devis.add(devis2);
-                if(artisans.get(2)!=null){
-                    Devis devis3= new Devis();
+                if (artisans.get(2) != null) {
+                    Devis devis3 = new Devis();
                     devis3.setId_artisan(artisans.get(2).getId());
-                    devis.add(devis3);}
+                    devis.add(devis3);
+                }
             }
             project.setDevis(devis);
-            projectService.save(project);}
+            projectService.save(project);
+        }
     }
 
     @GetMapping("/proposedprojects")
     public Set<Project> proposedProjects(@RequestParam Long id) {
-       return this.projectService.getProposedProjects(id);
+        return this.projectService.getProposedProjects(id);
     }
 
     @GetMapping("/client/getProjects")
-    public Set<Project> findByClientUsername(@RequestParam String clientUsername){return this.projectService.findByClientUsername(clientUsername);}
-/*@GetMapping("/client/devis")
-public Devis getDevis(@RequestParam Long devis_id){
-        return this.projectService.findDevisById(devis_id);
-}*/
+    public Set<Project> findByClientUsername(@RequestParam String clientUsername) {
+        return this.projectService.findByClientUsername(clientUsername);
+    }
+
+    /*@GetMapping("/client/devis")
+    public Devis getDevis(@RequestParam Long devis_id){
+            return this.projectService.findDevisById(devis_id);
+    }*/
     @GetMapping("/client/project/acceptDevis")
-    public HttpEntity<byte[]> acceptDevis(@RequestParam int project_id, @RequestParam Long devis_id) throws IOException {
-        Project project=projectService.findById(project_id);
-        Devis devis =projectService.findDevisById(devis_id);
+    public HttpEntity<byte[]> acceptDevis(@RequestParam int project_id, @RequestParam Long devis_id) throws IOException, MessagingException {
+        Project project = projectService.findById(project_id);
+        Devis devis = projectService.findDevisById(devis_id);
         Set<Devis> new_devis = new HashSet<>();
         new_devis.add(devis);
         System.out.println(devis.getId_artisan());
         project.setArtisan_id(devis.getId_artisan());
-        project.setAccepted_by_client(true);
+        //project.setAccepted_by_client(true);
         project.setState("started");
         project.setDevis(new_devis);
         projectService.save(project);
         Artisan artisan = artisanService.findById(project.getArtisan_id());
+        User user = craftsManController.findByname(project.getClient_username());
         Set<Project> new_project = new HashSet<>();
         new_project.add(project);
         artisan.setProjects(new_project);
         artisanService.save(artisan);
         //create contract
         Calendar cal = Calendar.getInstance();
-        Date date=cal.getTime();
-        DateFormat dateFormat = new SimpleDateFormat("dd/mm/YYYY");
-        String formattedDate=dateFormat.format(date);
-        Contract contract =new Contract();
+        Date date = cal.getTime();
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY");
+        String formattedDate = dateFormat.format(date);
+        Contract contract = new Contract();
         contract.setCreation_date(formattedDate);
         contract.setProject_id(project);
         contractService.save(contract);
-        contract.setUrl_pdf_contract("contract#"+contract.getId_contract()+".pdf");
-    contractService.save(contract);
-    //generate pdf contract
-        return contractController.createPdf(contract.getId_contract());
-    //in angular front end we need to call after accept offer, the api that sends emails to both craftsman and client(see mailController sendwithattachement )
+        contract.setUrl_pdf_contract("contract#" + contract.getId_contract() + ".pdf");
+        contractService.save(contract);
+        //generate pdf contract
+        byte[] ba = contractController.createPdf(contract.getId_contract());
+        mailService.sendMailFileBytes(user, artisan, ba,contract);
+        return new HttpEntity(ba);
+        //in angular front end we need to call after accept offer, the api that sends emails to both craftsman and client(see mailController sendwithattachement )
     }
 
     @GetMapping("/client/project/declineDevis")
     public void declineDevis(@RequestParam int project_id, @RequestParam Long devis_id) throws IOException {
-        Project project=projectService.findById(project_id);
-        Devis devis =projectService.findDevisById(devis_id);
+        Project project = projectService.findById(project_id);
+        Devis devis = projectService.findDevisById(devis_id);
         project.getDevis().remove(devis);
         projectService.save(project);
     }
+
     @DeleteMapping("/client/project/deleteDevis")
-    public void deleteDevis(@RequestParam Long devis_id){
-         projectService.deleteDevis(devis_id);
+    public void deleteDevis(@RequestParam Long devis_id) {
+        projectService.deleteDevis(devis_id);
     }
 
-    }
+}
 

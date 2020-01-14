@@ -39,6 +39,10 @@ export class DataService {
     return this.http.get('http://localhost:8080/api/UserByUsername?username=' + username);
   }
 
+  SaveMsg(form) {
+    return this.http.post('http://localhost:8080/api/Message', form);
+  }
+
   SaveImg(filelist) {
     let file: File = filelist[0];
     let formData: FormData = new FormData();
