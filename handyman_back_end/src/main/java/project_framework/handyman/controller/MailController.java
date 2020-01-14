@@ -35,7 +35,8 @@ private UserService userService;
 
     @RequestMapping("/send-mail-attachment")
     public String sendWithAttachment(@RequestParam Long artisan_id , @RequestParam String client_username , @RequestParam int contract_id ) throws MessagingException {
-Artisan artisan = artisanService.findById(artisan_id);
+System.out.println(artisan_id+'?'+client_username+'?'+contract_id);
+        Artisan artisan = artisanService.findById(artisan_id);
 User client= userService.findByUsername(client_username).orElseThrow(() -> new RuntimeException("Fail! -> Cause: User not find."));
 Contract contract = contractService.findById(contract_id);
         /*
