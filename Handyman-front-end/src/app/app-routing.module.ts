@@ -25,23 +25,23 @@ const routes: Routes = [
       // ,canActivate: [RoleGGuard],
      // data: {roles: ['ROLE_ARTISAN']}
       },
-    { path: 'SearchArtisan/:id', component: ArtisanComponent },
+    { path: 'SearchArtisan/:id', component: ArtisanComponent, canActivate: [LoginGGuard]},
     { path: 'login', component: LoginComponent , canActivate: [LogoutGGuard] },
     { path: 'signup', component: RegistrationUserComponent },
     { path: 'signup/artisan', component: RegistrationArtisanComponent },
     { path: 'home', component: HomeComponent },
-    { path: 'project-description', component: ProjectDescriptionComponent },
-    { path: 'artisan/list-project-propositions', component: ArtisanProjectPropositionComponent },
-    { path: 'accept-offer', component: AcceptOfferComponent },
-    { path: 'decline-offer', component: DeclineOfferComponent },
-    { path: 'Suggest', component: SuggestCraftsmanComponent },
+    { path: 'project-description', component: ProjectDescriptionComponent , canActivate: [RoleGGuard, LoginGGuard], data: {roles: ['ROLE_USER']}},
+    { path: 'artisan/list-project-propositions', component: ArtisanProjectPropositionComponent , canActivate: [RoleGGuard, LoginGGuard], data: {roles: ['ROLE_ARTISAN']}},
+    { path: 'accept-offer', component: AcceptOfferComponent , canActivate: [RoleGGuard, LoginGGuard], data: {roles: ['ROLE_ARTISAN']} },
+    { path: 'decline-offer', component: DeclineOfferComponent , canActivate: [RoleGGuard, LoginGGuard], data: {roles: ['ROLE_ARTISAN']}},
+    { path: 'Suggest', component: SuggestCraftsmanComponent , canActivate: [RoleGGuard, LoginGGuard], data: {roles: ['ROLE_USER']} },
     { path: 'contact', component: ContactUsComponent },
-    { path: 'edit/:id', component: EditArtisanComponent },
-  {path: 'client/projects' , component: ClientProjectsComponent},
-  { path: '',
+    { path: 'edit/:id', component: EditArtisanComponent , canActivate: [RoleGGuard, LoginGGuard], data: {roles: ['ROLE_ARTISAN']} },
+    {path: 'client/projects' , component: ClientProjectsComponent , canActivate: [RoleGGuard, LoginGGuard], data: {roles: ['ROLE_USER']}},
+    { path: '',
     redirectTo: '/home',
     pathMatch: 'full'
-  }];
+    }];
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],

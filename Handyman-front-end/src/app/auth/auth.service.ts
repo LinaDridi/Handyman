@@ -39,7 +39,7 @@ export class AuthService {
   // }
 
   logOut() {
-    console.log(window.sessionStorage,"1")
-    window.sessionStorage.removeItem('AuthUsername');
-    console.log(window.sessionStorage,"2")  }
+    console.log(window.localStorage,"1")
+    window.localStorage.removeItem('AuthUsername');
+    console.log(window.localStorage,"2")  }
 }

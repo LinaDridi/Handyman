@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
 
 
 
-        console.log(sessionStorage)
+        console.log(localStorage)
         console.log(data)
       },
       error => {
