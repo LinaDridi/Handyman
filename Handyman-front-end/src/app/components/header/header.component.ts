@@ -6,6 +6,7 @@ import {DataService} from '../../services/data.service';
 import {Artisan} from '../../models/artisan';
 import {ArtisanService} from '../../services/artisan.service';
 import {Project} from '../../models/project';
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -18,7 +19,7 @@ export class HeaderComponent implements OnInit {
   isArtisan = false;
   listProject: any = [];
   constructor(private matDialog: MatDialog ,  private tokenStorage: TokenStorageService,
-              private data: DataService, private artisanService: ArtisanService) {
+              private data: DataService, private artisanService: ArtisanService, private router: Router) {
   }
 
   ngOnInit() {
@@ -47,7 +48,8 @@ export class HeaderComponent implements OnInit {
   }
   Logout() {
     this.tokenStorage.logout();
-    this.reloadPage();
+    this.isLoggedIn = false;
+    this.router.navigate(['/home']);
   }
   private reloadPage() {
     window.location.reload();

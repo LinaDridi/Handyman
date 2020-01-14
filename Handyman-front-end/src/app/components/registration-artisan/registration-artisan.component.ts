@@ -3,6 +3,7 @@ import {Artisan} from '../../models/artisan';
 import {AuthService} from '../../auth/auth.service';
 import {DataService} from '../../services/data.service';
 import {IDropdownSettings} from 'ng-multiselect-dropdown/multiselect.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-registration-artisan',
@@ -21,7 +22,7 @@ export class RegistrationArtisanComponent implements OnInit {
   dropdownSettings: IDropdownSettings = {};
   image;
 
-  constructor(private authService: AuthService, private dataService: DataService) {
+  constructor(private authService: AuthService, private dataService: DataService, private router: Router) {
   }
 
   ngOnInit() {
@@ -72,6 +73,7 @@ fileChange(event) {
         console.log(data);
         this.isSignedUp = true;
         this.isSignUpFailed = false;
+        this.router.navigate(['/home']);
       },
       error => {
         console.log(error);

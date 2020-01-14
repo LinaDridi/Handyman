@@ -74,6 +74,7 @@ export class ArtisanComponent implements OnInit {
 
   constructor(private data: DataService, private route: ActivatedRoute, private tokenStorage: TokenStorageService) {
     this.artisan = new Artisan('', '', '', '', '', '', '', '', '', '', '', '', ['']);
+    this.artisan.projects = [];
     this.route.params.subscribe((params) => {
       this.id = params.id;
       this.data.getArtisan(this.id).subscribe((res) => {
@@ -113,6 +114,8 @@ export class ArtisanComponent implements OnInit {
     this.infoRate = new Rate(this.id, this.tokenStorage.getUsername());
     this.data.rate(this.infoRate).subscribe((res) => {
       console.log(res);
+      this.isRated = true;
+      this.artisan.rate = this.artisan.rate + 1;
     },
       (error) => {
         console.log(error);

@@ -4,14 +4,14 @@
 
   <div class="container">
 
-    <div class="row m0">
+    <div class="m0">
 
       <h2>
         Projects</h2>
 
       <ol class="breadcrumb">
 
-        <li><a href="index.html">Home</a></li>
+        <li><a routerLink="/home">Home</a></li>
 
         <li class="active">
           My Projects
@@ -32,12 +32,12 @@
     <div class="blog_section_inner row m0">
 
 
-      <div *ngFor="let project of projects" class="row blog">
+      <div *ngFor="let project of projects" style="width: inherit" class="row blog">
 
         <div class="col-sm-6 project">
           <div class="featured_img row m0">
 
-            <a href="index9e38.html?p=455"><img alt="" class="img-responsive" src="../../../assets/images/4.jpg"></a>
+            <a><img alt="" class="img-responsive" src="../../../assets/images/4.jpg"></a>
 
           </div>
         </div>
@@ -79,18 +79,19 @@
         </div>
 
 
-        <div class="post-content row m0">
+        <div class="post-content row m0 d-block" style="overflow-wrap: break-word;width: inherit">
 
 
           <div>
            <p style="font-weight: bolder"> Poject Description: </p>{{project.description}}
 
           </div>
-
+          <div>
           <a (click)="openDialog(project)"
              *ngIf=" !project.accepted_by_client" class="read-more">
             View Costs <i class="fa fa-angle-double-right"></i>
           </a>
+          </div>
         </div>
 
       </div>
