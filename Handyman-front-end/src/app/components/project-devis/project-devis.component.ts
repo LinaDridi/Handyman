@@ -11,7 +11,7 @@ import {Devis} from '../../models/devis';
 export class ProjectDevisComponent implements OnInit {
   projectId: number;
   usernameClient: string;
-  devisList: Devis[];
+  devisList: Devis[] = [];
   devisSelected;
   contractId: number;
   artisanId: number;

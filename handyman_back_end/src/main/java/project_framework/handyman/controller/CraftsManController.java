@@ -68,6 +68,8 @@ public class CraftsManController {
     @Autowired
     private ProjectService projectService;
     @Autowired
+    private MessageService messageService;
+    @Autowired
     UserService userService;
     @Autowired
     public CraftsManController(ArtisanService theartisanservice, ServiceService theserviceservice, ProjectService theprojectService){
@@ -318,6 +320,11 @@ Devis devis = new Devis(cost,currency,idProject,id_artisan);
     @GetMapping(value = "/UserByUsername")
     public User findByname(@RequestParam String username) {
         return this.userService.findByUsername(username).orElseThrow(() -> new RuntimeException("Fail! -> Cause: User not find."));
+    }
+
+    @PostMapping(value = "/Message")
+    public void savemsg(@RequestBody Message message) {
+        this.messageService.save(message);
     }
 
 }
