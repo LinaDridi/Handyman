@@ -14,7 +14,7 @@
 <section class="row member_sec">
     <div class="container">
         <div class="row m0">
-            <div class="col-sm-5 member_img"><img style="width: 500px;height: 500px" src="http://localhost/img/{{artisan.img}}" alt="" />
+            <div class="col-sm-5 member_img"><img style="width: 500px;height: 500px" src="../../../assets/images/{{artisan.img}}" alt="" />
                 <div class="block-recommandation">
                     <div class="col-xs-1">
                         <i class="fa fa-heart" aria-hidden="true"></i>
@@ -49,9 +49,12 @@
                 <div class="section_header work_details">
                     <h2>Professional Work And Services</h2>
                     <h5>I do different work in different environment</h5>
-                    <p *ngFor="let service of artisan.services">{{service.name}}</p>
+                    <p style="
+    font-style: oblique;
+    font-size: x-large;
+" *ngFor="let service of artisan.services">{{service.name}}</p>
                   <div style="margin-left: -10px;margin-top: 5px" *ngIf="artisan.username==this.tokenStorage.getUsername()">
-                    <button class="btn btn-secondary" style="margin-bottom: 2px;font-size: x-small;border: hidden;border-radius: 15px;background-color: #f7be68;" (click)="toggleShow()">
+                    <button class="btn btn-secondary" style="margin-bottom: 2px;font-size: x-large;border: hidden;border-radius: 15px;background-color: #f7be68;" (click)="toggleShow()">
                       Add new Service
                     </button>
                     <br>

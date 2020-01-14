@@ -12,7 +12,7 @@ import java.nio.file.StandardCopyOption;
 @Service
 public class FileService {
 
-    private static final String FILE_DIRECTORY = "wamp64/www/img";
+    private static final String FILE_DIRECTORY = "C:\\Users\\hp\\Desktop\\gl4\\framework\\project_Handyman\\Handyman-front-end\\src\\assets\\images";
 
     public void storeFile(MultipartFile file) throws IOException {
         Path filePath = Paths.get(FILE_DIRECTORY + "/" + file.getOriginalFilename());

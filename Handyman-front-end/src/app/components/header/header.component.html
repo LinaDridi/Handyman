@@ -29,7 +29,7 @@
 
 
 
-          <h3>+ (1800) 456 7890</h3>
+          <h3>(+216) 71 703 829</h3>
 
 
 
@@ -57,7 +57,7 @@
 
 
 
-          <h3>info@promaster</h3>
+          <h3>Insat@rnu</h3>
 
 
 
@@ -81,9 +81,9 @@
         <div *ngIf="isLoggedIn" class="header-navigation">
           <ul  class="navigation-box" style="height: 30px">
             <li style="padding-top: inherit">
-              <a style="cursor: pointer" routerLink="/SearchArtisan/{{artisan.id}}">
+              <button style="cursor: pointer" routerLink="/SearchArtisan/{{artisan.id}}" [disabled]="isUser">
               <img src="../../../assets/images/login.png" alt="" class="img-fluid rounded-circle z-depth-0" style="width: 40px">
-              </a>
+              </button>
               <ul class="sub-menu" style="min-width: 175px">
                 <li>
                   <a routerLink="/artisan/list-project-propositions" class="notification">

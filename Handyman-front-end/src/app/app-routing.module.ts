@@ -34,11 +34,11 @@ const routes: Routes = [
     { path: 'artisan/list-project-propositions', component: ArtisanProjectPropositionComponent , canActivate: [RoleGGuard, LoginGGuard], data: {roles: ['ROLE_ARTISAN']}},
     { path: 'accept-offer', component: AcceptOfferComponent , canActivate: [RoleGGuard, LoginGGuard], data: {roles: ['ROLE_ARTISAN']} },
     { path: 'decline-offer', component: DeclineOfferComponent , canActivate: [RoleGGuard, LoginGGuard], data: {roles: ['ROLE_ARTISAN']}},
-    { path: 'Suggest', component: SuggestCraftsmanComponent , canActivate: [RoleGGuard, LoginGGuard], data: {roles: ['ROLE_USER']} },
+    { path: 'Suggest', component: SuggestCraftsmanComponent , canActivate: [LoginGGuard]},
     { path: 'contact', component: ContactUsComponent },
     { path: 'edit/:id', component: EditArtisanComponent , canActivate: [RoleGGuard, LoginGGuard], data: {roles: ['ROLE_ARTISAN']} },
     {path: 'client/projects' , component: ClientProjectsComponent , canActivate: [RoleGGuard, LoginGGuard], data: {roles: ['ROLE_USER']}},
-    { path: '',
+    { path: '**',
     redirectTo: '/home',
     pathMatch: 'full'
     }];
