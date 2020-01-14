@@ -81,11 +81,14 @@
         <div *ngIf="isLoggedIn" class="header-navigation">
           <ul  class="navigation-box" style="height: 30px">
             <li style="padding-top: inherit">
-              <button style="cursor: pointer" routerLink="/SearchArtisan/{{artisan.id}}" [disabled]="isUser">
+              <a style="cursor: pointer" routerLink="/SearchArtisan/{{artisan.id}}" *ngIf="isArtisan">
               <img src="../../../assets/images/login.png" alt="" class="img-fluid rounded-circle z-depth-0" style="width: 40px">
-              </button>
+              </a>
+              <a style="cursor: pointer" *ngIf="isUser">
+                <img src="../../../assets/images/login.png" alt="" class="img-fluid rounded-circle z-depth-0" style="width: 40px">
+              </a>
               <ul class="sub-menu" style="min-width: 175px">
-                <li>
+                <li *ngIf="isArtisan">
                   <a routerLink="/artisan/list-project-propositions" class="notification">
                     <span>Notifications</span>
                     <span class="badge">{{listProject.length}}</span>
