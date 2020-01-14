@@ -1,4 +1,5 @@
-<section class="row page-cover" style="background: url(../../../assets/images/page-cover.jpg) no-repeat scroll center 0;">
+<section class="row page-cover"
+         style="background: url(../../../assets/images/page-cover.jpg) no-repeat scroll center 0;">
 
 
   <div class="container">
@@ -13,7 +14,8 @@
         <li><a href="index.html">Home</a></li>
 
         <li class="active">
-          My Projects</li>
+          My Projects
+        </li>
 
       </ol>
 
@@ -30,55 +32,65 @@
     <div class="blog_section_inner row m0">
 
 
+      <div *ngFor="let project of projects" class="row blog">
 
+        <div class="col-sm-6 project">
+          <div class="featured_img row m0">
 
-      <div class="row blog" *ngFor="let project of projects">
+            <a href="index9e38.html?p=455"><img alt="" class="img-responsive" src="../../../assets/images/4.jpg"></a>
 
-
-        <div class="featured_img row m0">
-
-          <a href="index9e38.html?p=455"><img src="../../../assets/images/4.jpg" alt="" class="img-responsive"></a>
-
+          </div>
         </div>
-
 
         <div class="media post-meta">
 
 
-
           <div class="media-body media-bottom">
 
-            <h4 class="post-title"><a href="index9e38.html?p=455">{{project.title}}</a></h4>
+            <h4 class="post-title">{{project.title}}</h4>
 
             <ul class="post-infos nav">
 
-              <li><i class="fa fa-user"></i>By: <a href="indexcd64.html?author=1" title="Posts by Michale John" rel="author">Michale John</a></li>
+              <li><i class="fa fa-user"></i>By:{{project.client_username}}</li>
 
 
-              <li><i class="fa fa-tag"></i><a href="indexf984.html?tag=electricity" rel="tag">{{project.address}}</a><a href="index18a1.html?tag=repair" rel="tag">, {{project.state}}</a></li>
+              <li><i class="fa fa-tag"></i>{{project.address}} </li>
 
 
-              <li><i class="fa fa-calendar"></i><a href="index9e38.html?p=455#respond">on:{{project.start_date}}</a>
-                <i class="fa fa-calendar"></i><a href="index9e38.html?p=455#respond">deadline:{{project.deadline}}</a>
+              <li><i class="fa fa-calendar"></i>on:{{project.start_date}}
+                <i class="fa fa-calendar"></i>deadline:{{project.deadline}}
+              </li>
+              <li *ngIf="project.accepted_by_client">
+                <i class="fa fa-money"></i>cost:{{project.devis[0].cost}} {{project.devis[0].currency}}
+
+              </li>
+              <li>
+                <i class="fa fa-archive"></i>
+                State: {{project.state}}
+
               </li>
 
+
             </ul>
+
 
           </div>
 
         </div>
 
+
         <div class="post-content row m0">
 
-          <p>
-            {{project.description}}
-          </p>
 
-          <a *ngIf=" !project.accepted_by_client"
-             (click)="openDialog(project)" class="read-more">
-            View Costs   <i class="fa fa-angle-double-right"></i>
+          <div>
+           <p style="font-weight: bolder"> Poject Description: </p>{{project.description}}
+
+          </div>
+
+          <a (click)="openDialog(project)"
+             *ngIf=" !project.accepted_by_client" class="read-more">
+            View Costs <i class="fa fa-angle-double-right"></i>
           </a>
-
         </div>
 
       </div>
@@ -86,3 +98,4 @@
     </div>
   </div>
 </section>
+

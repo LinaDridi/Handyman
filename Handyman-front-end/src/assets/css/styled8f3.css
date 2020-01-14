@@ -8314,12 +8314,12 @@ footer.row .footer_bottom .right {
 
 .project_type1 .project .item .item-txt {
 
-    width: 325px;
+    width: 500px;
 
     max-width: 100%;
 
     padding: 12px 30px;
-
+height: 147px;
     background: #121416;
 
     position: relative;
@@ -11260,7 +11260,7 @@ footer.row .footer_bottom .right {
 
 .blog_content .blog_section .blog_section_inner .blog .post-content {
 
-    padding: 0 10px;
+    padding: 10px 10px;
 
     font: 14px/26px "Open Sans", sans-serif;
 

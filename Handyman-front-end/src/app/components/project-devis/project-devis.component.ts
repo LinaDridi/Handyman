@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ClientService} from '../../services/client.service';
 import {MatDialogRef} from '@angular/material/dialog';
-import {Devis} from "../../models/devis";
+import {Devis} from '../../models/devis';
 
 @Component({
   selector: 'app-project-devis',
@@ -33,12 +33,12 @@ export class ProjectDevisComponent implements OnInit {
       (data: any) => {
         console.log(' devis selected');
         console.log(data);
-        this.clientService.getContactId(this.projectId).subscribe((res: number) => {
-          this.contractId = res;
-          this.clientService.sendMail(this.artisanId, this.usernameClient, this.contractId).subscribe(( dt: any) => {
-            console.log('mail sent');
-          });
-        });
+        // // this.clientService.getContactId(this.projectId).subscribe((res: number) => {
+        // //   this.contractId = res;
+        // //   this.clientService.sendMail(this.artisanId, this.usernameClient, this.contractId).subscribe(( dt: any) => {
+        // //     console.log('mail sent');
+        // //   });
+        // });
 
 
 

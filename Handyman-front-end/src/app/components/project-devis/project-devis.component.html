@@ -2,13 +2,13 @@
   <p style="font-size: x-large">Please select a price</p>
 <div *ngFor="let devis of devisList">
   <p style="font-size: large"><input type="radio" name="devis"
-         value="{{devis.devis_id}}" [(ngModel)]="devisSelected">  {{devis.cost}} {{devis.currency}} </p> <br>
+         value="{{devis.devis_id}}" [(ngModel)]="devisSelected">  {{devis.cost}} {{devis.currency}} By: {{devis.id_artisan |artisanName}} </p> <br>
 
 </div>
   <button  class= "button" (click)="accept()" >
     Accept  <i class="fa fa-angle-double-right"></i>
   </button>
-  <button class="button" (click)="delete()"  style="margin-left: 60px;">
+  <button class="button" (click)="delete()"  style="margin-left: 37px;">
     Cancel <i class="fa fa-angle-double-right"></i>
   </button>
 </form>

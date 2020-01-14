@@ -30,7 +30,7 @@ export class ClientProjectsComponent implements OnInit {
   openDialog(project: Project) {
     const dialogRef = this.matDialog.open(ProjectDevisComponent, {
       height: '300px',
-      width: '216px',
+      width: '317px',
     });
     dialogRef.componentInstance.devisList = project.devis;
     dialogRef.componentInstance.projectId = project.project_id;
