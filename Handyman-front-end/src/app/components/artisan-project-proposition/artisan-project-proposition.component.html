@@ -3,14 +3,14 @@
 
     <div class="container">
 
-        <div class="row m0">
+        <div class="m0">
 
             <h2>
                 Blog</h2>
 
             <ol class="breadcrumb">
 
-                <li><a href="index.html">Home</a></li>
+                <li><a routerLink="/home">Home</a></li>
 
                 <li class="active">
                     Blog</li>
@@ -32,12 +32,12 @@
 
 
 
-            <div class="row blog" *ngFor="let project of listProject">
+            <div class="row blog" style="width: inherit" *ngFor="let project of listProject">
 
 
                 <div class="featured_img row m0">
 
-                    <a href="index9e38.html?p=455"><img src="../../../assets/images/4.jpg" alt="" class="img-responsive"></a>
+                    <a><img src="../../../assets/images/4.jpg" alt="" class="img-responsive"></a>
 
                 </div>
 
@@ -48,18 +48,21 @@
 
                     <div class="media-body media-bottom">
 
-                        <h4 class="post-title"><a href="index9e38.html?p=455">{{project.title}}</a></h4>
+                        <h4 class="post-title"><a>{{project.title}}</a></h4>
 
                         <ul class="post-infos nav">
 
-                            <li><i class="fa fa-user"></i>By: <a href="indexcd64.html?author=1" title="Posts by Michale John" rel="author">Michale John</a></li>
+                            <li><i class="fa fa-user"></i>By: <a rel="author">{{project.client_username}}</a></li>
 
 
-                            <li><i class="fa fa-tag"></i><a href="indexf984.html?tag=electricity" rel="tag">{{project.address}}</a><a href="index18a1.html?tag=repair" rel="tag">, {{project.state}}</a></li>
+                            <li><i class="fa fa-tag"></i>
+                              <a rel="tag">{{project.address}}</a>
+                              <a rel="tag">, Current State: {{project.state}}</a>
+                            </li>
 
 
-                            <li><i class="fa fa-calendar"></i><a href="index9e38.html?p=455#respond">on:{{project.start_date}}</a>
-                                <i class="fa fa-calendar"></i><a href="index9e38.html?p=455#respond">deadline:{{project.deadline}}</a>
+                            <li><i class="fa fa-calendar"></i><a>on:{{project.start_date}}</a>
+                                <i class="fa fa-calendar"></i><a>deadline:{{project.deadline}}</a>
                             </li>
 
                         </ul>
@@ -68,19 +71,20 @@
 
                 </div>
 
-                <div class="post-content row m0">
-
+                <div class="post-content row m0 d-block">
+                  <div>
                     <p>
                         {{project.description}}
                     </p>
-
-                    <a (click)="openDialogAccept(project.project_id)" class="read-more">
+                  </div>
+                  <div>
+                    <a (click)="openDialogAccept(project.project_id)" class="read-more" style="cursor: pointer">
                               Accept  <i class="fa fa-angle-double-right"></i>
                             </a>
-                    <a (click)="openDialogDecline(project.project_id)" class="read-more">
+                    <a (click)="openDialogDecline(project.project_id)" class="read-more" style="cursor: pointer">
                              Decline  <i class="fa fa-angle-double-right"></i>
                             </a>
-
+                  </div>
                 </div>
 
             </div>

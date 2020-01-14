@@ -76,50 +76,45 @@
                 <div class="row">
                   <div class="col-md-4 col-sm-4 col-xs-6 text-center" style="margin-bottom: 70px">
                     <label class="btn fa fa-clock-o fa-2x">
-                      <label class="icone-devis-label icone-devis-date colorPurple required">Emergency</label>
+                      <label class="icone-devis-label icone-devis-date colorPurple required big">Emergency
                       <input type="radio" name="options" class="d-none" [value]="getdate(0)" [(ngModel)]="project.start_date">
+                      </label>
                     </label>
                   </div>
                   <div class="col-md-4 col-sm-4 col-xs-6 text-center">
                     <label class="btn fa fa-calendar fa-2x">
-                      <label class="icone-devis-label icone-devis-date colorPurple required">Less than a month</label>
+                      <label class="icone-devis-label icone-devis-date colorPurple required big">Less than a month
                       <input type="radio" name="options" class="d-none" [value]="getdate(1)" [(ngModel)]="project.start_date">
+                      </label>
                     </label>
                   </div>
                   <div class="col-md-4 col-sm-4 col-xs-6 text-center">
                     <label class="btn fa fa-calendar fa-2x">
-                      <label class="icone-devis-label icone-devis-date colorPurple required">Less than 3 months</label>
+                      <label class="icone-devis-label icone-devis-date colorPurple required big">Less than 3 months
                       <input type="radio" name="options" class="d-none" [value]="getdate(3)" [(ngModel)]="project.start_date">
+                      </label>
                     </label>
                   </div>
                   <div class="col-md-4 col-sm-4 col-xs-6 text-center">
                     <label class="btn fa fa-calendar fa-2x">
-                      <label class="icone-devis-label icone-devis-date colorPurple required">Less than 6 months</label>
+                      <label class="icone-devis-label icone-devis-date colorPurple required big">Less than 6 months
                       <input type="radio" name="options" class="d-none" [value]="getdate(6)" [(ngModel)]="project.start_date">
+                      </label>
                     </label>
                   </div>
                   <div class="col-md-4 col-sm-4 col-xs-6 text-center">
                     <label class="btn fa fa-calendar fa-2x">
-                      <label class="icone-devis-label icone-devis-date colorPurple required">More than 6 months</label>
+                      <label class="icone-devis-label icone-devis-date colorPurple required big">More than 6 months
                       <input type="radio" name="options" class="d-none" [value]="getdate(7)" [(ngModel)]="project.start_date">
+                      </label>
                     </label>
                   </div>
                   <div class="col-md-4 col-sm-4 col-xs-6 text-center" style="margin-bottom: 50px;">
                     <label class="btn fa fa-calendar-times-o fa-2x">
-                      <label class="icone-devis-label icone-devis-date colorPurple required">No fixed date</label>
+                      <label class="icone-devis-label icone-devis-date colorPurple required big">No fixed date
                       <input type="radio" name="options" class="d-none" [value]="getdate(0)" [(ngModel)]="project.start_date">
+                      </label>
                     </label>
-                  </div>
-                </div>
-                <div class="row text-center">
-                  <div class="col-md-12">
-                    <a id="step1next" data-step="2" href="#" class="btn btnStep btnMain btnNext hidden">
-                      <span class="hidden-xs">Passer à l&#039;étape suivante</span><span
-                      class="hidden-sm hidden-md hidden-lg">Suivant</span>
-                      &nbsp;
-                      <span class="arrow-right arrow-right-white"><i
-                        class="fa fa-angle-right fa-1x" aria-hidden="true"></i></span>
-                    </a>
                   </div>
                 </div>
               </div>
@@ -130,67 +125,54 @@
                 <div class="row" style="margin-bottom: 50px;margin-top: 30px">
                   <div class="col-md-12">
                     <div class="project-title">
-                      <h2>Etape 2 : Description du besoin</h2>
+                      <h2>Step 2 : Description du besoin</h2>
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-3 col-sm-4 col-xs-6 text-center" style="margin-bottom: 70px">
                     <label class="btn fa fa-paint-brush fa-2x">
-                      <label class="icone-devis-label icone-devis-date colorPurple required">Wall and floor painting</label>
+                      <label class="icone-devis-label icone-devis-date colorPurple required big">Wall and floor painting
                       <input type="radio" name="options" class="d-none" value="painting" [(ngModel)]="project.service">
+                      </label>
                     </label>
                   </div>
                   <div class="col-md-3 col-sm-4 col-xs-6 text-center">
                     <label class="btn fa fa-pencil fa-2x">
-                      <label class="icone-devis-label icone-devis-date colorPurple required">Interior design</label>
+                      <label class="icone-devis-label icone-devis-date colorPurple required big">Interior design
                       <input type="radio" name="options" class="d-none" value="interior design" [(ngModel)]="project.service">
+                      </label>
                     </label>
                   </div>
                   <div class="col-md-3 col-sm-4 col-xs-6 text-center">
                     <label class="btn fa fa-wrench fa-2x">
-                      <label class="icone-devis-label icone-devis-date colorPurple required">Heating plumbing</label>
+                      <label class="icone-devis-label icone-devis-date colorPurple required big">Heating plumbing
                       <input type="radio" name="options" class="d-none" value="plumber" [(ngModel)]="project.service">
+                      </label>
                     </label>
                   </div>
                   <div class="col-md-3 col-sm-4 col-xs-6 text-center">
                     <label class="btn fa fa-bolt fa-2x">
-                      <label class="icone-devis-label icone-devis-date colorPurple required">Home automation electricity</label>
+                      <label class="icone-devis-label icone-devis-date colorPurple required big">Home automation electricity
                       <input type="radio" name="options" class="d-none" value="electricity" [(ngModel)]="project.service">
+                      </label>
                     </label>
                   </div>
                   <div class="col-md-3 col-sm-4 col-xs-6 text-center">
                     <label class="btn fa fa-tree fa-2x">
-                      <label class="icone-devis-label icone-devis-date colorPurple required">Outdoor garden</label>
+                      <label class="icone-devis-label icone-devis-date colorPurple required big">Outdoor garden
                       <input type="radio" name="options" class="d-none" value="gardening" [(ngModel)]="project.service">
+                      </label>
                     </label>
                   </div>
                   <div class="col-md-3 col-sm-4 col-xs-6 text-center">
                     <label class="btn fa fa-building fa-2x">
-                      <label class="icone-devis-label icone-devis-date colorPurple required">Construction works</label>
+                      <label class="icone-devis-label icone-devis-date colorPurple required big">Construction works
                       <input type="radio" name="options" class="d-none" value="construction" [(ngModel)]="project.service">
+                      </label>
                     </label>
                   </div>
 
-                </div>
-                <div class="row text-center">
-                  <div class="col-md-12">
-                    <a id="step2prev" data-step="1" href="#" class="btn btnStep btnOrange hidden">
-                                            <span class="arrow-right arrow-right-white"><i
-                                              class="fa fa-angle-left fa-1x"
-                                              aria-hidden="true"></i></span>
-                      &nbsp;
-                      <span class="hidden-xs">Revenir à l&#039;étape précédente</span><span
-                      class="hidden-sm hidden-md hidden-lg">Retour</span>
-                    </a>
-                    <a id="step2next" data-step="3" href="#" class="btn btnStep btnMain btnNext hidden">
-                      <span class="hidden-xs">Passer à l&#039;étape suivante</span><span
-                      class="hidden-sm hidden-md hidden-lg">Suivant</span>
-                      &nbsp;
-                      <span class="arrow-right arrow-right-white"><i
-                        class="fa fa-angle-right fa-1x" aria-hidden="true"></i></span>
-                    </a>
-                  </div>
                 </div>
               </div>
               <!-- /etape2 -->
@@ -240,13 +222,6 @@
                 </div>
                 <div class="row text-center">
                   <div class="col-md-12">
-                    <a id="step3prev" data-step="2" href="#" class="btn btnOrange btnStep hidden">
-                                            <span class="arrow-right arrow-right-white"><i
-                                              class="fa fa-angle-left fa-1x" aria-hidden="true"></i></span>
-                      &nbsp;
-                      <span class="hidden-xs">Revenir à l&#039;étape précédente</span><span
-                      class="hidden-sm hidden-md hidden-lg">Retour</span>
-                    </a>
                     <button class="btn btn-dark" (click)="onSubmit()">Send</button>
                   </div>
                 </div>

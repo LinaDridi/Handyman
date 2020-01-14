@@ -4,6 +4,7 @@ import { LoginComponent } from '../login/login.component';
 import {TokenStorageService} from '../../auth/token-storage.service';
 import {DataService} from '../../services/data.service';
 import {Artisan} from '../../models/artisan';
+import {ArtisanService} from '../../services/artisan.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -14,23 +15,30 @@ export class HeaderComponent implements OnInit {
   artisan: any;
   isUser = false;
   isArtisan = false;
-  constructor(private matDialog: MatDialog ,  private tokenStorage: TokenStorageService, private data: DataService) { }
+  listProject;
+  constructor(private matDialog: MatDialog ,  private tokenStorage: TokenStorageService, private data: DataService, private artisanService: ArtisanService) { }
 
   ngOnInit() {
     this.artisan = new Artisan('', '', '', '', '', '', '', '', '', '', '', '', ['']);
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
+
+      this.data.getUserByUserName(this.tokenStorage.getUsername()).subscribe((res) => {
+        this.artisan = res;
+        console.log(res);
+        this.artisanService.getProposedProjects(this.artisan.id).subscribe(list => {
+          console.log(list);
+          this.listProject = list;
+          console.log(this.listProject);
+        });
+      });
+      this.isUser = this.tokenStorage.isUser();
+      this.isArtisan = this.tokenStorage.isArtisan();
     }
-    this.data.getUserByUserName(this.tokenStorage.getUsername()).subscribe((res) => {
-      this.artisan = res;
-      console.log(res);
-    });
-    this.isUser = this.tokenStorage.isUser();
-    this.isArtisan = this.tokenStorage.isArtisan();
   }
   openDialog() {
     let dialogRef = this.matDialog.open(LoginComponent, {
-      height: '516px',
+      height: '530px',
       width: '420px',
   });
   }

@@ -13,50 +13,33 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./artisan-project-proposition.component.scss']
 })
 export class ArtisanProjectPropositionComponent implements OnInit {
-  artisan
-  artisan1
-  listProject
+  artisan;
+  listProject;
   id_project;
-  artisan_username;
-  id = 2;
-  constructor(private data: DataService, private matDialog: MatDialog, private tokenStorage: TokenStorageService, private artisanService: ArtisanService) {
-    this.artisan_username = this.tokenStorage.getUsername();
-    console.log(this.artisan_username)
-    this.artisanService.getArtisanByUsername(this.tokenStorage.getUsername()).subscribe({
-      next: (artisan) => {
-        this.artisan1 = artisan;
-      },
-      complete: () => {
-        this.artisanService.getProposedProjects(this.artisan1.id).subscribe(list => { this.listProject = list; });
-      }
-    });
-
-
+  constructor(private data: DataService, private matDialog: MatDialog, private tokenStorage: TokenStorageService,
+              private artisanService: ArtisanService) {
+    this.artisan = new Artisan('', '', '', '', '', '', '', '', '', '', '', '', ['']);
   }
 
   ngOnInit() {
-    // console.log(this.artisan1)
-    this.data.currentMessage2.subscribe(message => this.id_project = message)
-    /* if (this.tokenStorage.getToken()) {
- 
-       this.artisan.username = this.tokenStorage.getUsername();
-       this.artisan.roles = this.tokenStorage.getAuthorities()
-       console.log(this.artisan)
-     }*/
-
-    /* this.artisanService.getProposedProjects(this.artisan1.id).subscribe(list => {
-       console.log(list);
-       this.listProject = list;
-       console.log(this.listProject);
-     });*/
-
-
+    this.data.currentMessage2.subscribe(message => this.id_project = message);
+    if (this.tokenStorage.getToken()) {
+      this.data.getUserByUserName(this.tokenStorage.getUsername()).subscribe((res) => {
+        this.artisan = res;
+        console.log(res);
+        this.artisanService.getProposedProjects(this.artisan.id).subscribe(list => {
+          console.log(list);
+          this.listProject = list;
+          console.log(this.listProject);
+        });
+      });
+    }
   }
   newMessage(id_project) {
-    this.data.changeMessage2(id_project)
+    this.data.changeMessage2(id_project);
   }
   openDialogAccept(id_project) {
-    console.log(id_project)
+    console.log(id_project);
     this.newMessage(id_project);
     let dialogRef = this.matDialog.open(AcceptOfferComponent, {
       height: '511px',
@@ -67,7 +50,7 @@ export class ArtisanProjectPropositionComponent implements OnInit {
   }
 
   openDialogDecline(id) {
-    console.log(id)
+    console.log(id);
     let dialogRef = this.matDialog.open(DeclineOfferComponent, {
       height: '511px',
       width: '416px',
