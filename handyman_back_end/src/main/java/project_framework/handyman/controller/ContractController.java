@@ -28,29 +28,30 @@ import java.io.*;
 public class ContractController {
     private ContractService contractService;
     private MailService mailService;
+
     @Autowired
-    public ContractController(ContractService thecontractService,MailService mailService) {
-       contractService=thecontractService;
-        this.mailService=mailService;
+    public ContractController(ContractService thecontractService, MailService mailService) {
+        contractService = thecontractService;
+        this.mailService = mailService;
     }
 
     @GetMapping("/contract")
-    public Contract getContract(@RequestParam int id){
+    public Contract getContract(@RequestParam int id) {
         return contractService.findById(id);
     }
+
     @GetMapping("/project/contract")
-    public int getIdContract(@RequestParam int id){
+    public int getIdContract(@RequestParam int id) {
         return contractService.findByProject_id(id);
     }
 
     //********************************************
-    @GetMapping("/genpdf")
-    HttpEntity<byte[]> createPdf(@RequestParam int id) throws IOException {
-        Contract contract = getContract(id) ;
-    String fileName=contract.getUrl_pdf_contract();
-    System.out.println("*********************************************************************");
-    System.out.println(fileName);
-       // System.out.println(contract.getProject_id().getAddress());
+    byte[] createPdf(@RequestParam int id) throws IOException {
+        Contract contract = getContract(id);
+        String fileName = contract.getUrl_pdf_contract();
+        System.out.println("*********************************************************************");
+        System.out.println(fileName);
+        // System.out.println(contract.getProject_id().getAddress());
 
         /* first, get and initialize an engine */
         VelocityEngine ve = new VelocityEngine();
@@ -72,7 +73,7 @@ public class ContractController {
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
-        baos = generatePdf(writer.toString(),fileName);
+        baos = generatePdf(writer.toString(), fileName);
 
         HttpHeaders header = new HttpHeaders();
         header.setContentType(MediaType.APPLICATION_PDF);
@@ -80,11 +81,11 @@ public class ContractController {
                 "attachment; filename=" + fileName.replace(" ", "_"));
         header.setContentLength(baos.toByteArray().length);
 
-        return new HttpEntity<byte[]>(baos.toByteArray(), header);
+        return baos.toByteArray();
 
     }
 
-    public ByteArrayOutputStream generatePdf(String html,String fileName) {
+    public ByteArrayOutputStream generatePdf(String html, String fileName) {
 
         String pdfFilePath = "C:\\Users\\hp\\Pictures";
         PdfWriter pdfWriter = null;
@@ -115,16 +116,14 @@ public class ContractController {
             // close the document
             document.close();
             System.out.println("PDF generated successfully");
-            FileOutputStream fos = new FileOutputStream("C:\\Users\\hp\\Desktop\\gl4\\framework\\project_Handyman\\handyman_back_end\\src\\main\\resources\\"+fileName);
+            FileOutputStream fos = new FileOutputStream("C:\\Users\\User\\Desktop\\Handyman backup\\Handyman\\handyman_back_end\\src\\main\\resources\\" + fileName);
             fos.write(baos.toByteArray());
             fos.close();
             return baos;
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
-
 
 
     }
