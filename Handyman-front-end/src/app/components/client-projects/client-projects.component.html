@@ -88,7 +88,7 @@
           </div>
           <div>
           <a (click)="openDialog(project)" style="cursor: pointer"
-             *ngIf=" !project.accepted_by_client" class="read-more">
+             *ngIf=" project.state !== 'started'" class="read-more">
             View Costs <i class="fa fa-angle-double-right"></i>
           </a>
           </div>

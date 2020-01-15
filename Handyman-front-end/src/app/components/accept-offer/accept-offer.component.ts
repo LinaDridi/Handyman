@@ -33,6 +33,8 @@ export class AcceptOfferComponent implements OnInit {
     onSubmit(f) {
         console.log(f.value);
         this.artisanService.acceptOffer(this.id_project, this.artisan.id, f.value.cost, f.value.currency).subscribe();
+        this.dialogRef.close();
+
     }
 }
 

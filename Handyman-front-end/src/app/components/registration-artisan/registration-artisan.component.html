@@ -49,7 +49,7 @@
       </div>
       <div class="form-group">
         <label for="birth">Date of Birth</label>
-        <input type="text" class="form-control" id="birth" name="birth" [(ngModel)]="form.birth" #birth="ngModel" required />
+        <input type="date" class="form-control" id="birth" name="birth" [(ngModel)]="form.birth" #birth="ngModel" required />
         <div *ngIf="f.submitted && birth.invalid">
           <div *ngIf="birth.errors.required" class="req">*Date of Birth is required</div>
         </div>
@@ -87,9 +87,11 @@
 
       <div class="form-group">
         <label for="phone">Phone Number</label>
-        <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="form.phone" #phone="ngModel" required />
+        <input type="tel"  pattern="[0-9]{2}[0-9]{3}[0-9]{3}" class="form-control" id="phone" name="phone" [(ngModel)]="form.phone" #phone="ngModel" required />
         <div *ngIf="f.submitted && phone.invalid">
           <div *ngIf="phone.errors.required" class="req">*phone number is required</div>
+          <div *ngIf="email.errors.phone" class="req">*Phone must be a valid email address</div>
+
         </div>
       </div>
       <div class="form-group">

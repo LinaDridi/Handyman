@@ -14,6 +14,10 @@ import java.util.Set;
 
 @Repository
 public interface ArtisanRepository extends JpaRepository<Artisan, Integer> {
+    @Override
+    @Query("Select a from Artisan a order by a.rate desc ")
+    List<Artisan> findAll();
+
     Optional<Artisan> findByUsername(String username);
 
     Boolean existsByUsername(String username);
@@ -31,7 +35,7 @@ public interface ArtisanRepository extends JpaRepository<Artisan, Integer> {
             + " FROM Artisan a inner join a.services s"
             + " WHERE (:name is NULL OR a.name = :name)"
             + " AND (:serv is NULL  OR s.name = :serv)"
-            + "AND (:address is NULL OR a.address = :address)")
+            + "AND (:address is NULL OR a.address = :address) order by a.rate desc ")
     List<Artisan> filter(@Param("name") String keyword, @Param("serv") String serv, @Param("address") String address);
 
     @Query("Select c.firstname from Artisan c where c.firstname like %:keyword%")

@@ -73,7 +73,7 @@ fileChange(event) {
         console.log(data);
         this.isSignedUp = true;
         this.isSignUpFailed = false;
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home'])
       },
       error => {
         console.log(error);

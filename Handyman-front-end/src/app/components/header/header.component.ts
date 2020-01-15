@@ -7,6 +7,7 @@ import {Artisan} from '../../models/artisan';
 import {ArtisanService} from '../../services/artisan.service';
 import {Project} from '../../models/project';
 import {Router} from '@angular/router';
+import {filter} from "rxjs/operators";
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
