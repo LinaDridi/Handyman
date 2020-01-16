@@ -12,6 +12,7 @@ import { TokenStorageService } from 'src/app/auth/token-storage.service';
     styleUrls: ['./accept-offer.component.scss']
 })
 export class AcceptOfferComponent implements OnInit {
+  test = false;
     id_project;
     form: any = {};
     isLoggedIn = false;

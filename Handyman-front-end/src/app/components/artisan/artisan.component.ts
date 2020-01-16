@@ -72,7 +72,7 @@ export class ArtisanComponent implements OnInit {
     }
   ];
 
-  constructor(private data: DataService, private route: ActivatedRoute, private tokenStorage: TokenStorageService) {
+  constructor(private data: DataService, private route: ActivatedRoute, public tokenStorage: TokenStorageService) {
     this.artisan = new Artisan('', '', '', '', '', '', '', '', '', '', '', '', ['']);
     this.artisan.projects = [];
     this.route.params.subscribe((params) => {
