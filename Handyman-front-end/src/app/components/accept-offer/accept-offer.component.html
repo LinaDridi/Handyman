@@ -6,7 +6,7 @@
 -->
 
 <mat-card>
-    <div *ngIf="test; else postoffer">
+    <div *ngIf="igno; else postoffer">
         an error occured
     </div>
 
@@ -15,13 +15,11 @@
         <h2 style="text-align: center" mat-card-title></h2>
 
         <mat-card-content>
-            <form style="text-align: center" name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm"
-                novalidate>
+            <form style="text-align: center" name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm" novalidate>
                 <mat-form-field>
                     <div class="form-group">
                         <label for="cost">Cost</label>
-                        <input matInput type="number" class="form-control" id="cost" name="cost" [(ngModel)]="form.cost"
-                            #cost="ngModel" required />
+                        <input matInput type="number" class="form-control" id="cost" name="cost" [(ngModel)]="form.cost" #cost="ngModel" required />
                         <div *ngIf="f.submitted && cost.invalid">
                             <div *ngIf="cost.errors.required">cost is required</div>
                         </div>

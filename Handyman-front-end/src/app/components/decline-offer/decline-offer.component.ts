@@ -6,7 +6,7 @@ import { MatDialog, MatDialogRef } from '@angular/material';
   styleUrls: ['./decline-offer.component.scss']
 })
 export class DeclineOfferComponent implements OnInit {
-test = false
+  igno = false;
   constructor(private dialogRef: MatDialogRef<DeclineOfferComponent>, ) { }
 
   ngOnInit() {

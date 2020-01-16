@@ -5,7 +5,7 @@ import { Artisan } from '../../models/artisan';
 import { TokenStorageService } from '../../auth/token-storage.service';
 import { Rate } from '../../models/rate';
 import { NewService } from '../../models/newservice';
-import {OwlOptions} from 'ngx-owl-carousel-o';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-artisan',
@@ -137,7 +137,7 @@ export class ArtisanComponent implements OnInit {
     const info = new NewService(this.id, data);
     this.data.addService(info).subscribe(res => {
       console.log(res);
-      this.artisan.services.push({id: 0 , name: this.service});
+      this.artisan.services.push({ id: 0, name: this.service });
     });
   }
 
