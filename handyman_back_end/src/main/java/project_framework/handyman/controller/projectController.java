@@ -109,7 +109,7 @@ public class projectController {
         new_devis.add(devis);
         System.out.println(devis.getId_artisan());
         project.setArtisan_id(devis.getId_artisan());
-        //project.setAccepted_by_client(true);
+        project.setAccepted_by_client(true);
         project.setState("started");
         project.setDevis(new_devis);
         projectService.save(project);

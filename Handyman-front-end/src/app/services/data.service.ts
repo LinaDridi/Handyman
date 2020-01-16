@@ -36,7 +36,7 @@ export class DataService {
   getArtisan(id) {
     return this.http.get('http://localhost:8080/api/artisan?id=' + id);
   }
-  getArtisanName(id): Observable<Artisan> {
+  getArtisanName(id) {
     return this.http.get<Artisan>('http://localhost:8080/api/artisan?id=' + id);
   }
   getUserByUserName(username) {
