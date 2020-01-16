@@ -11,21 +11,17 @@ export class ArtisanNamePipe implements PipeTransform {
   constructor(private data: DataService) {
   }
 
-  transform(value: number, args?: any): any {
-    this.data.getArtisan(value).subscribe((res: Artisan) => {
-        this.artisan = res;
-        console.log(this.artisan);
-        const name = this.artisan.firstname;
-        console.log(name);
-      }
-      , (error) => {
-        console.log('error');
-      }
-      , () => {
-        console.log(name,'ghjk')
-        return (name);
-            }
-    );
+async  transform(value: number, args?: any) {
+    const data = await this.data.getArtisanName(value).toPromise();
+
+    // this.data.getArtisanName(value).subscribe((res: Artisan) => {
+    //     this.artisan = res;
+    //     console.log(this.artisan);
+    //     const name = this.artisan.firstname;
+    //     console.log(name);
+    //   }
+    // );
+    return (data.firstname + ' ' + data.lastname);
 
   }
 

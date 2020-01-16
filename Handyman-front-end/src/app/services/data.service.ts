@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
+import {Artisan} from "../models/artisan";
 @Injectable({
   providedIn: 'root'
 })
@@ -34,6 +35,9 @@ export class DataService {
 
   getArtisan(id) {
     return this.http.get('http://localhost:8080/api/artisan?id=' + id);
+  }
+  getArtisanName(id): Observable<Artisan> {
+    return this.http.get<Artisan>('http://localhost:8080/api/artisan?id=' + id);
   }
   getUserByUserName(username) {
     return this.http.get('http://localhost:8080/api/UserByUsername?username=' + username);
