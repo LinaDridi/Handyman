@@ -5,6 +5,7 @@ import {ClientService} from '../../services/client.service';
 import {AcceptOfferComponent} from "../accept-offer/accept-offer.component";
 import {MatDialog} from "@angular/material/dialog";
 import {ProjectDevisComponent} from "../project-devis/project-devis.component";
+import {PaymentComponent} from "../../payment/payment.component";
 
 @Component({
   selector: 'app-client-projects',
@@ -36,6 +37,14 @@ export class ClientProjectsComponent implements OnInit {
     dialogRef.componentInstance.projectId = project.project_id;
     dialogRef.componentInstance.artisanId = project.artisan_id;
     dialogRef.componentInstance.usernameClient = this.username;
+
+  }
+  openDialog1(id: number) {
+    const dialogRef = this.matDialog.open(PaymentComponent, {
+      height: '428px',
+      width: '328px',
+    });
+    dialogRef.componentInstance.projectId = id;
 
   }
 

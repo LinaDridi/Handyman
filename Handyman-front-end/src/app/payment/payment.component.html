@@ -1,8 +1,52 @@
+<mat-card-content>
+
 <form>
-    <input type="text" placeholder="project id" name="projectId">
-    <input type="text" placeholder="Credit Card #" name="cardNumber">
-    <input type="text" placeholder="Expiration Month" name="expMonth">
-    <input type="text" placeholder="Expiration Year" name="expYear">
-    <input type="text" placeholder="CVC" name="cvc">
-    <button (click)="chargeCreditCard()">Submit</button>
-</form>
+<!--  <mat-form-field>-->
+<!--    <div class="form-group">-->
+<!--      <label for="projectId">projectId</label>-->
+<!--      <input matInput   type="text" class="form-control" id="projectId" name="projectId" [(ngModel)]="projectId" #projectId="ngModel"-->
+<!--             required />-->
+<!--    </div>-->
+<!--  </mat-form-field>-->
+  <mat-form-field>
+    <div class="form-group">
+<!--      <label for="cardNumber">cardNumber</label>-->
+      <input matInput   type="text" class="form-control" id="cardNumber" name="cardNumber" placeholder="cardNumber"
+             required />
+    </div>
+  </mat-form-field>
+  <mat-form-field>
+    <div class="form-group">
+<!--      <label for="expMonth">expMonth</label>-->
+      <input matInput   type="text" class="form-control" id="expMonth" name="expMonth" placeholder="expMonth"
+             required />
+    </div>
+  </mat-form-field>
+  <mat-form-field>
+    <div class="form-group">
+<!--      <label for="expYear">expYear</label>-->
+      <input matInput   type="text" class="form-control" id="expYear" name="expYear" placeholder="expYear"
+             required />
+    </div>
+  </mat-form-field>
+
+  <mat-form-field>
+    <div class="form-group">
+<!--      <label for="cvc">cvc</label>-->
+      <input matInput   type="text" class="form-control" id="cvc" name="cvc" placeholder="cvc"
+             required />
+    </div>
+  </mat-form-field>
+  <div class="form-group">
+    <button class="button"  (click)="chargeCreditCard()" mat-raised-button  >Submit</button>
+  </div>
+</form >
+<!--  <form>-->
+<!--    <input type="text" placeholder="project id" name="projectId">-->
+<!--    <input type="text" placeholder="Credit Card #" name="cardNumber">-->
+<!--    <input type="text" placeholder="Expiration Month" name="expMonth">-->
+<!--    <input type="text" placeholder="Expiration Year" name="expYear">-->
+<!--    <input type="text" placeholder="CVC" name="cvc">-->
+<!--    <button (click)="chargeCreditCard()">Submit</button>-->
+<!--</form>-->
+</mat-card-content>

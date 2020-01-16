@@ -84,7 +84,7 @@ import { PaymentComponent } from './payment/payment.component';
   ],
   providers: [httpInterceptorProviders, { provide: MatDialogRef, useValue: {} },
     { provide: MAT_DIALOG_DATA, useValue: [] }, LoginGGuard, LogoutGGuard],
-  entryComponents: [LoginComponent, ProjectDevisComponent],
+  entryComponents: [LoginComponent, ProjectDevisComponent,PaymentComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
