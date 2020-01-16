@@ -40,7 +40,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactUsComponent },
   { path: 'edit/:id', component: EditArtisanComponent, canActivate: [RoleGGuard, LoginGGuard], data: { roles: ['ROLE_ARTISAN'] } },
   { path: 'client/projects', component: ClientProjectsComponent, canActivate: [RoleGGuard, LoginGGuard], data: { roles: ['ROLE_USER'] } },
-  { path: 'payment', component: PaymentComponent },
+  { path: 'payment', component: PaymentComponent, canActivate: [RoleGGuard, LoginGGuard], data: { roles: ['ROLE_USER'] } },
   {
     path: '**',
     redirectTo: '/home',

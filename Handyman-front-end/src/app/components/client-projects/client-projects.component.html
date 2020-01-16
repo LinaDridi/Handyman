@@ -32,15 +32,15 @@
     <div class="blog_section_inner row m0">
 
 
-      <div *ngFor="let project of projects" style="width: inherit" class="row blog">
+      <div *ngFor="let project of projects" class="row blog" style="width: inherit">
 
-<!--        <div class="col-sm-6 project">-->
-          <div class="featured_img row m0">
+        <!--        <div class="col-sm-6 project">-->
+        <div class="featured_img row m0">
 
-            <a><img alt="" class="img-responsive" src="../../../assets/images/4.jpg"></a>
+          <a><img alt="" class="img-responsive" src="../../../assets/images/4.jpg"></a>
 
-          </div>
-<!--        </div>-->
+        </div>
+        <!--        </div>-->
 
         <div class="media post-meta">
 
@@ -83,14 +83,28 @@
 
 
           <div>
-           <p style="font-weight: bolder"> Poject Description: </p>{{project.description}}
+            <p style="font-weight: bolder"> Poject Description: </p>{{project.description}}
 
           </div>
           <div>
-          <a (click)="openDialog(project)" style="cursor: pointer"
-             *ngIf=" project.state !== 'started'" class="read-more">
+            <span>
+          <a (click)="openDialog(project)" *ngIf=" project.state !== 'started'"
+             class="read-more" style="cursor: pointer">
             View Costs <i class="fa fa-angle-double-right"></i>
           </a>
+              </span>
+            <span>
+            <a (click)="openDialog1(project.project_id)" *ngIf=" project.state === 'started'"
+               class="read-more" style="cursor: pointer"
+               style="    background-color: #777;
+    border-radius: 32px;
+    border-color: #777;">
+              Pay Online <i class="fa fa-angle-double-right"></i>
+            </a>
+            </span>
+          </div>
+          <div>
+
           </div>
         </div>
 
