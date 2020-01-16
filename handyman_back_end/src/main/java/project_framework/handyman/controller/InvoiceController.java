@@ -18,10 +18,7 @@ import project_framework.handyman.Services.Interfaces.InvoiceService;
 import project_framework.handyman.models.Contract;
 import project_framework.handyman.models.Invoice;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.StringReader;
-import java.io.StringWriter;
+import java.io.*;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -38,13 +35,12 @@ public class InvoiceController {
         return invoiceService.findById(id);
     }
 
-    //********************************************
-    @GetMapping("/invoice/genpdf/{fileName}")
-    HttpEntity<byte[]> createPdf(
-            @PathVariable("fileName") String fileName,@RequestParam int id) throws IOException {
-       Invoice invoice = getInvoice(id) ;
-
-
+    byte[] createPdf(@RequestParam int id) throws IOException {
+        Invoice invoice = getInvoice(id);
+        String fileName = invoice.getUrl_pdf_invoice();
+        System.out.println("*********************************************************************");
+        System.out.println(fileName);
+        // System.out.println(contract.getProject_id().getAddress());
 
         /* first, get and initialize an engine */
         VelocityEngine ve = new VelocityEngine();
@@ -66,7 +62,7 @@ public class InvoiceController {
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
-        baos = generatePdf(writer.toString());
+        baos = generatePdf(writer.toString(), fileName);
 
         HttpHeaders header = new HttpHeaders();
         header.setContentType(MediaType.APPLICATION_PDF);
@@ -74,13 +70,13 @@ public class InvoiceController {
                 "attachment; filename=" + fileName.replace(" ", "_"));
         header.setContentLength(baos.toByteArray().length);
 
-        return new HttpEntity<byte[]>(baos.toByteArray(), header);
+        return baos.toByteArray();
 
     }
 
-    public ByteArrayOutputStream generatePdf(String html) {
-
-        String pdfFilePath = "";
+    public ByteArrayOutputStream generatePdf(String html, String fileName) {
+System.out.println(fileName);
+        String pdfFilePath = "C:\\Users\\hp\\Pictures";
         PdfWriter pdfWriter = null;
 
         // create a new document
@@ -109,12 +105,15 @@ public class InvoiceController {
             // close the document
             document.close();
             System.out.println("PDF generated successfully");
-
+            FileOutputStream fos = new FileOutputStream("C:\\Users\\User\\Desktop\\Handyman backup\\Handyman\\handyman_back_end\\src\\main\\resources\\" + fileName);
+            fos.write(baos.toByteArray());
+            fos.close();
             return baos;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
+
 
     }
     //**************************************************

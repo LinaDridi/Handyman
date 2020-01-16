@@ -25,6 +25,7 @@ public class PaymentController {
         String token = request.getHeader("token");
         System.out.println(token);
         Double amount = Double.parseDouble(request.getHeader("amount"));
-        return this.stripeClient.chargeCreditCard(token, amount);
+        String currency = request.getHeader("currency");
+        return this.stripeClient.chargeCreditCard(token, amount,currency);
     }
 }

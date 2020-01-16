@@ -5,6 +5,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.*;
 import project_framework.handyman.Services.Interfaces.ArtisanService;
 import project_framework.handyman.Services.Interfaces.ContractService;
+import project_framework.handyman.Services.Interfaces.InvoiceService;
 import project_framework.handyman.Services.Interfaces.ProjectService;
 import project_framework.handyman.Services.MailService;
 import project_framework.handyman.models.*;
@@ -21,11 +22,14 @@ import java.util.*;
 public class projectController {
     private ProjectService projectService;
     private ContractService contractService;
+    private InvoiceService invoiceService;
     @Autowired
     private ArtisanService artisanService;
 
     @Autowired
     private ContractController contractController;
+    @Autowired
+    private InvoiceController invoiceController;
     @Autowired
     private MailService mailService;
 
@@ -33,10 +37,12 @@ public class projectController {
     private CraftsManController craftsManController;
 
     @Autowired
-    public projectController(ProjectService projectService, ContractService contractService, ContractController contractController) {
+    public projectController(ProjectService projectService, ContractService contractService, ContractController contractController,InvoiceService invoiceService,InvoiceController invoiceController) {
         this.projectService = projectService;
         this.contractService = contractService;
+        this.invoiceService= invoiceService;
         this.contractController = contractController;
+        this.invoiceController= invoiceController;
 
     }
 
@@ -127,6 +133,33 @@ public class projectController {
         //generate pdf contract
         byte[] ba = contractController.createPdf(contract.getId_contract());
         mailService.sendMailFileBytes(user, artisan, ba,contract);
+        return new HttpEntity(ba);
+        //in angular front end we need to call after accept offer, the api that sends emails to both craftsman and client(see mailController sendwithattachement )
+    }
+
+    @GetMapping("/client/project/pay")
+    public HttpEntity<byte[]> payprocess(@RequestParam int project_id) throws IOException, MessagingException {
+        Project project = projectService.findById(project_id);
+        Devis devis = project.getDevis().iterator().next();
+        System.out.println(devis);
+        project.setState("payed");
+        projectService.save(project);
+        Artisan artisan = artisanService.findById(project.getArtisan_id());
+        User user = craftsManController.findByname(project.getClient_username());
+        //create invoice
+        Calendar cal = Calendar.getInstance();
+        Date date = cal.getTime();
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY");
+        String formattedDate = dateFormat.format(date);
+        Invoice invoice = new Invoice();
+        invoice.setCreation_date(formattedDate);
+        invoice.setProject_id(project);
+        invoiceService.save(invoice);
+        invoice.setUrl_pdf_invoice("invoice#" + invoice.getId_invoice() + ".pdf");
+        invoiceService.save(invoice);
+        //generate pdf contract
+        byte[] ba = invoiceController.createPdf(invoice.getId_invoice());
+        mailService.sendMailInvoiceBytes(user, artisan, ba,invoice);
         return new HttpEntity(ba);
         //in angular front end we need to call after accept offer, the api that sends emails to both craftsman and client(see mailController sendwithattachement )
     }

@@ -17,10 +17,10 @@ public class StripeClient {
         Stripe.apiKey = "sk_test_fXtuy7ZkS3p2Lz0hiSoj06qu00O2JbA1DD";
     }
 
-    public Charge chargeCreditCard(String token, double amount) throws Exception {
+    public Charge chargeCreditCard(String token, double amount, String currency) throws Exception {
         Map<String, Object> chargeParams = new HashMap<String, Object>();
-        chargeParams.put("amount", (int)(amount * 100));
-        chargeParams.put("currency", "USD");
+        chargeParams.put("amount", (int)(amount * 100));//cent
+        chargeParams.put("currency", currency);
         chargeParams.put("source", token);
         Charge charge = Charge.create(chargeParams);
         return charge;
@@ -33,11 +33,11 @@ public class StripeClient {
         return Customer.create(customerParams);
     }
 
-    public Charge chargeCustomerCard(String customerId, int amount) throws Exception {
+    public Charge chargeCustomerCard(String customerId, int amount,String currency) throws Exception {
         String sourceCard =     Customer.retrieve(customerId).getDefaultSource();
         Map<String, Object> chargeParams = new HashMap<String, Object>();
         chargeParams.put("amount", amount);
-        chargeParams.put("currency", "USD");
+        chargeParams.put("currency", currency);
         chargeParams.put("customer", customerId);
         chargeParams.put("source", sourceCard);
         Charge charge = Charge.create(chargeParams);

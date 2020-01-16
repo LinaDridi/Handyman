@@ -19,6 +19,10 @@ export class ProjectService {
 
   }
 
+  getProject(id): Observable<any> {
+    return this.httpClient.get('http://localhost:8080/api/project?id=' + id);
+  }
+
 
 
 

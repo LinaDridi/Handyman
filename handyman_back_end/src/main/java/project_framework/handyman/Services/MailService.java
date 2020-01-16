@@ -7,10 +7,7 @@ import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
-import project_framework.handyman.models.Artisan;
-import project_framework.handyman.models.Client;
-import project_framework.handyman.models.Contract;
-import project_framework.handyman.models.User;
+import project_framework.handyman.models.*;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -58,6 +55,20 @@ public class MailService {
         helper.setSubject("Project Started:check your Project Contract");
         helper.setText("The project has been accepted by both parties.Please find attached the generated contract");
         helper.addAttachment(contract.getUrl_pdf_contract(), new ByteArrayResource(content));
+
+        javaMailSender.send(mimeMessage);
+
+
+    }
+    public void sendMailInvoiceBytes(User client, Artisan artisan, byte[] content, Invoice invoice) throws MailException, MessagingException {
+        MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+
+        MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
+
+        helper.setTo(new String[]{artisan.getEmail(), client.getEmail()});
+        helper.setSubject("Project payed:check your Project invoice");
+        helper.setText("The project waspayed.Please find attached the generated invoice");
+        helper.addAttachment(invoice.getUrl_pdf_invoice(), new ByteArrayResource(content));
 
         javaMailSender.send(mimeMessage);
 
